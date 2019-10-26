@@ -32,12 +32,12 @@ const config = {
   context: path.resolve(__dirname, 'src'),
   entry:
   {
-    appjs: ['babel-polyfill', './js/index.js'],
-
+    appjs: ['./js/index.js'],
+//appjs: ['babel-polyfill', './js/index.js'],
   //  main: './js/main.ts',
   //  another: './js/another-module.ts',
    maincss: './assets/scss/main.scss',
-   appcss: './assets/scss/app.scss',
+  // appcss: './assets/scss/app.scss',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
