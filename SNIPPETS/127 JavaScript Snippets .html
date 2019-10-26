@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html class=" " lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><link rel="apple-touch-icon" sizes="180x180" href="https://morioh.com/www/favicon/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://morioh.com/www/favicon/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://morioh.com/www/favicon/favicon-16x16.png"><link rel="manifest" href="https://morioh.com/www/favicon/site.webmanifest"><link rel="mask-icon" href="https://morioh.com/www/favicon/safari-pinned-tab.svg" color="#5bbad5"><link rel="shortcut icon" href="https://morioh.com/www/favicon/favicon.ico"><meta name="msapplication-TileColor" content="#da532c"><meta name="msapplication-config" content="/www/favicon/browserconfig.xml"><meta name="theme-color" content="#ffffff"><meta name="apple-itunes-app" content="app-id=1460555784"><meta name="google-play-app" content="app-id=com.morioh.socialnetwork"><meta name="wot-verification" content="6f6337acaeff88111996"><meta name="norton-safeweb-site-verification" content="8qa8gp5vf2nzr11w4v97oxylg-qnktkv2k-kawjbr8lzap65vmi15kbfnkrx837eehxfbvfawtk2ag63ksbkwn1cpwuxvnlb3l72wz4t9tjsb--cxl6bzapv4080l5bq"><meta name="msvalidate.01" content="37B10F248B6822D16980D9EEE38184E1"><meta name="twitter:title" content="Social Network for Developers"><meta name="twitter:description" content="Social Network for Developers to discuss topics broader than bugs and issues, write and share knowledge and connect with the best developers"><meta name="twitter:image" content="https://i.imgur.com/CbCXhBe.png"><meta property="og:title" content="Social Network for Developers"><meta property="og:image" content="https://i.imgur.com/CbCXhBe.png"><meta property="og:description" content="Social Network for Developers to discuss topics broader than bugs and issues, write and share knowledge and connect with the best developers"><title>127 Useful JavaScript Snippets You can understand in 30 seconds - Morioh</title><meta itemprop="image" content="https://i.imgur.com/CbCXhBe.png"><meta itemprop="description" content="Social Network for Developers to discuss topics broader than bugs and issues, write and share knowledge and connect with the best developers"><link href="127%20JavaScript%20Snippets%20_fichiers/bootstrap.css" rel="stylesheet"><link href="127%20JavaScript%20Snippets%20_fichiers/bootstrap-extend.css" rel="stylesheet"><link href="127%20JavaScript%20Snippets%20_fichiers/site.css" rel="stylesheet"><link href="127%20JavaScript%20Snippets%20_fichiers/green.css" rel="stylesheet"><link href="127%20JavaScript%20Snippets%20_fichiers/all.css" rel="stylesheet"><link href="127%20JavaScript%20Snippets%20_fichiers/web-icons.css" rel="stylesheet"><link href="127%20JavaScript%20Snippets%20_fichiers/app.css" rel="stylesheet"><style type="text/css">
+.emoji-mart-emoji[data-v-7f853594] {
+  position: relative;
+  display: inline-block;
+  font-size: 0;
+}
+
+</style><style type="text/css">.infinite-loading-container[data-v-358985eb]{clear:both;text-align:center}.infinite-loading-container[data-v-358985eb] [class^=loading-]{display:inline-block;margin:5px 0;width:28px;height:28px;font-size:28px;line-height:28px;border-radius:50%}.btn-try-infinite[data-v-358985eb]{margin-top:5px;padding:5px 10px;color:#999;font-size:14px;line-height:1;background:transparent;border:1px solid #ccc;border-radius:3px;outline:none;cursor:pointer}.btn-try-infinite[data-v-358985eb]:not(:active):hover{opacity:.8}</style><style type="text/css">.loading-wave-dots[data-v-46b20d22]{position:relative}.loading-wave-dots[data-v-46b20d22] .wave-item{position:absolute;top:50%;left:50%;display:inline-block;margin-top:-4px;width:8px;height:8px;border-radius:50%;-webkit-animation:loading-wave-dots-data-v-46b20d22 linear 2.8s infinite;animation:loading-wave-dots-data-v-46b20d22 linear 2.8s infinite}.loading-wave-dots[data-v-46b20d22] .wave-item:first-child{margin-left:-36px}.loading-wave-dots[data-v-46b20d22] .wave-item:nth-child(2){margin-left:-20px;-webkit-animation-delay:.14s;animation-delay:.14s}.loading-wave-dots[data-v-46b20d22] .wave-item:nth-child(3){margin-left:-4px;-webkit-animation-delay:.28s;animation-delay:.28s}.loading-wave-dots[data-v-46b20d22] .wave-item:nth-child(4){margin-left:12px;-webkit-animation-delay:.42s;animation-delay:.42s}.loading-wave-dots[data-v-46b20d22] .wave-item:last-child{margin-left:28px;-webkit-animation-delay:.56s;animation-delay:.56s}@-webkit-keyframes loading-wave-dots-data-v-46b20d22{0%{-webkit-transform:translateY(0);transform:translateY(0);background:#bbb}10%{-webkit-transform:translateY(-6px);transform:translateY(-6px);background:#999}20%{-webkit-transform:translateY(0);transform:translateY(0);background:#bbb}to{-webkit-transform:translateY(0);transform:translateY(0);background:#bbb}}@keyframes loading-wave-dots-data-v-46b20d22{0%{-webkit-transform:translateY(0);transform:translateY(0);background:#bbb}10%{-webkit-transform:translateY(-6px);transform:translateY(-6px);background:#999}20%{-webkit-transform:translateY(0);transform:translateY(0);background:#bbb}to{-webkit-transform:translateY(0);transform:translateY(0);background:#bbb}}.loading-circles[data-v-46b20d22] .circle-item{width:5px;height:5px;-webkit-animation:loading-circles-data-v-46b20d22 linear .75s infinite;animation:loading-circles-data-v-46b20d22 linear .75s infinite}.loading-circles[data-v-46b20d22] .circle-item:first-child{margin-top:-14.5px;margin-left:-2.5px}.loading-circles[data-v-46b20d22] .circle-item:nth-child(2){margin-top:-11.26px;margin-left:6.26px}.loading-circles[data-v-46b20d22] .circle-item:nth-child(3){margin-top:-2.5px;margin-left:9.5px}.loading-circles[data-v-46b20d22] .circle-item:nth-child(4){margin-top:6.26px;margin-left:6.26px}.loading-circles[data-v-46b20d22] .circle-item:nth-child(5){margin-top:9.5px;margin-left:-2.5px}.loading-circles[data-v-46b20d22] .circle-item:nth-child(6){margin-top:6.26px;margin-left:-11.26px}.loading-circles[data-v-46b20d22] .circle-item:nth-child(7){margin-top:-2.5px;margin-left:-14.5px}.loading-circles[data-v-46b20d22] .circle-item:last-child{margin-top:-11.26px;margin-left:-11.26px}@-webkit-keyframes loading-circles-data-v-46b20d22{0%{background:#dfdfdf}90%{background:#505050}to{background:#dfdfdf}}@keyframes loading-circles-data-v-46b20d22{0%{background:#dfdfdf}90%{background:#505050}to{background:#dfdfdf}}.loading-bubbles[data-v-46b20d22] .bubble-item{background:#666;-webkit-animation:loading-bubbles-data-v-46b20d22 linear .75s infinite;animation:loading-bubbles-data-v-46b20d22 linear .75s infinite}.loading-bubbles[data-v-46b20d22] .bubble-item:first-child{margin-top:-12.5px;margin-left:-.5px}.loading-bubbles[data-v-46b20d22] .bubble-item:nth-child(2){margin-top:-9.26px;margin-left:8.26px}.loading-bubbles[data-v-46b20d22] .bubble-item:nth-child(3){margin-top:-.5px;margin-left:11.5px}.loading-bubbles[data-v-46b20d22] .bubble-item:nth-child(4){margin-top:8.26px;margin-left:8.26px}.loading-bubbles[data-v-46b20d22] .bubble-item:nth-child(5){margin-top:11.5px;margin-left:-.5px}.loading-bubbles[data-v-46b20d22] .bubble-item:nth-child(6){margin-top:8.26px;margin-left:-9.26px}.loading-bubbles[data-v-46b20d22] .bubble-item:nth-child(7){margin-top:-.5px;margin-left:-12.5px}.loading-bubbles[data-v-46b20d22] .bubble-item:last-child{margin-top:-9.26px;margin-left:-9.26px}@-webkit-keyframes loading-bubbles-data-v-46b20d22{0%{width:1px;height:1px;box-shadow:0 0 0 3px #666}90%{width:1px;height:1px;box-shadow:0 0 0 0 #666}to{width:1px;height:1px;box-shadow:0 0 0 3px #666}}@keyframes loading-bubbles-data-v-46b20d22{0%{width:1px;height:1px;box-shadow:0 0 0 3px #666}90%{width:1px;height:1px;box-shadow:0 0 0 0 #666}to{width:1px;height:1px;box-shadow:0 0 0 3px #666}}.loading-default[data-v-46b20d22]{position:relative;border:1px solid #999;-webkit-animation:loading-rotating-data-v-46b20d22 ease 1.5s infinite;animation:loading-rotating-data-v-46b20d22 ease 1.5s infinite}.loading-default[data-v-46b20d22]:before{content:"";position:absolute;display:block;top:0;left:50%;margin-top:-3px;margin-left:-3px;width:6px;height:6px;background-color:#999;border-radius:50%}.loading-spiral[data-v-46b20d22]{border:2px solid #777;border-right-color:transparent;-webkit-animation:loading-rotating-data-v-46b20d22 linear .85s infinite;animation:loading-rotating-data-v-46b20d22 linear .85s infinite}@-webkit-keyframes loading-rotating-data-v-46b20d22{0%{-webkit-transform:rotate(0);transform:rotate(0)}to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}}@keyframes loading-rotating-data-v-46b20d22{0%{-webkit-transform:rotate(0);transform:rotate(0)}to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}}.loading-bubbles[data-v-46b20d22],.loading-circles[data-v-46b20d22]{position:relative}.loading-bubbles[data-v-46b20d22] .bubble-item,.loading-circles[data-v-46b20d22] .circle-item{position:absolute;top:50%;left:50%;display:inline-block;border-radius:50%}.loading-bubbles[data-v-46b20d22] .bubble-item:nth-child(2),.loading-circles[data-v-46b20d22] .circle-item:nth-child(2){-webkit-animation-delay:93ms;animation-delay:93ms}.loading-bubbles[data-v-46b20d22] .bubble-item:nth-child(3),.loading-circles[data-v-46b20d22] .circle-item:nth-child(3){-webkit-animation-delay:.186s;animation-delay:.186s}.loading-bubbles[data-v-46b20d22] .bubble-item:nth-child(4),.loading-circles[data-v-46b20d22] .circle-item:nth-child(4){-webkit-animation-delay:.279s;animation-delay:.279s}.loading-bubbles[data-v-46b20d22] .bubble-item:nth-child(5),.loading-circles[data-v-46b20d22] .circle-item:nth-child(5){-webkit-animation-delay:.372s;animation-delay:.372s}.loading-bubbles[data-v-46b20d22] .bubble-item:nth-child(6),.loading-circles[data-v-46b20d22] .circle-item:nth-child(6){-webkit-animation-delay:.465s;animation-delay:.465s}.loading-bubbles[data-v-46b20d22] .bubble-item:nth-child(7),.loading-circles[data-v-46b20d22] .circle-item:nth-child(7){-webkit-animation-delay:.558s;animation-delay:.558s}.loading-bubbles[data-v-46b20d22] .bubble-item:last-child,.loading-circles[data-v-46b20d22] .circle-item:last-child{-webkit-animation-delay:.651s;animation-delay:.651s}</style><meta name="twitter:card" content="summary" data-vue-meta="true"><meta name="description" content="JavaScript is one of the most popular languages you can learn. In this post, you'll see a list of 127 beneficial JavaScript snippets that you can learn and use immediately." data-vue-meta="true"><meta property="og:title" content="127 Useful JavaScript Snippets You can understand in 30 seconds - Morioh" data-vue-meta="true"><meta property="og:url" content="https://morioh.com/p/a76bc7d72226" data-vue-meta="true"><meta property="og:image" content="https://i.morioh.com/beb731fa69.png" data-vue-meta="true"><meta property="og:description" content="JavaScript is one of the most popular languages you can learn. In this post, you'll see a list of 127 beneficial JavaScript snippets that you can learn and use immediately." data-vue-meta="true"><meta name="twitter:site" content="https://morioh.com/p/a76bc7d72226" data-vue-meta="true"><meta name="twitter:title" content="127 Useful JavaScript Snippets You can understand in 30 seconds - Morioh" data-vue-meta="true"><meta name="twitter:description" content="JavaScript is one of the most popular languages you can learn. In this post, you'll see a list of 127 beneficial JavaScript snippets that you can learn and use immediately." data-vue-meta="true"><meta name="twitter:image:src" content="https://i.morioh.com/beb731fa69.png" data-vue-meta="true"><meta itemprop="name" content="127 Useful JavaScript Snippets You can understand in 30 seconds - Morioh" data-vue-meta="true"><meta itemprop="description" content="JavaScript is one of the most popular languages you can learn. In this post, you'll see a list of 127 beneficial JavaScript snippets that you can learn and use immediately." data-vue-meta="true"><meta itemprop="image" content="https://i.morioh.com/beb731fa69.png" data-vue-meta="true"><link rel="canonical" href="https://morioh.com/p/a76bc7d72226" data-vue-meta="true"></head><body><div class="main"><div id="main" class="main-nav navbar-fixed-top"><!----> <nav role="navigation" class="navbar navbar-inverse nav-bg-geek"><div class="container-fluid container"><div class="navbar-header"><button type="button" data-target="#example-navbar-toolbar-1" data-toggle="collapse" class="navbar-toggler collapsed"><span class="far fa-bars"></span></button> <a href="https://morioh.com/submit/question" class="navbar-toggler collapsed mr-0 has-tooltip" data-toggle="collapse"><span class="far fa-pen"></span></a> <button type="button" data-target="#example-navbar-search-1" data-toggle="collapse" class="navbar-toggler collapsed mr-0"><span class="far fa-search"></span></button> <a href="https://morioh.com/" class="navbar-brand router-link-active"><span class="sr-only">(current)</span></a></div> <div id="example-navbar-search-1" class="collapse navbar-search navbar-left"><form role="search" class="navbar-form form-inline quick-search input-search"><i aria-hidden="true" class="fal fa-search input-search-icon"></i> <input autocomplete="off" placeholder="Quick search" type="text" class="form-control"> <div role="menu" class="dropdown-menu dropdown-menu-center dropdown-menu-media ml-15 mt-5"><div class="list-group list-group-full vb vb-invisible" style="position: relative; overflow: hidden;"><div data-role="container" class="vb-content" style="display: block; overflow: hidden scroll; height: 100%; width: 100%; box-sizing: content-box; padding-right: 20px;"><!----> <!----> <!----> <!----> <!----></div><div class="vb-dragger" style="position: absolute;"><div class="vb-dragger-styler"></div></div></div> <div class="card-block text-muted text-center"><div><i class="far fa-users fa-2x"></i></div> <span class="text">No results</span></div> <div class="dropdown-menu-footer"><a id="quick-search-button" href="javascript:void(0)" role="menuitem" class="dropdown-item">
+                Search all :
+                <b></b></a></div></div></form></div> <div id="example-navbar-toolbar-1" class="collapse navbar-collapse navbar-collapse-toolbar"><ul class="nav navbar-toolbar navbar-right"><li class="nav-item"><a href="https://morioh.com/submit/question" class="btn btn-outline btn-info navbar-btn"><i class="far fa-pen"></i> Write a post</a></li> <li class="nav-item"><a href="https://morioh.com/register" class="nav-link">
+                            Sign up
+                            <span class="sr-only">(current)</span></a></li> <li class="nav-item"><a href="https://morioh.com/login" class="btn btn-outline btn-success navbar-btn">Login</a></li></ul></div></div></nav></div> <div class="page"><div class="page view" keep-alive=""><div class="container"><div data-by-row="true" class="row"><div class="col-lg-2 hidden-md-down"><div class="hidden-sm-down sticky-top" style="top: 86px;"><div><div class="card card-transparent"><div><div class="h4">HOT TOPICS</div> <hr></div> <div class="list-group bg-inherit mb-0"><a href="https://morioh.com/topic/javascript" class="list-group-item d-flex align-items-center justify-content-left p-0 pl-10"><img src="127%20JavaScript%20Snippets%20_fichiers/6FiH2SJ.png" alt="JavaScript" class="w-20"> <div class="pl-10 name h4">JavaScript</div></a><a href="https://morioh.com/topic/node-js" class="list-group-item d-flex align-items-center justify-content-left p-0 pl-10"><img src="127%20JavaScript%20Snippets%20_fichiers/2SdNEOX.png" alt="Node.js" class="w-20"> <div class="pl-10 name h4">Node.js</div></a><a href="https://morioh.com/topic/python" class="list-group-item d-flex align-items-center justify-content-left p-0 pl-10"><img src="127%20JavaScript%20Snippets%20_fichiers/wuvkSuI.png" alt="Python" class="w-20"> <div class="pl-10 name h4">Python</div></a><a href="https://morioh.com/topic/web-development" class="list-group-item d-flex align-items-center justify-content-left p-0 pl-10"><img src="127%20JavaScript%20Snippets%20_fichiers/ekyeSSX.png" alt="Web development" class="w-20"> <div class="pl-10 name h4">Web development</div></a><a href="https://morioh.com/topic/reactjs" class="list-group-item d-flex align-items-center justify-content-left p-0 pl-10"><img src="127%20JavaScript%20Snippets%20_fichiers/RrgUSyw.png" alt="Reactjs" class="w-20"> <div class="pl-10 name h4">Reactjs</div></a><a href="https://morioh.com/topic/css" class="list-group-item d-flex align-items-center justify-content-left p-0 pl-10"><img src="127%20JavaScript%20Snippets%20_fichiers/2IYLHkg.png" alt="CSS" class="w-20"> <div class="pl-10 name h4">CSS</div></a><a href="https://morioh.com/topic/html" class="list-group-item d-flex align-items-center justify-content-left p-0 pl-10"><img src="127%20JavaScript%20Snippets%20_fichiers/X0xohFr.jpg" alt="HTML" class="w-20"> <div class="pl-10 name h4">HTML</div></a><a href="https://morioh.com/topic/angular" class="list-group-item d-flex align-items-center justify-content-left p-0 pl-10"><img src="127%20JavaScript%20Snippets%20_fichiers/LYhCeXe.jpg" alt="Angular" class="w-20"> <div class="pl-10 name h4">Angular</div></a><a href="https://morioh.com/topic/mongodb" class="list-group-item d-flex align-items-center justify-content-left p-0 pl-10"><img src="127%20JavaScript%20Snippets%20_fichiers/Dns5wR8.png" alt="MongoDB" class="w-20"> <div class="pl-10 name h4">MongoDB</div></a><a href="https://morioh.com/topic/machine-learning" class="list-group-item d-flex align-items-center justify-content-left p-0 pl-10"><img src="127%20JavaScript%20Snippets%20_fichiers/LGtDY5S.png" alt="Machine Learning" class="w-20"> <div class="pl-10 name h4">Machine Learning</div></a><a href="https://morioh.com/topic/vue-js" class="list-group-item d-flex align-items-center justify-content-left p-0 pl-10"><img src="127%20JavaScript%20Snippets%20_fichiers/XHVmK6T.png" alt="Vue.js" class="w-20"> <div class="pl-10 name h4">Vue.js</div></a><a href="https://morioh.com/topic/database" class="list-group-item d-flex align-items-center justify-content-left p-0 pl-10"><img src="127%20JavaScript%20Snippets%20_fichiers/buyVEDW.jpg" alt="Database" class="w-20"> <div class="pl-10 name h4">Database</div></a><a href="https://morioh.com/topic/html5" class="list-group-item d-flex align-items-center justify-content-left p-0 pl-10"><img src="127%20JavaScript%20Snippets%20_fichiers/aSDsTma.png" alt="HTML5" class="w-20"> <div class="pl-10 name h4">HTML5</div></a><a href="https://morioh.com/topic/sql" class="list-group-item d-flex align-items-center justify-content-left p-0 pl-10"><img src="127%20JavaScript%20Snippets%20_fichiers/dINW3BG.png" alt="SQL" class="w-20"> <div class="pl-10 name h4">SQL</div></a><a href="https://morioh.com/topic/git" class="list-group-item d-flex align-items-center justify-content-left p-0 pl-10"><img src="127%20JavaScript%20Snippets%20_fichiers/o0aYu63.png" alt="Git" class="w-20"> <div class="pl-10 name h4">Git</div></a><a href="https://morioh.com/topic/php" class="list-group-item d-flex align-items-center justify-content-left p-0 pl-10"><img src="127%20JavaScript%20Snippets%20_fichiers/xq5KwTA1.png" alt="PHP" class="w-20"> <div class="pl-10 name h4">PHP</div></a><a href="https://morioh.com/topic/api" class="list-group-item d-flex align-items-center justify-content-left p-0 pl-10"><img src="127%20JavaScript%20Snippets%20_fichiers/c424ATw.png" alt="API" class="w-20"> <div class="pl-10 name h4">API</div></a><a href="https://morioh.com/topic/java" class="list-group-item d-flex align-items-center justify-content-left p-0 pl-10"><img src="127%20JavaScript%20Snippets%20_fichiers/GNTc5JC.png" alt="Java" class="w-20"> <div class="pl-10 name h4">Java</div></a></div></div></div> <div></div> <!----></div></div> <div class="col-lg-7 col-md-12 col-sm-12 mb-20"><div post="[object Object]"><div class="post-item-box"><div class="row"><div class="col-12"><h1 class="post-item-title"><a href="https://morioh.com/p/a76bc7d72226" class="card-title mr-20 router-link-exact-active router-link-active">127 Useful JavaScript Snippets You can understand in 30 seconds</a></h1> <div class="d-flex flex-row justify-content-between align-items-center flex-wrap"><div class="d-flex flex-row flex-wrap align-items-center"><div class="pr-10"><a href="https://morioh.com/@rileylambert/posts" class="avatar"><img src="127%20JavaScript%20Snippets%20_fichiers/82bfcc1021.png" alt="Riley Lambert" class="img-fluid"></a></div> <div class="d-flex flex-row align-items-center"><div><a href="https://morioh.com/@rileylambert/posts" class="author-name">Riley Lambert
+                                </a> <!----> <div class="d-flex flex-row align-items-center"><a href="https://morioh.com/@rileylambert/posts" class="text-muted mr-5">
+                                        @rileylambert ·</a> <span class="text-muted">6 days ago</span></div></div></div></div></div> <div class="post-tags"><a href="https://morioh.com/topic/javascript" class="tag-name inline-block mr-5 mt-10">#javascript</a><a href="https://morioh.com/topic/web-development" class="tag-name inline-block mr-5 mt-10">#web-development</a>·
+                </div></div> <div class="col-lg-3 hidden-md-down"><!----> <!----></div></div> <div class="post-item-body"><div class="mb-20"><img src="127%20JavaScript%20Snippets%20_fichiers/beb731fa69.png" alt="127 Useful JavaScript Snippets You can understand in 30 seconds" class="w-full"></div> <div class="post-card"><!----> <!----> <p class="pt-10"><strong>JavaScript
+ is one of the most popular languages you can learn. In this post, 
+you'll see a list of 127 beneficial JavaScript snippets that you can 
+learn and use immediately.</strong></p> <div class="dynamic-content"><p>JavaScript
+ is one of the most popular languages you can learn. As many people say:
+ “If you’re going to learn just one programming language, go for 
+JavaScript.”</p>
+<p>If this sounds compelling to you, here’s a list of 127 beneficial snippets that you can learn and use immediately.</p>
+<p>Follow</p>
+<h2>1. all</h2>
+<p>This snippet returns <code>true</code> if the predicate function returns <code>true</code> for all elements in a collection and <code>false</code> otherwise. You can omit the second argument <code>fn</code>if you want to use <code>Boolean</code>as a default value.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> all = (arr, fn = Boolean) =&gt; arr.every(fn);
+
+all([<span class="hljs-number">4</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], x =&gt; x &gt; <span class="hljs-number">1</span>); <span class="hljs-comment">// true</span>
+all([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]); <span class="hljs-comment">// true</span>
+</pre>
+<h2>2. allEqual</h2>
+<p>This snippet checks whether all elements of the array are equal.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> allEqual = arr =&gt; arr.every(val =&gt; val === arr[<span class="hljs-number">0</span>]);
+
+allEqual([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>]); <span class="hljs-comment">// false</span>
+allEqual([<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>]); <span class="hljs-comment">// true</span>
+</pre>
+<h2>3. approximatelyEqual</h2>
+<p>This snippet checks whether two numbers are approximately equal to each other, with a small difference.</p>
+<pre class="ql-syntax" spellcheck="false">const approximatelyEqual =<span class="hljs-function"> (<span class="hljs-params">v1</span>, <span class="hljs-params">v2</span>, <span class="hljs-params">epsilon</span> = 0.001) =&gt;</span> <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Math</span>.</span></span>abs(v1 - v2) &lt; epsilon;
+
+approximately<span class="hljs-constructor">Equal(Math.PI <span class="hljs-operator">/</span> 2.0, 1.5708)</span>; <span class="hljs-comment">// true</span>
+</pre>
+<h2>4. arrayToCSV</h2>
+<p>This snippet converts the elements to strings with comma-separated values.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> arrayToCSV = <span class="hljs-function">(<span class="hljs-params">arr, delimiter = <span class="hljs-string">','</span></span>) =&gt;</span>
+  arr.map(<span class="hljs-function"><span class="hljs-params">v</span> =&gt;</span> v.map(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> <span class="hljs-string">`"<span class="hljs-subst">${x}</span>"`</span>).join(delimiter)).join(<span class="hljs-string">'\n'</span>);
+  
+arrayToCSV([[<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>], [<span class="hljs-string">'c'</span>, <span class="hljs-string">'d'</span>]]); <span class="hljs-comment">// '"a","b"\n"c","d"'</span>
+arrayToCSV([[<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>], [<span class="hljs-string">'c'</span>, <span class="hljs-string">'d'</span>]], <span class="hljs-string">';'</span>); <span class="hljs-comment">// '"a";"b"\n"c";"d"'```</span>
+</pre>
+<h2>5. arrayToHtmlList</h2>
+<p>This snippet converts the elements of an array into <code>&lt;li&gt;</code> tags and appends them to the list of the given ID.</p>
+<pre class="ql-syntax" spellcheck="false">const arrayToHtmlList = (<span class="hljs-name">arr</span>, listID) =&gt;
+  (<span class="hljs-name">el</span> =&gt; (
+    (<span class="hljs-name">el</span> = document.querySelector('#' + listID)),
+    (<span class="hljs-name">el</span>.innerHTML += arr.map(<span class="hljs-name">item</span> =&gt; `&lt;li&gt;${item}&lt;/li&gt;`).join(''))
+  ))()<span class="hljs-comment">;</span>
+  
+arrayToHtmlList(['item <span class="hljs-number">1</span>', 'item <span class="hljs-number">2</span>'], 'myListID')<span class="hljs-comment">;</span>
+</pre>
+<h2>6. attempt</h2>
+<p>This snippet executes a function, returning either the result or the caught error object.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> attempt = <span class="hljs-function">(<span class="hljs-params">fn, ...args</span>) =&gt;</span> {
+  <span class="hljs-keyword">try</span> {
+    <span class="hljs-keyword">return</span> fn(...args);
+  } <span class="hljs-keyword">catch</span> (e) {
+    <span class="hljs-keyword">return</span> e <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Error</span> ? e : <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(e);
+  }
+};
+<span class="hljs-keyword">var</span> elements = attempt(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">selector</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-built_in">document</span>.querySelectorAll(selector);
+}, <span class="hljs-string">'&gt;_&gt;'</span>);
+<span class="hljs-keyword">if</span> (elements <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Error</span>) elements = []; <span class="hljs-comment">// elements = []</span>
+</pre>
+<h2>7. average</h2>
+<p>This snippet returns the average of two or more numerical values.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> average = (...nums) =&gt; nums.reduce((acc, val) =&gt; acc + val, <span class="hljs-number">0</span>) / nums.length;
+average(...[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]); <span class="hljs-comment">// 2</span>
+average(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>); <span class="hljs-comment">// 2</span>
+</pre>
+<h2>8. averageBy</h2>
+<p>This snippet returns the average of an array after initially doing 
+the mapping of each element to a value using a given function.</p>
+<pre class="ql-syntax" spellcheck="false">const averageBy =<span class="hljs-function"> (<span class="hljs-params">arr</span>, <span class="hljs-params">fn</span>) =&gt;</span>
+  arr.map(typeof fn<span class="hljs-operator"> === </span>'<span class="hljs-keyword">function</span>' ? fn :<span class="hljs-function"> <span class="hljs-params">val</span> =&gt;</span> <span class="hljs-keyword">val</span><span class="hljs-literal">[<span class="hljs-identifier">fn</span>]</span>).reduce((acc, <span class="hljs-keyword">val</span>) =&gt; acc + <span class="hljs-keyword">val</span>, <span class="hljs-number">0</span>)<span class="hljs-operator"> /
+  </span>arr.length;
+  
+average<span class="hljs-constructor">By([{ <span class="hljs-params">n</span>: 4 }, { <span class="hljs-params">n</span>: 2 }, { <span class="hljs-params">n</span>: 8 }, { <span class="hljs-params">n</span>: 6 }], <span class="hljs-params">o</span> =&gt; <span class="hljs-params">o</span>.<span class="hljs-params">n</span>)</span>; <span class="hljs-comment">// 5</span>
+average<span class="hljs-constructor">By([{ <span class="hljs-params">n</span>: 4 }, { <span class="hljs-params">n</span>: 2 }, { <span class="hljs-params">n</span>: 8 }, { <span class="hljs-params">n</span>: 6 }], '<span class="hljs-params">n</span>')</span>; <span class="hljs-comment">// 5</span>
+</pre>
+<h2>9. bifurcate</h2>
+<p>This snippet splits values into two groups and then puts a truthy element of <code>filter</code>in the first group, and in the second group otherwise.</p>
+<p>You can use <code>Array.prototype.reduce()</code>and <code>Array.prototype.push()</code>to add elements to groups based on <code>filter</code>.</p>
+<pre class="ql-syntax" spellcheck="false">const bifurcate = <span class="hljs-function"><span class="hljs-params">(arr, filter)</span> =&gt;</span>
+  arr.reduce(<span class="hljs-function"><span class="hljs-params">(acc, val, i)</span> =&gt;</span> (acc[filter[i] ? <span class="hljs-number">0</span> : <span class="hljs-number">1</span>].push(val), acc), [[], []]);
+bifurcate([<span class="hljs-string">'beep'</span>, <span class="hljs-string">'boop'</span>, <span class="hljs-string">'foo'</span>, <span class="hljs-string">'bar'</span>], [<span class="hljs-literal">true</span>, <span class="hljs-literal">true</span>, <span class="hljs-literal">false</span>, <span class="hljs-literal">true</span>]); 
+<span class="hljs-regexp">//</span> [ [<span class="hljs-string">'beep'</span>, <span class="hljs-string">'boop'</span>, <span class="hljs-string">'bar'</span>], [<span class="hljs-string">'foo'</span>] ]
+</pre>
+<h2>10. bifurcateBy</h2>
+<p>This snippet splits values into two groups, based on a predicate 
+function. If the predicate function returns a truthy value, the element 
+will be placed in the first group. Otherwise, it will be placed in the 
+second group.</p>
+<p>You can use <code>Array.prototype.reduce()</code>and <code>Array.prototype.push()</code>to add elements to groups, based on the value returned by <code>fn</code>for each element.</p>
+<pre class="ql-syntax" spellcheck="false">const bifurcateBy = (arr, fn) =&gt;
+  arr.reduce((acc, val, i) =&gt; (acc[fn(val, i) ? <span class="hljs-number">0</span> : <span class="hljs-number">1</span>].push(val), acc), [[], []]);
+  
+bifurcateBy([<span class="hljs-string">'beep'</span>, <span class="hljs-string">'boop'</span>, <span class="hljs-string">'foo'</span>, <span class="hljs-string">'bar'</span>], x =&gt; x[<span class="hljs-number">0</span>] === <span class="hljs-string">'b'</span>); 
+// [ [<span class="hljs-string">'beep'</span>, <span class="hljs-string">'boop'</span>, <span class="hljs-string">'bar'</span>], [<span class="hljs-string">'foo'</span>] ]
+</pre>
+<h2>11. bottomVisible</h2>
+<p>This snippet checks whether the bottom of a page is visible.</p>
+<pre class="ql-syntax" spellcheck="false">const bottomVisible = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span>
+  <span class="hljs-built_in">document</span>.documentElement.clientHeight + <span class="hljs-built_in">window</span>.scrollY &gt;=
+  (<span class="hljs-built_in">document</span>.documentElement.scrollHeight || <span class="hljs-built_in">document</span>.documentElement.clientHeight);
+
+bottomVisible(); <span class="hljs-regexp">//</span> <span class="hljs-literal">true</span>
+</pre>
+<h2>12. byteSize</h2>
+<p>This snippet returns the length of a string in bytes.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> byteSize = <span class="hljs-built_in">str</span> =&gt; <span class="hljs-keyword">new</span> Blob([<span class="hljs-built_in">str</span>]).<span class="hljs-built_in">size</span>;
+
+byteSize(<span class="hljs-string">'😀'</span>); <span class="hljs-comment">// 4</span>
+byteSize(<span class="hljs-string">'Hello World'</span>); <span class="hljs-comment">// 11</span>
+</pre>
+<h2>13. capitalize</h2>
+<p>This snippet capitalizes the first letter of a string.</p>
+<pre class="ql-syntax" spellcheck="false">const capitalize = <span class="hljs-function"><span class="hljs-params">([first, ...rest])</span> =&gt;</span>
+  first.toUpperCase() + rest.join(<span class="hljs-string">''</span>);
+  
+capitalize(<span class="hljs-string">'fooBar'</span>); <span class="hljs-regexp">//</span> <span class="hljs-string">'FooBar'</span>
+capitalize(<span class="hljs-string">'fooBar'</span>, <span class="hljs-literal">true</span>); <span class="hljs-regexp">//</span> <span class="hljs-string">'Foobar'</span>
+</pre>
+<h2>14. capitalizeEveryWord</h2>
+<p>This snippet capitalizes the first letter of every word in a given string.</p>
+<pre class="ql-syntax" spellcheck="false">const capitalizeEveryWord =<span class="hljs-function"> <span class="hljs-params">str</span> =&gt;</span> str.replace(/\b<span class="hljs-literal">[<span class="hljs-identifier">a</span>-<span class="hljs-identifier">z</span>]</span>/g,<span class="hljs-function"> <span class="hljs-params">char</span> =&gt;</span> <span class="hljs-built_in">char</span>.<span class="hljs-keyword">to</span><span class="hljs-constructor">UpperCase()</span>);
+
+capitalize<span class="hljs-constructor">EveryWord('<span class="hljs-params">hello</span> <span class="hljs-params">world</span>!')</span>; <span class="hljs-comment">// 'Hello World!'</span>
+</pre>
+<h2>15. castArray</h2>
+<p>This snippet converts a non-array value into array.</p>
+<pre class="ql-syntax" spellcheck="false">const castArray =<span class="hljs-function"> <span class="hljs-params">val</span> =&gt;</span> (<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Array</span>.</span></span>is<span class="hljs-constructor">Array(<span class="hljs-params">val</span>)</span> ? <span class="hljs-keyword">val</span> : <span class="hljs-literal">[<span class="hljs-identifier">val</span>]</span>);
+
+cast<span class="hljs-constructor">Array('<span class="hljs-params">foo</span>')</span>; <span class="hljs-comment">// ['foo']</span>
+cast<span class="hljs-constructor">Array([1])</span>; <span class="hljs-comment">// [1]</span>
+</pre>
+<h1>16. compact</h1>
+<p>This snippet removes false values from an array.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> compact = <span class="hljs-function"><span class="hljs-params">arr</span> =&gt;</span> arr.filter(<span class="hljs-built_in">Boolean</span>);
+
+compact([<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-literal">false</span>, <span class="hljs-number">2</span>, <span class="hljs-string">''</span>, <span class="hljs-number">3</span>, <span class="hljs-string">'a'</span>, <span class="hljs-string">'e'</span> * <span class="hljs-number">23</span>, <span class="hljs-literal">NaN</span>, <span class="hljs-string">'s'</span>, <span class="hljs-number">34</span>]); 
+<span class="hljs-comment">// [ 1, 2, 3, 'a', 's', 34 ]</span>
+</pre>
+<h2>17. countOccurrences</h2>
+<p>This snippet counts the occurrences of a value in an array.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> countOccurrences = (arr, val) =&gt; arr.reduce((a, v) =&gt; (v === val ? a + <span class="hljs-number">1</span> : a), <span class="hljs-number">0</span>);
+countOccurrences([<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], <span class="hljs-number">1</span>); <span class="hljs-comment">// 3</span>
+</pre>
+<h2>18. Create Directory</h2>
+<p>This snippet uses <code>existsSync()</code> to check whether a directory exists and then <code>mkdirSync()</code> to create it if it doesn’t.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);
+<span class="hljs-keyword">const</span> createDirIfNotExists = <span class="hljs-function"><span class="hljs-params">dir</span> =&gt;</span> (!fs.existsSync(dir) ? fs.mkdirSync(dir) : <span class="hljs-literal">undefined</span>);
+createDirIfNotExists(<span class="hljs-string">'test'</span>); 
+<span class="hljs-comment">// creates the directory 'test', if it doesn't exist</span>
+</pre>
+<h2>19. currentURL</h2>
+<p>This snippet returns the current URL.</p>
+<pre class="ql-syntax" spellcheck="false">const currentURL = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">window</span>.location.href;
+
+currentURL(); <span class="hljs-regexp">//</span> <span class="hljs-string">'https://medium.com/@fatosmorina'</span>
+</pre>
+<h2>20. dayOfYear</h2>
+<p>This snippet gets the day of the year from a <code>Date</code>object.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> dayOfYear = <span class="hljs-built_in">date</span> =&gt;
+  <span class="hljs-built_in">Math</span>.floor((<span class="hljs-built_in">date</span> - <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-built_in">date</span>.getFullYear(), <span class="hljs-number">0</span>, <span class="hljs-number">0</span>)) / <span class="hljs-number">1000</span> / <span class="hljs-number">60</span> / <span class="hljs-number">60</span> / <span class="hljs-number">24</span>);
+
+dayOfYear(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>()); <span class="hljs-comment">// 272</span>
+</pre>
+<h2>21. decapitalize</h2>
+<p>This snippet turns the first letter of a string into lowercase.</p>
+<pre class="ql-syntax" spellcheck="false">const decapitalize = <span class="hljs-function"><span class="hljs-params">([first, ...rest])</span> =&gt;</span>
+  first.toLowerCase() + rest.join(<span class="hljs-string">''</span>)
+
+decapitalize(<span class="hljs-string">'FooBar'</span>); <span class="hljs-regexp">//</span> <span class="hljs-string">'fooBar'</span>
+decapitalize(<span class="hljs-string">'FooBar'</span>); <span class="hljs-regexp">//</span> <span class="hljs-string">'fooBar'</span>
+</pre>
+<h2>22. deepFlatten</h2>
+<p>This snippet flattens an array recursively.</p>
+<pre class="ql-syntax" spellcheck="false">const deepFlatten =<span class="hljs-function"> <span class="hljs-params">arr</span> =&gt;</span> <span class="hljs-literal">[]</span>.concat(...arr.map(v =&gt; (<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Array</span>.</span></span>is<span class="hljs-constructor">Array(<span class="hljs-params">v</span>)</span> ? deep<span class="hljs-constructor">Flatten(<span class="hljs-params">v</span>)</span> : v)));
+
+deep<span class="hljs-constructor">Flatten([1, [2], [[3], 4], 5])</span>; <span class="hljs-comment">// [1,2,3,4,5]</span>
+</pre>
+<h2>23. default</h2>
+<p>This snippet assigns default values for all properties in an object that are <em>undefined</em>.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> defaults = (obj, ...defs) =&gt; Object.assign({}, obj, ...defs.reverse(), obj);
+
+defaults({ a: <span class="hljs-number">1</span> }, { b: <span class="hljs-number">2</span> }, { b: <span class="hljs-number">6</span> }, { a: <span class="hljs-number">3</span> }); <span class="hljs-comment">// { a: 1, b: 2 }</span>
+</pre>
+<h2>24. defer</h2>
+<p>This snippet delays the execution of a function until the current call stack is cleared.</p>
+<pre class="ql-syntax" spellcheck="false">const defer = <span class="hljs-function"><span class="hljs-params">(fn, ...args)</span> =&gt;</span> setTimeout(fn, <span class="hljs-number">1</span>, ...args);
+
+defer(<span class="hljs-built_in">console</span>.log, <span class="hljs-string">'a'</span>), <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'b'</span>); <span class="hljs-regexp">//</span> logs <span class="hljs-string">'b'</span> <span class="hljs-keyword">then</span> <span class="hljs-string">'a'</span>
+</pre>
+<h2>25. degreesToRads</h2>
+<p>This code snippet can be used to convert a value from degrees to radians.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> degreesToRads = <span class="hljs-function"><span class="hljs-params">deg</span> =&gt;</span> (deg * <span class="hljs-built_in">Math</span>.PI) / <span class="hljs-number">180.0</span>;
+
+degreesToRads(<span class="hljs-number">90.0</span>); <span class="hljs-comment">// ~1.5708</span>
+</pre>
+<h2>26. difference</h2>
+<p>This snippet finds the difference between two arrays.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> difference = (a, b) =&gt; {
+  <span class="hljs-keyword">const</span> s = new Set(b);
+  <span class="hljs-keyword">return</span> a.filter(x =&gt; !s.has(x));
+};
+
+difference([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>]); <span class="hljs-comment">// [3]</span>
+</pre>
+<h2>27. differenceBy</h2>
+<p>This method returns the difference between two arrays, after applying a given function to each element of both lists.</p>
+<pre class="ql-syntax" spellcheck="false">const differenceBy =<span class="hljs-function"> (<span class="hljs-params">a</span>, <span class="hljs-params">b</span>, <span class="hljs-params">fn</span>) =&gt;</span> {
+  const s = <span class="hljs-keyword">new</span> <span class="hljs-constructor">Set(<span class="hljs-params">b</span>.<span class="hljs-params">map</span>(<span class="hljs-params">fn</span>)</span>);
+  return a.filter(x =&gt; !s.has(fn(x)));
+};
+
+difference<span class="hljs-constructor">By([2.1, 1.2], [2.3, 3.4], Math.<span class="hljs-params">floor</span>)</span>; <span class="hljs-comment">// [1.2]</span>
+difference<span class="hljs-constructor">By([{ <span class="hljs-params">x</span>: 2 }, { <span class="hljs-params">x</span>: 1 }], [{ <span class="hljs-params">x</span>: 1 }], <span class="hljs-params">v</span> =&gt; <span class="hljs-params">v</span>.<span class="hljs-params">x</span>)</span>; <span class="hljs-comment">// [ { x: 2 } ]</span>
+</pre>
+<h2>28. differenceWith</h2>
+<p>This snippet removes the values for which the comparator function returns <code>false</code>.</p>
+<pre class="ql-syntax" spellcheck="false">const differenceWith =<span class="hljs-function"> (<span class="hljs-params">arr</span>, <span class="hljs-params">val</span>, <span class="hljs-params">comp</span>) =&gt;</span> arr.filter(a =&gt; <span class="hljs-keyword">val</span>.find<span class="hljs-constructor">Index(<span class="hljs-params">b</span> =&gt; <span class="hljs-params">comp</span>(<span class="hljs-params">a</span>, <span class="hljs-params">b</span>)</span>)<span class="hljs-operator"> === </span>-<span class="hljs-number">1</span>);
+
+difference<span class="hljs-constructor">With([1, 1.2, 1.5, 3, 0], [1.9, 3, 0], (<span class="hljs-params">a</span>, <span class="hljs-params">b</span>)</span> =&gt; <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Math</span>.</span></span>round(a)<span class="hljs-operator"> === </span><span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Math</span>.</span></span>round(b)); 
+<span class="hljs-comment">// [1, 1.2]</span>
+</pre>
+<h2>29. digitize</h2>
+<p>This snippet gets a number as input and returns an array of its digits.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> digitize = <span class="hljs-function"><span class="hljs-params">n</span> =&gt;</span> [...<span class="hljs-string">`<span class="hljs-subst">${n}</span>`</span>].map(<span class="hljs-function"><span class="hljs-params">i</span> =&gt;</span> <span class="hljs-built_in">parseInt</span>(i));
+
+digitize(<span class="hljs-number">431</span>); <span class="hljs-comment">// [4, 3, 1]</span>
+</pre>
+<h2>30. distance</h2>
+<p>This snippet returns the distance between two points by calculating the Euclidean distance.</p>
+<pre class="ql-syntax" spellcheck="false">const distance =<span class="hljs-function"> (<span class="hljs-params">x0</span>, <span class="hljs-params">y0</span>, <span class="hljs-params">x1</span>, <span class="hljs-params">y1</span>) =&gt;</span> <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Math</span>.</span></span>hypot(x1 - x0, y1 - y0);
+
+distance(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>); <span class="hljs-comment">// 2.23606797749979</span>
+</pre>
+<h2>31. Drop Elements</h2>
+<p>This snippet returns a new array with <code>n</code> elements removed from the left.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> drop = (arr, n = <span class="hljs-number">1</span>) =&gt; arr.slice(n);
+
+drop([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]); <span class="hljs-comment">// [2,3]</span>
+drop([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], <span class="hljs-number">2</span>); <span class="hljs-comment">// [3]</span>
+drop([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], <span class="hljs-number">42</span>); <span class="hljs-comment">// []</span>
+</pre>
+<h2>32. dropRight</h2>
+<p>This snippet returns a new array with <code>n</code> elements removed from the right.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> dropRight = (arr, n = <span class="hljs-number">1</span>) =&gt; arr.slice(<span class="hljs-number">0</span>, -n);
+
+dropRight([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]); <span class="hljs-comment">// [1,2]</span>
+dropRight([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], <span class="hljs-number">2</span>); <span class="hljs-comment">// [1]</span>
+dropRight([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], <span class="hljs-number">42</span>); <span class="hljs-comment">// []</span>
+</pre>
+<h2>33. dropRightWhile</h2>
+<p>This snippet removes elements from the right side of an array until the passed function returns <code>true</code>.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> dropRightWhile = (arr, func) =&gt; {
+  <span class="hljs-keyword">while</span> (arr.length &gt; <span class="hljs-number">0</span> &amp;&amp; !func(arr[arr.length - <span class="hljs-number">1</span>])) arr = arr.slice(<span class="hljs-number">0</span>, <span class="hljs-number">-1</span>);
+  <span class="hljs-keyword">return</span> arr;
+};
+
+dropRightWhile([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>], n =&gt; n &lt; <span class="hljs-number">3</span>); <span class="hljs-comment">// [1, 2]</span>
+</pre>
+<h2>34. dropWhile</h2>
+<p>This snippet removes elements from an array until the passed function returns <code>true</code>.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> dropWhile = (arr, func) =&gt; {
+  <span class="hljs-keyword">while</span> (arr.length &gt; <span class="hljs-number">0</span> &amp;&amp; !func(arr[<span class="hljs-number">0</span>])) arr = arr.slice(<span class="hljs-number">1</span>);
+  <span class="hljs-keyword">return</span> arr;
+};
+
+dropWhile([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>], n =&gt; n &gt;= <span class="hljs-number">3</span>); <span class="hljs-comment">// [3,4]</span>
+</pre>
+<h2>35. elementContains</h2>
+<p>This snippet checks whether the parent element contains the child.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> elementContains = (parent, child) =&gt; parent !== child &amp;&amp; parent.contains(child);
+
+elementContains(<span class="hljs-built_in">document</span>.<span class="hljs-built_in">querySelector</span>(<span class="hljs-string">'head'</span>), <span class="hljs-built_in">document</span>.<span class="hljs-built_in">querySelector</span>(<span class="hljs-string">'title'</span>)); <span class="hljs-comment">// true</span>
+elementContains(<span class="hljs-built_in">document</span>.<span class="hljs-built_in">querySelector</span>(<span class="hljs-string">'body'</span>), <span class="hljs-built_in">document</span>.<span class="hljs-built_in">querySelector</span>(<span class="hljs-string">'body'</span>)); <span class="hljs-comment">// false</span>
+</pre>
+<h2>36. Filter Duplicate Elements</h2>
+<p>This snippet removes duplicate values in an array.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> filterNonUnique = arr =&gt; arr.filter(i =&gt; arr.indexOf(i) === arr.lastIndexOf(i));
+
+filterNonUnique([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]); <span class="hljs-comment">// [1, 3, 5]</span>
+</pre>
+<h2>37. findKey</h2>
+<p>This snippet returns the first key that satisfies a given function.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-string">const</span> <span class="hljs-string">findKey</span> <span class="hljs-string">=</span> <span class="hljs-string">(obj,</span> <span class="hljs-string">fn)</span> <span class="hljs-string">=&gt;</span> <span class="hljs-string">Object.keys(obj).find(key</span> <span class="hljs-string">=&gt;</span> <span class="hljs-string">fn(obj[key],</span> <span class="hljs-string">key,</span> <span class="hljs-string">obj));</span>
+
+<span class="hljs-string">findKey(</span>
+  <span class="hljs-string">{</span>
+<span class="hljs-attr">    barney:</span> <span class="hljs-string">{</span> <span class="hljs-attr">age:</span> <span class="hljs-number">36</span><span class="hljs-string">,</span> <span class="hljs-attr">active:</span> <span class="hljs-literal">true</span> <span class="hljs-string">},</span>
+<span class="hljs-attr">    fred:</span> <span class="hljs-string">{</span> <span class="hljs-attr">age:</span> <span class="hljs-number">40</span><span class="hljs-string">,</span> <span class="hljs-attr">active:</span> <span class="hljs-literal">false</span> <span class="hljs-string">},</span>
+<span class="hljs-attr">    pebbles:</span> <span class="hljs-string">{</span> <span class="hljs-attr">age:</span> <span class="hljs-number">1</span><span class="hljs-string">,</span> <span class="hljs-attr">active:</span> <span class="hljs-literal">true</span> <span class="hljs-string">}</span>
+  <span class="hljs-string">},</span>
+  <span class="hljs-string">o</span> <span class="hljs-string">=&gt;</span> <span class="hljs-string">o['active']</span>
+<span class="hljs-string">);</span> <span class="hljs-string">//</span> <span class="hljs-string">'barney'</span>
+</pre>
+<h2>38. findLast</h2>
+<p>This snippet returns the last element for which a given function returns a truthy value.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> findLast = (arr, fn) =&gt; arr.filter(fn).pop();
+
+findLast([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>], n =&gt; n % <span class="hljs-number">2</span> === <span class="hljs-number">1</span>); <span class="hljs-comment">// 3</span>
+</pre>
+<h2>39. flatten</h2>
+<p>This snippet flattens an array up to a specified depth using recursion.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> flatten = (arr, depth = <span class="hljs-number">1</span>) =&gt;
+  arr.reduce((a, v) =&gt; a.concat(depth &gt; <span class="hljs-number">1</span> &amp;&amp; Array.isArray(v) ? flatten(v, depth - <span class="hljs-number">1</span>) : v), []);
+
+flatten([<span class="hljs-number">1</span>, [<span class="hljs-number">2</span>], <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]); <span class="hljs-comment">// [1, 2, 3, 4]</span>
+flatten([<span class="hljs-number">1</span>, [<span class="hljs-number">2</span>, [<span class="hljs-number">3</span>, [<span class="hljs-number">4</span>, <span class="hljs-number">5</span>], <span class="hljs-number">6</span>], <span class="hljs-number">7</span>], <span class="hljs-number">8</span>], <span class="hljs-number">2</span>); <span class="hljs-comment">// [1, 2, 3, [4, 5], 6, 7, 8]</span>
+</pre>
+<h2>40. forEachRight</h2>
+<p>This snippet executes a function for each element of an array starting from the array’s last element.</p>
+<pre class="ql-syntax" spellcheck="false">const forEachRight =<span class="hljs-function"> (<span class="hljs-params">arr</span>, <span class="hljs-params">callback</span>) =&gt;</span>
+  arr
+    .slice(<span class="hljs-number">0</span>)
+    .reverse<span class="hljs-literal">()</span>
+    .for<span class="hljs-constructor">Each(<span class="hljs-params">callback</span>)</span>;
+    
+for<span class="hljs-constructor">EachRight([1, 2, 3, 4], <span class="hljs-params">val</span> =&gt; <span class="hljs-params">console</span>.<span class="hljs-params">log</span>(<span class="hljs-params">val</span>)</span>); <span class="hljs-comment">// '4', '3', '2', '1'</span>
+</pre>
+<h2>41. forOwn</h2>
+<p>This snippet iterates on each property of an object and iterates a callback for each one respectively.</p>
+<pre class="ql-syntax" spellcheck="false">const forOwn =<span class="hljs-function"> (<span class="hljs-params">obj</span>, <span class="hljs-params">fn</span>) =&gt;</span> <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Object</span>.</span></span>keys(obj).for<span class="hljs-constructor">Each(<span class="hljs-params">key</span> =&gt; <span class="hljs-params">fn</span>(<span class="hljs-params">obj</span>[<span class="hljs-params">key</span>], <span class="hljs-params">key</span>, <span class="hljs-params">obj</span>)</span>);
+for<span class="hljs-constructor">Own({ <span class="hljs-params">foo</span>: '<span class="hljs-params">bar</span>', <span class="hljs-params">a</span>: 1 }, <span class="hljs-params">v</span> =&gt; <span class="hljs-params">console</span>.<span class="hljs-params">log</span>(<span class="hljs-params">v</span>)</span>); <span class="hljs-comment">// 'bar', 1</span>
+</pre>
+<h2>42. functionName</h2>
+<p>This snippet prints the name of a function into the console.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-title">Name</span> = <span class="hljs-title">fn</span> =&gt; (<span class="hljs-params"><span class="hljs-built_in">console</span>.debug(fn.name), fn</span>)</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-title">Name</span>(<span class="hljs-params"><span class="hljs-built_in">Math</span>.max</span>)</span>; <span class="hljs-comment">// max (logged in debug channel of console)</span>
+</pre>
+<h2>43. Get Time From Date</h2>
+<p>This snippet can be used to get the time from a <code>Date</code>object as a string.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> getColonTimeFromDate = <span class="hljs-function"><span class="hljs-params">date</span> =&gt;</span> date.toTimeString().slice(<span class="hljs-number">0</span>, <span class="hljs-number">8</span>);
+
+getColonTimeFromDate(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>()); <span class="hljs-comment">// "08:38:00"</span>
+</pre>
+<h2>44. Get Days Between Dates</h2>
+<p>This snippet can be used to find the difference in days between two dates.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> getDaysDiffBetweenDates = <span class="hljs-function">(<span class="hljs-params">dateInitial, dateFinal</span>) =&gt;</span>
+  (dateFinal - dateInitial) / (<span class="hljs-number">1000</span> * <span class="hljs-number">3600</span> * <span class="hljs-number">24</span>);
+  
+getDaysDiffBetweenDates(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">'2019-01-13'</span>), <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">'2019-01-15'</span>)); <span class="hljs-comment">// 2</span>
+</pre>
+<h2>45. getStyle</h2>
+<p>This snippet can be used to get the value of a CSS rule for a particular element.</p>
+<pre class="ql-syntax" spellcheck="false">const getStyle =<span class="hljs-function"> (<span class="hljs-params">el</span>, <span class="hljs-params">ruleName</span>) =&gt;</span> get<span class="hljs-constructor">ComputedStyle(<span class="hljs-params">el</span>)</span><span class="hljs-literal">[<span class="hljs-identifier">ruleName</span>]</span>;
+
+get<span class="hljs-constructor">Style(<span class="hljs-params">document</span>.<span class="hljs-params">querySelector</span>('<span class="hljs-params">p</span>')</span>, 'font-size'); <span class="hljs-comment">// '16px'</span>
+</pre>
+<h2>46. getType</h2>
+<p>This snippet can be used to get the type of a value.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> getType = <span class="hljs-function"><span class="hljs-params">v</span> =&gt;</span>
+  v === <span class="hljs-literal">undefined</span> ? <span class="hljs-string">'undefined'</span> : v === <span class="hljs-literal">null</span> ? <span class="hljs-string">'null'</span> : v.constructor.name.toLowerCase();
+  
+getType(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])); <span class="hljs-comment">// 'set'</span>
+</pre>
+<h2>47. hasClass</h2>
+<p>This snippet checks whether an element has a particular class.</p>
+<pre class="ql-syntax" spellcheck="false">const hasClass =<span class="hljs-function"> (<span class="hljs-params">el</span>, <span class="hljs-params">className</span>) =&gt;</span> el.classList.contains(className);
+has<span class="hljs-constructor">Class(<span class="hljs-params">document</span>.<span class="hljs-params">querySelector</span>('<span class="hljs-params">p</span>.<span class="hljs-params">special</span>')</span>, 'special'); <span class="hljs-comment">// true</span>
+</pre>
+<h2>48. head</h2>
+<p>This snippet returns the <code>head</code> of a list.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> head = arr =&gt; arr[<span class="hljs-number">0</span>];
+
+head([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]); <span class="hljs-comment">// 1</span>
+</pre>
+<h2>49. hide</h2>
+<p>This snippet can be used to hide all elements specified.</p>
+<pre class="ql-syntax" spellcheck="false">const hide =<span class="hljs-function"> (...<span class="hljs-params">el</span>) =&gt;</span> <span class="hljs-literal">[<span class="hljs-operator">...</span><span class="hljs-identifier">el</span>]</span>.for<span class="hljs-constructor">Each(<span class="hljs-params">e</span> =&gt; (<span class="hljs-params">e</span>.<span class="hljs-params">style</span>.<span class="hljs-params">display</span> = '<span class="hljs-params">none</span>')</span>);
+
+hide(document.query<span class="hljs-constructor">SelectorAll('<span class="hljs-params">img</span>')</span>); <span class="hljs-comment">// Hides all &lt;img&gt; elements on the page</span>
+</pre>
+<h2>50. httpsRedirect</h2>
+<p>This snippet can be used to redirect from HTTP to HTTPS in a particular domain.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> httpsRedirect = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  <span class="hljs-keyword">if</span> (location.protocol !== <span class="hljs-string">'https:'</span>) location.replace(<span class="hljs-string">'https://'</span> + location.href.split(<span class="hljs-string">'//'</span>)[<span class="hljs-number">1</span>]);
+};
+
+httpsRedirect(); <span class="hljs-comment">// If you are on http://mydomain.com, you are redirected to https://mydomain.com</span>
+</pre>
+<h2>51. indexOfAll</h2>
+<p>This snippet can be used to get all indexes of a value in an array, 
+which returns an empty array, in case this value is not included in it.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> indexOfAll = (arr, val) =&gt; arr.reduce((acc, el, i) =&gt; (el === val ? [...acc, i] : acc), []);
+
+indexOfAll([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], <span class="hljs-number">1</span>); <span class="hljs-comment">// [0,3]</span>
+indexOfAll([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], <span class="hljs-number">4</span>); <span class="hljs-comment">// []</span>
+</pre>
+<h2>52. initial</h2>
+<p>This snippet returns all elements of an array except the last one.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> initial = arr =&gt; arr.slice(<span class="hljs-number">0</span>, <span class="hljs-number">-1</span>);
+
+initial([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]); <span class="hljs-comment">// [1,2]const initial = arr =&gt; arr.slice(0, -1);</span>
+initial([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]); <span class="hljs-comment">// [1,2]</span>
+</pre>
+<h2>53. insertAfter</h2>
+<p>This snippet can be used to insert an HTML string after the end of a particular element.</p>
+<pre class="ql-syntax" spellcheck="false">const insertAfter =<span class="hljs-function"> (<span class="hljs-params">el</span>, <span class="hljs-params">htmlString</span>) =&gt;</span> el.insert<span class="hljs-constructor">AdjacentHTML('<span class="hljs-params">afterend</span>', <span class="hljs-params">htmlString</span>)</span>;
+
+insert<span class="hljs-constructor">After(<span class="hljs-params">document</span>.<span class="hljs-params">getElementById</span>('<span class="hljs-params">myId</span>')</span>, '&lt;p&gt;after&lt;/p&gt;'); <span class="hljs-comment">// &lt;div id="myId"&gt;...&lt;/div&gt; &lt;p&gt;after&lt;/p&gt;</span>
+</pre>
+<h2>54. insertBefore</h2>
+<p>This snippet can be used to insert an HTML string before a particular element.</p>
+<pre class="ql-syntax" spellcheck="false">const insertBefore =<span class="hljs-function"> (<span class="hljs-params">el</span>, <span class="hljs-params">htmlString</span>) =&gt;</span> el.insert<span class="hljs-constructor">AdjacentHTML('<span class="hljs-params">beforebegin</span>', <span class="hljs-params">htmlString</span>)</span>;
+
+insert<span class="hljs-constructor">Before(<span class="hljs-params">document</span>.<span class="hljs-params">getElementById</span>('<span class="hljs-params">myId</span>')</span>, '&lt;p&gt;before&lt;/p&gt;'); <span class="hljs-comment">// &lt;p&gt;before&lt;/p&gt; &lt;div id="myId"&gt;...&lt;/div&gt;</span>
+</pre>
+<h2>55. intersection</h2>
+<p>This snippet can be used to get an array with elements that are included in two other arrays.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> <span class="hljs-built_in">int</span>ersection = (a, b) =&gt; {
+  <span class="hljs-keyword">const</span> s = new Set(b);
+  <span class="hljs-keyword">return</span> a.filter(x =&gt; s.has(x));
+};
+
+<span class="hljs-built_in">int</span>ersection([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], [<span class="hljs-number">4</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>]); <span class="hljs-comment">// [2, 3]</span>
+</pre>
+<h2>56. intersectionBy</h2>
+<p>This snippet can be used to return a list of elements that exist in 
+both arrays, after a particular function has been executed to each 
+element of both arrays.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> intersectionBy = <span class="hljs-function">(<span class="hljs-params">a, b, fn</span>) =&gt;</span> {
+  <span class="hljs-keyword">const</span> s = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>(b.map(fn));
+  <span class="hljs-keyword">return</span> a.filter(<span class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> s.has(fn(x)));
+};
+
+intersectionBy([<span class="hljs-number">2.1</span>, <span class="hljs-number">1.2</span>], [<span class="hljs-number">2.3</span>, <span class="hljs-number">3.4</span>], <span class="hljs-built_in">Math</span>.floor); <span class="hljs-comment">// [2.1]</span>
+</pre>
+<h2>57. intersectionWith</h2>
+<p>This snippet can be used to return a list of elements that exist in both arrays by using a comparator function.</p>
+<pre class="ql-syntax" spellcheck="false">const intersectionWith =<span class="hljs-function"> (<span class="hljs-params">a</span>, <span class="hljs-params">b</span>, <span class="hljs-params">comp</span>) =&gt;</span> a.filter(x =&gt; b.find<span class="hljs-constructor">Index(<span class="hljs-params">y</span> =&gt; <span class="hljs-params">comp</span>(<span class="hljs-params">x</span>, <span class="hljs-params">y</span>)</span>) !== -<span class="hljs-number">1</span>);
+
+intersection<span class="hljs-constructor">With([1, 1.2, 1.5, 3, 0], [1.9, 3, 0, 3.9], (<span class="hljs-params">a</span>, <span class="hljs-params">b</span>)</span> =&gt; <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Math</span>.</span></span>round(a)<span class="hljs-operator"> === </span><span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Math</span>.</span></span>round(b)); <span class="hljs-comment">// [1.5, 3, 0]</span>
+</pre>
+<h2>58. is</h2>
+<p>This snippet can be used to check if a value is of a particular type.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> <span class="hljs-keyword">is</span> = (type, val) =&gt; ![, <span class="hljs-keyword">null</span>].includes(val) &amp;&amp; val.constructor === type;
+
+<span class="hljs-keyword">is</span>(Array, [<span class="hljs-number">1</span>]); <span class="hljs-comment">// true</span>
+<span class="hljs-keyword">is</span>(ArrayBuffer, <span class="hljs-keyword">new</span> ArrayBuffer()); <span class="hljs-comment">// true</span>
+<span class="hljs-keyword">is</span>(<span class="hljs-built_in">Map</span>, <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>()); <span class="hljs-comment">// true</span>
+<span class="hljs-keyword">is</span>(<span class="hljs-built_in">RegExp</span>, /./g); <span class="hljs-comment">// true</span>
+<span class="hljs-keyword">is</span>(<span class="hljs-built_in">Set</span>, <span class="hljs-keyword">new</span> <span class="hljs-built_in">Set</span>()); <span class="hljs-comment">// true</span>
+<span class="hljs-keyword">is</span>(WeakMap, <span class="hljs-keyword">new</span> WeakMap()); <span class="hljs-comment">// true</span>
+<span class="hljs-keyword">is</span>(WeakSet, <span class="hljs-keyword">new</span> WeakSet()); <span class="hljs-comment">// true</span>
+<span class="hljs-keyword">is</span>(<span class="hljs-built_in">String</span>, <span class="hljs-string">''</span>); <span class="hljs-comment">// true</span>
+<span class="hljs-keyword">is</span>(<span class="hljs-built_in">String</span>, <span class="hljs-keyword">new</span> <span class="hljs-built_in">String</span>(<span class="hljs-string">''</span>)); <span class="hljs-comment">// true</span>
+<span class="hljs-keyword">is</span>(Number, <span class="hljs-number">1</span>); <span class="hljs-comment">// true</span>
+<span class="hljs-keyword">is</span>(Number, <span class="hljs-keyword">new</span> Number(<span class="hljs-number">1</span>)); <span class="hljs-comment">// true</span>
+<span class="hljs-keyword">is</span>(Boolean, <span class="hljs-keyword">true</span>); <span class="hljs-comment">// true</span>
+<span class="hljs-keyword">is</span>(Boolean, <span class="hljs-keyword">new</span> Boolean(<span class="hljs-keyword">true</span>)); <span class="hljs-comment">// true</span>
+</pre>
+<h2>59. isAfterDate</h2>
+<p>This snippet can be used to check whether a date is after another date.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> isAfterDate = (dateA, dateB) =&gt; dateA &gt; dateB;
+
+isAfterDate(new Date(<span class="hljs-number">2010</span>, <span class="hljs-number">10</span>, <span class="hljs-number">21</span>), new Date(<span class="hljs-number">2010</span>, <span class="hljs-number">10</span>, <span class="hljs-number">20</span>)); <span class="hljs-comment">// true</span>
+</pre>
+<h2>60. isAnagram</h2>
+<p>This snippet can be used to check whether a particular string is an anagram with another string.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> isAnagram = <span class="hljs-function">(<span class="hljs-params">str1, str2</span>) =&gt;</span> {
+  <span class="hljs-keyword">const</span> normalize = <span class="hljs-function"><span class="hljs-params">str</span> =&gt;</span>
+    str
+      .toLowerCase()
+      .replace(<span class="hljs-regexp">/[^a-z0-9]/gi</span>, <span class="hljs-string">''</span>)
+      .split(<span class="hljs-string">''</span>)
+      .sort()
+      .join(<span class="hljs-string">''</span>);
+  <span class="hljs-keyword">return</span> normalize(str1) === normalize(str2);
+};
+
+isAnagram(<span class="hljs-string">'iceman'</span>, <span class="hljs-string">'cinema'</span>); <span class="hljs-comment">// true</span>
+</pre>
+<h2>61. isArrayLike</h2>
+<p>This snippet can be used to check if a provided argument is iterable like an array.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> isArrayLike = <span class="hljs-function"><span class="hljs-params">obj</span> =&gt;</span> obj != <span class="hljs-literal">null</span> &amp;&amp; <span class="hljs-keyword">typeof</span> obj[<span class="hljs-built_in">Symbol</span>.iterator] === <span class="hljs-string">'function'</span>;
+
+isArrayLike(<span class="hljs-built_in">document</span>.querySelectorAll(<span class="hljs-string">'.className'</span>)); <span class="hljs-comment">// true</span>
+isArrayLike(<span class="hljs-string">'abc'</span>); <span class="hljs-comment">// true</span>
+isArrayLike(<span class="hljs-literal">null</span>); <span class="hljs-comment">// false</span>
+</pre>
+<h2>62. isBeforeDate</h2>
+<p>This snippet can be used to check whether a date is before another date.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> isBeforeDate = (dateA, dateB) =&gt; dateA &lt; dateB;
+
+isBeforeDate(new Date(<span class="hljs-number">2010</span>, <span class="hljs-number">10</span>, <span class="hljs-number">20</span>), new Date(<span class="hljs-number">2010</span>, <span class="hljs-number">10</span>, <span class="hljs-number">21</span>)); <span class="hljs-comment">// true</span>
+</pre>
+<h2>63. isBoolean</h2>
+<p>This snippet can be used to check whether an argument is a boolean.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> isBoolean = <span class="hljs-function"><span class="hljs-params">val</span> =&gt;</span> <span class="hljs-keyword">typeof</span> val === <span class="hljs-string">'boolean'</span>;
+
+isBoolean(<span class="hljs-literal">null</span>); <span class="hljs-comment">// false</span>
+isBoolean(<span class="hljs-literal">false</span>); <span class="hljs-comment">// true</span>
+</pre>
+<h2>64. isBrowser</h2>
+<p>This snippet can be used to determine whether the current runtime 
+environment is a browser. This is helpful for avoiding errors when 
+running front-end modules on the server (Node).</p>
+<pre class="ql-syntax" spellcheck="false">const isBrowser = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> ![<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">window</span>, <span class="hljs-keyword">typeof</span> <span class="hljs-built_in">document</span>].includes(<span class="hljs-string">'undefined'</span>);
+
+isBrowser(); <span class="hljs-regexp">//</span> <span class="hljs-literal">true</span> (browser)
+isBrowser(); <span class="hljs-regexp">//</span> <span class="hljs-literal">false</span> (Node)
+</pre>
+<h2>65. isBrowserTabFocused</h2>
+<p>This snippet can be used to determine whether the browser tab is focused.</p>
+<pre class="ql-syntax" spellcheck="false">const isBrowserTabFocused = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> !<span class="hljs-built_in">document</span>.hidden;
+
+isBrowserTabFocused(); <span class="hljs-regexp">//</span> <span class="hljs-literal">true</span>
+</pre>
+<h2>66. isLowerCase</h2>
+<p>This snippet can be used to determine whether a string is lower case.</p>
+<pre class="ql-syntax" spellcheck="false">const isLowerCase =<span class="hljs-function"> <span class="hljs-params">str</span> =&gt;</span> str<span class="hljs-operator"> === </span>str.<span class="hljs-keyword">to</span><span class="hljs-constructor">LowerCase()</span>;
+
+is<span class="hljs-constructor">LowerCase('<span class="hljs-params">abc</span>')</span>; <span class="hljs-comment">// true</span>
+is<span class="hljs-constructor">LowerCase('<span class="hljs-params">a3</span>@$')</span>; <span class="hljs-comment">// true</span>
+is<span class="hljs-constructor">LowerCase('Ab4')</span>; <span class="hljs-comment">// false</span>
+</pre>
+<h2>67. isNil</h2>
+<p>This snippet can be used to check whether a value is <code>null</code> or <code>undefined</code>.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> isNil = <span class="hljs-function"><span class="hljs-params">val</span> =&gt;</span> val === <span class="hljs-literal">undefined</span> || val === <span class="hljs-literal">null</span>;
+
+isNil(<span class="hljs-literal">null</span>); <span class="hljs-comment">// true</span>
+isNil(<span class="hljs-literal">undefined</span>); <span class="hljs-comment">// true</span>
+</pre>
+<h2>68. isNull</h2>
+<p>This snippet can be used to check whether a value is <code>null</code>.</p>
+<pre class="ql-syntax" spellcheck="false">const <span class="hljs-attr">isNull</span> = <span class="hljs-attr">val</span> =&gt; <span class="hljs-attr">val</span> === <span class="hljs-literal">null</span>;
+
+<span class="hljs-built_in">isNull</span>(<span class="hljs-literal">null</span>); // <span class="hljs-literal">true</span>
+</pre>
+<h2>69. isNumber</h2>
+<p>This snippet can be used to check whether a provided value is a number.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> isNumber = <span class="hljs-function"><span class="hljs-params">val</span> =&gt;</span> <span class="hljs-keyword">typeof</span> val === <span class="hljs-string">'number'</span>;
+
+isNumber(<span class="hljs-string">'1'</span>); <span class="hljs-comment">// false</span>
+isNumber(<span class="hljs-number">1</span>); <span class="hljs-comment">// true</span>
+</pre>
+<h2>70. isObject</h2>
+<p>This snippet can be used to check whether a provided value is an 
+object. It uses the Object constructor to create an object wrapper for 
+the given value.</p>
+<p>If it is already an object, then an object type that corresponds to 
+the given value will be returned. Otherwise, a new object will be 
+returned.</p>
+<pre class="ql-syntax" spellcheck="false">const isObject =<span class="hljs-function"> <span class="hljs-params">obj</span> =&gt;</span> obj<span class="hljs-operator"> === </span><span class="hljs-constructor">Object(<span class="hljs-params">obj</span>)</span>;
+
+is<span class="hljs-constructor">Object([1, 2, 3, 4])</span>; <span class="hljs-comment">// true</span>
+is<span class="hljs-constructor">Object([])</span>; <span class="hljs-comment">// true</span>
+is<span class="hljs-constructor">Object(['Hello!'])</span>; <span class="hljs-comment">// true</span>
+is<span class="hljs-constructor">Object({ <span class="hljs-params">a</span>: 1 })</span>; <span class="hljs-comment">// true</span>
+is<span class="hljs-constructor">Object({})</span>; <span class="hljs-comment">// true</span>
+is<span class="hljs-constructor">Object(<span class="hljs-params">true</span>)</span>; <span class="hljs-comment">// false</span>
+</pre>
+<h2>71. isObjectLike</h2>
+<p>This snippet can be used to check if a value is not <code>null</code>and that its <code>typeof</code> is “object”.</p>
+<pre class="ql-syntax" spellcheck="false">const isObjectLike =<span class="hljs-function"> <span class="hljs-params">val</span> =&gt;</span> <span class="hljs-keyword">val</span> !== null<span class="hljs-operator"> &amp;&amp; </span>typeof <span class="hljs-keyword">val</span><span class="hljs-operator"> === </span>'object';
+
+is<span class="hljs-constructor">ObjectLike({})</span>; <span class="hljs-comment">// true</span>
+is<span class="hljs-constructor">ObjectLike([1, 2, 3])</span>; <span class="hljs-comment">// true</span>
+is<span class="hljs-constructor">ObjectLike(<span class="hljs-params">x</span> =&gt; <span class="hljs-params">x</span>)</span>; <span class="hljs-comment">// false</span>
+is<span class="hljs-constructor">ObjectLike(<span class="hljs-params">null</span>)</span>; <span class="hljs-comment">// false</span>
+</pre>
+<h2>72. isPlainObject</h2>
+<p>This snippet checks whether a value is an object created by the Object constructor.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> isPlainObject = <span class="hljs-function"><span class="hljs-params">val</span> =&gt;</span> !!val &amp;&amp; <span class="hljs-keyword">typeof</span> val === <span class="hljs-string">'object'</span> &amp;&amp; val.constructor === <span class="hljs-built_in">Object</span>;
+
+isPlainObject({ <span class="hljs-attr">a</span>: <span class="hljs-number">1</span> }); <span class="hljs-comment">// true</span>
+isPlainObject(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>()); <span class="hljs-comment">// false</span>
+</pre>
+<h2>73. isPromiseLike</h2>
+<p>This snippet checks whether an object looks like a <code>Promise</code>.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> isPromiseLike = <span class="hljs-function"><span class="hljs-params">obj</span> =&gt;</span>
+  obj !== <span class="hljs-literal">null</span> &amp;&amp;
+  (<span class="hljs-keyword">typeof</span> obj === <span class="hljs-string">'object'</span> || <span class="hljs-keyword">typeof</span> obj === <span class="hljs-string">'function'</span>) &amp;&amp;
+  <span class="hljs-keyword">typeof</span> obj.then === <span class="hljs-string">'function'</span>;
+  
+isPromiseLike({
+  <span class="hljs-attr">then</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-string">''</span>;
+  }
+}); <span class="hljs-comment">// true</span>
+isPromiseLike(<span class="hljs-literal">null</span>); <span class="hljs-comment">// false</span>
+isPromiseLike({}); <span class="hljs-comment">// false</span>
+</pre>
+<h2>74. isSameDate</h2>
+<p>This snippet can be used to check whether two dates are equal.</p>
+<pre class="ql-syntax" spellcheck="false">const isSameDate =<span class="hljs-function"> (<span class="hljs-params">dateA</span>, <span class="hljs-params">dateB</span>) =&gt;</span> dateA.<span class="hljs-keyword">to</span><span class="hljs-constructor">ISOString()</span><span class="hljs-operator"> === </span>dateB.<span class="hljs-keyword">to</span><span class="hljs-constructor">ISOString()</span>;
+
+is<span class="hljs-constructor">SameDate(<span class="hljs-params">new</span> Date(2010, 10, 20)</span>, <span class="hljs-keyword">new</span> <span class="hljs-constructor">Date(2010, 10, 20)</span>); <span class="hljs-comment">// true</span>
+</pre>
+<h2>75. isString</h2>
+<p>This snippet can be used to check whether an argument is a string.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> isString = <span class="hljs-function"><span class="hljs-params">val</span> =&gt;</span> <span class="hljs-keyword">typeof</span> val === <span class="hljs-string">'string'</span>;
+
+isString(<span class="hljs-string">'10'</span>); <span class="hljs-comment">// true</span>
+</pre>
+<h2>76. isSymbol</h2>
+<p>This snippet can be used to check whether an argument is a symbol.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> isSymbol = <span class="hljs-function"><span class="hljs-params">val</span> =&gt;</span> <span class="hljs-keyword">typeof</span> val === <span class="hljs-string">'symbol'</span>;
+
+isSymbol(<span class="hljs-built_in">Symbol</span>(<span class="hljs-string">'x'</span>)); <span class="hljs-comment">// true</span>
+</pre>
+<h2>77. isUndefined</h2>
+<p>This snippet can be used to check whether a value is <code>undefined</code>.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> isUndefined = <span class="hljs-function"><span class="hljs-params">val</span> =&gt;</span> val === <span class="hljs-literal">undefined</span>;
+
+isUndefined(<span class="hljs-literal">undefined</span>); <span class="hljs-comment">// true</span>
+</pre>
+<h2>78. isUpperCase</h2>
+<p>This snippet can be used to check whether a string is upper case.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> isUpperCase = <span class="hljs-built_in">str</span> =&gt; <span class="hljs-built_in">str</span> === <span class="hljs-built_in">str</span>.toUpperCase();
+
+isUpperCase(<span class="hljs-string">'ABC'</span>); <span class="hljs-comment">// true</span>
+isLowerCase(<span class="hljs-string">'A3@$'</span>); <span class="hljs-comment">// true</span>
+isLowerCase(<span class="hljs-string">'aB4'</span>); <span class="hljs-comment">// false</span>
+</pre>
+<h2>79. isValidJSON</h2>
+<p>This snippet can be used to check whether a string is a valid JSON.</p>
+<pre class="ql-syntax" spellcheck="false">const isValidJSON =<span class="hljs-function"> <span class="hljs-params">str</span> =&gt;</span> {
+  <span class="hljs-keyword">try</span> {
+    <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">JSON</span>.</span></span>parse(str);
+    return <span class="hljs-literal">true</span>;
+  } catch (e) {
+    return <span class="hljs-literal">false</span>;
+  }
+};
+
+is<span class="hljs-constructor">ValidJSON('{<span class="hljs-string">"name"</span>:<span class="hljs-string">"Adam"</span>,<span class="hljs-string">"age"</span>:20}')</span>; <span class="hljs-comment">// true</span>
+is<span class="hljs-constructor">ValidJSON('{<span class="hljs-string">"name"</span>:<span class="hljs-string">"Adam"</span>,<span class="hljs-params">age</span>:<span class="hljs-string">"20"</span>}')</span>; <span class="hljs-comment">// false</span>
+is<span class="hljs-constructor">ValidJSON(<span class="hljs-params">null</span>)</span>; <span class="hljs-comment">// true</span>
+</pre>
+<h2>80. last</h2>
+<p>This snippet returns the last element of an array.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> last = arr =&gt; arr[arr.length - <span class="hljs-number">1</span>];
+
+last([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]); <span class="hljs-comment">// 3</span>
+</pre>
+<h2>81. matches</h2>
+<p>This snippet compares two objects to determine if the first one contains the same property values as the second one.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-string">const</span> <span class="hljs-string">matches</span> <span class="hljs-string">=</span> <span class="hljs-string">(obj,</span> <span class="hljs-string">source)</span> <span class="hljs-string">=&gt;</span>
+  <span class="hljs-string">Object.keys(source).every(key</span> <span class="hljs-string">=&gt;</span> <span class="hljs-string">obj.hasOwnProperty(key)</span> <span class="hljs-string">&amp;&amp;</span> <span class="hljs-string">obj[key]</span> <span class="hljs-string">===</span> <span class="hljs-string">source[key]);</span>
+  
+<span class="hljs-string">matches({</span> <span class="hljs-attr">age:</span> <span class="hljs-number">25</span><span class="hljs-string">,</span> <span class="hljs-attr">hair:</span> <span class="hljs-string">'long'</span><span class="hljs-string">,</span> <span class="hljs-attr">beard:</span> <span class="hljs-literal">true</span> <span class="hljs-string">},</span> <span class="hljs-string">{</span> <span class="hljs-attr">hair:</span> <span class="hljs-string">'long'</span><span class="hljs-string">,</span> <span class="hljs-attr">beard:</span> <span class="hljs-literal">true</span> <span class="hljs-string">});</span> <span class="hljs-string">//</span> <span class="hljs-literal">true</span>
+<span class="hljs-string">matches({</span> <span class="hljs-attr">hair:</span> <span class="hljs-string">'long'</span><span class="hljs-string">,</span> <span class="hljs-attr">beard:</span> <span class="hljs-literal">true</span> <span class="hljs-string">},</span> <span class="hljs-string">{</span> <span class="hljs-attr">age:</span> <span class="hljs-number">25</span><span class="hljs-string">,</span> <span class="hljs-attr">hair:</span> <span class="hljs-string">'long'</span><span class="hljs-string">,</span> <span class="hljs-attr">beard:</span> <span class="hljs-literal">true</span> <span class="hljs-string">});</span> <span class="hljs-string">//</span> <span class="hljs-literal">false</span>
+</pre>
+<h2>82. maxDate</h2>
+<p>This snippet can be used to get the latest date.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> maxDate = (...dates) =&gt; new Date(Math.max.apply(<span class="hljs-literal">null</span>, ...dates));
+
+<span class="hljs-keyword">const</span> <span class="hljs-built_in">array</span> = [
+  new Date(<span class="hljs-number">2017</span>, <span class="hljs-number">4</span>, <span class="hljs-number">13</span>),
+  new Date(<span class="hljs-number">2018</span>, <span class="hljs-number">2</span>, <span class="hljs-number">12</span>),
+  new Date(<span class="hljs-number">2016</span>, <span class="hljs-number">0</span>, <span class="hljs-number">10</span>),
+  new Date(<span class="hljs-number">2016</span>, <span class="hljs-number">0</span>, <span class="hljs-number">9</span>)
+];
+maxDate(<span class="hljs-built_in">array</span>); <span class="hljs-comment">// 2018-03-11T22:00:00.000Z</span>
+</pre>
+<h2>83. maxN</h2>
+<p>This snippet returns the <code>n</code> largest elements from a list. If <code>n</code>is greater than or equal to the list’s length, then it will return the original list (sorted in descending order).</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> maxN = (arr, n = <span class="hljs-number">1</span>) =&gt; [...arr].sort((a, b) =&gt; b - a).slice(<span class="hljs-number">0</span>, n);
+
+maxN([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]); <span class="hljs-comment">// [3]</span>
+maxN([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], <span class="hljs-number">2</span>); <span class="hljs-comment">// [3,2] 	</span>
+</pre>
+<h2>84. minDate</h2>
+<p>This snippet can be used to get the earliest date.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> minDate = (...dates) =&gt; new Date(Math.min.apply(<span class="hljs-literal">null</span>, ...dates));
+
+<span class="hljs-keyword">const</span> <span class="hljs-built_in">array</span> = [
+  new Date(<span class="hljs-number">2017</span>, <span class="hljs-number">4</span>, <span class="hljs-number">13</span>),
+  new Date(<span class="hljs-number">2018</span>, <span class="hljs-number">2</span>, <span class="hljs-number">12</span>),
+  new Date(<span class="hljs-number">2016</span>, <span class="hljs-number">0</span>, <span class="hljs-number">10</span>),
+  new Date(<span class="hljs-number">2016</span>, <span class="hljs-number">0</span>, <span class="hljs-number">9</span>)
+];
+minDate(<span class="hljs-built_in">array</span>); <span class="hljs-comment">// 2016-01-08T22:00:00.000Z</span>
+</pre>
+<h2>85. minN</h2>
+<p>This snippet returns the <code>n</code> smallest elements from a list. If <code>n</code>is greater than or equal to the list’s length, then it will return the original list (sorted in ascending order).</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> minN = (arr, n = <span class="hljs-number">1</span>) =&gt; [...arr].sort((a, b) =&gt; a - b).slice(<span class="hljs-number">0</span>, n);
+
+minN([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]); <span class="hljs-comment">// [1]</span>
+minN([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], <span class="hljs-number">2</span>); <span class="hljs-comment">// [1,2]</span>
+</pre>
+<h2>86. negate</h2>
+<p>This snippet can be used to apply the not operator (<code>!</code>) to a predicate function with its arguments.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> negate = func =&gt; (...args) =&gt; !func(...args);
+
+[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>].filter(negate(n =&gt; n % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>)); <span class="hljs-comment">// [ 1, 3, 5 ]</span>
+</pre>
+<h2>87. nodeListToArray</h2>
+<p>This snippet can be used to convert a <code>nodeList</code> to an array.</p>
+<pre class="ql-syntax" spellcheck="false">const nodeListToArray = nodeList =&gt; [...nodeList];
+
+nodeListToArray(document.childNodes); // [ <span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>, html ]
+</pre>
+<h2>88. pad</h2>
+<p>This snippet can be used to <code>pad</code> a string on both sides with a specified character if it is shorter than the specified length.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> pad = (<span class="hljs-built_in">str</span>, length, <span class="hljs-built_in">char</span> = <span class="hljs-string">' '</span>) =&gt;
+  <span class="hljs-built_in">str</span>.padStart((<span class="hljs-built_in">str</span>.length + length) / <span class="hljs-number">2</span>, <span class="hljs-built_in">char</span>).padEnd(length, <span class="hljs-built_in">char</span>);
+  
+pad(<span class="hljs-string">'cat'</span>, <span class="hljs-number">8</span>); <span class="hljs-comment">// '  cat   '</span>
+pad(<span class="hljs-keyword">String</span>(<span class="hljs-number">42</span>), <span class="hljs-number">6</span>, <span class="hljs-string">'0'</span>); <span class="hljs-comment">// '004200'</span>
+pad(<span class="hljs-string">'foobar'</span>, <span class="hljs-number">3</span>); <span class="hljs-comment">// 'foobar'</span>
+</pre>
+<h2>89. radsToDegrees</h2>
+<p>This snippet can be used to convert an angle from radians to degrees.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> radsToDegrees = <span class="hljs-function"><span class="hljs-params">rad</span> =&gt;</span> (rad * <span class="hljs-number">180.0</span>) / <span class="hljs-built_in">Math</span>.PI;
+
+radsToDegrees(<span class="hljs-built_in">Math</span>.PI / <span class="hljs-number">2</span>); <span class="hljs-comment">// 90</span>
+</pre>
+<h2>90. Random Hexadecimal Color Code</h2>
+<p>This snippet can be used to generate a random hexadecimal color code.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> randomHexColorCode = () =&gt; {
+  let n = (Math.random() * <span class="hljs-number">0xfffff</span> * <span class="hljs-number">1000000</span>).toString(<span class="hljs-number">16</span>);
+  <span class="hljs-keyword">return</span> <span class="hljs-string">'#'</span> + n.slice(<span class="hljs-number">0</span>, <span class="hljs-number">6</span>);
+};
+
+randomHexColorCode(); <span class="hljs-comment">// "#e34155"</span>
+</pre>
+<h2>91. randomIntArrayInRange</h2>
+<p>This snippet can be used to generate an array with <code>n</code> random integers in a specified range.</p>
+<pre class="ql-syntax" spellcheck="false">const randomIntArrayInRange =<span class="hljs-function"> (<span class="hljs-params">min</span>, <span class="hljs-params">max</span>, <span class="hljs-params">n</span> = 1) =&gt;</span>
+  <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Array</span>.</span></span>from({ length: n },<span class="hljs-function"> <span class="hljs-params">()</span> =&gt;</span> <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Math</span>.</span></span>floor(<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Math</span>.</span></span>random<span class="hljs-literal">()</span><span class="hljs-operator"> * </span>(max - min + <span class="hljs-number">1</span>)) + min);
+  
+random<span class="hljs-constructor">IntArrayInRange(12, 35, 10)</span>; <span class="hljs-comment">// [ 34, 14, 27, 17, 30, 27, 20, 26, 21, 14 ]</span>
+</pre>
+<h2>92. randomIntegerInRange</h2>
+<p>This snippet can be used to generate a random integer in a specified range.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> randomIntegerInRange = (<span class="hljs-built_in">min</span>, <span class="hljs-built_in">max</span>) =&gt; Math.<span class="hljs-built_in">floor</span>(Math.<span class="hljs-built_in">random</span>() * (<span class="hljs-built_in">max</span> - <span class="hljs-built_in">min</span> + <span class="hljs-number">1</span>)) + <span class="hljs-built_in">min</span>;
+
+randomIntegerInRange(<span class="hljs-number">0</span>, <span class="hljs-number">5</span>); <span class="hljs-comment">// 3</span>
+</pre>
+<h2>93. randomNumberInRange</h2>
+<p>This snippet can be used to return a random number in a specified range.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> randomNumberInRange = (<span class="hljs-built_in">min</span>, <span class="hljs-built_in">max</span>) =&gt; Math.<span class="hljs-built_in">random</span>() * (<span class="hljs-built_in">max</span> - <span class="hljs-built_in">min</span>) + <span class="hljs-built_in">min</span>;
+
+randomNumberInRange(<span class="hljs-number">2</span>, <span class="hljs-number">10</span>); <span class="hljs-comment">// 6.0211363285087005</span>
+</pre>
+<h2>94. readFileLines</h2>
+<p>This snippet can be used to read a file by getting an array of lines from a file.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);
+<span class="hljs-keyword">const</span> readFileLines = <span class="hljs-function"><span class="hljs-params">filename</span> =&gt;</span>
+  fs
+    .readFileSync(filename)
+    .toString(<span class="hljs-string">'UTF8'</span>)
+    .split(<span class="hljs-string">'\n'</span>);
+
+<span class="hljs-keyword">let</span> arr = readFileLines(<span class="hljs-string">'test.txt'</span>);
+<span class="hljs-built_in">console</span>.log(arr); <span class="hljs-comment">// ['line1', 'line2', 'line3']</span>
+</pre>
+<h2>95. Redirect to a URL</h2>
+<p>This snippet can be used to do a redirect to a specified URL.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> redirect = (<span class="hljs-built_in">url</span>, asLink = <span class="hljs-literal">true</span>) =&gt;
+  asLink ? (<span class="hljs-built_in">window</span>.location.href = <span class="hljs-built_in">url</span>) : <span class="hljs-built_in">window</span>.location.replace(<span class="hljs-built_in">url</span>);
+  
+redirect(<span class="hljs-string">'https://google.com'</span>);
+</pre>
+<h2>96. reverse</h2>
+<p>This snippet can be used to reverse a string.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> reverseString = <span class="hljs-built_in">str</span> =&gt; [...<span class="hljs-built_in">str</span>].<span class="hljs-built_in">reverse</span>().<span class="hljs-built_in">join</span>(<span class="hljs-string">''</span>);
+
+reverseString(<span class="hljs-string">'foobar'</span>); <span class="hljs-comment">// 'raboof'</span>
+</pre>
+<h2>97. round</h2>
+<p>This snippet can be used to round a number to a specified number of digits.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> round = <span class="hljs-function">(<span class="hljs-params">n, decimals = <span class="hljs-number">0</span></span>) =&gt;</span> <span class="hljs-built_in">Number</span>(<span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-built_in">Math</span>.round(<span class="hljs-string">`<span class="hljs-subst">${n}</span>e<span class="hljs-subst">${decimals}</span>`</span>)}</span>e-<span class="hljs-subst">${decimals}</span>`</span>);
+
+round(<span class="hljs-number">1.005</span>, <span class="hljs-number">2</span>); <span class="hljs-comment">// 1.01</span>
+</pre>
+<h2>98. runPromisesInSeries</h2>
+<p>This snippet can be used to run an array of promises in series.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> runPromisesInSeries = <span class="hljs-function"><span class="hljs-params">ps</span> =&gt;</span> ps.reduce(<span class="hljs-function">(<span class="hljs-params">p, next</span>) =&gt;</span> p.then(next), <span class="hljs-built_in">Promise</span>.resolve());
+<span class="hljs-keyword">const</span> delay = <span class="hljs-function"><span class="hljs-params">d</span> =&gt;</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-params">r</span> =&gt;</span> setTimeout(r, d));
+
+runPromisesInSeries([<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> delay(<span class="hljs-number">1000</span>), <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> delay(<span class="hljs-number">2000</span>)]); 
+<span class="hljs-comment">// Executes each promise sequentially, taking a total of 3 seconds to complete</span>
+</pre>
+<h2>99. sample</h2>
+<p>This snippet can be used to get a random number from an array.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> sample = arr =&gt; arr[Math.floor(Math.random() * arr.length)];
+
+sample([<span class="hljs-number">3</span>, <span class="hljs-number">7</span>, <span class="hljs-number">9</span>, <span class="hljs-number">11</span>]); <span class="hljs-comment">// 9</span>
+</pre>
+<h2>100. sampleSize</h2>
+<p>This snippet can be used to get <code>n</code>random elements from unique positions from an array up to the size of the array. Elements in the array are shuffled using the <a href="https://l.morioh.com/b0a3f595aa?r=https://github.com/30-seconds/30-seconds-of-code#shuffle" rel="nofollow" target="_blank">Fisher-Yates algorithm</a>.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> sampleSize = ([...arr], n = <span class="hljs-number">1</span>) =&gt; {
+  let m = arr.length;
+  <span class="hljs-keyword">while</span> (m) {
+    <span class="hljs-keyword">const</span> i = Math.floor(Math.random() * m--);
+    [arr[m], arr[i]] = [arr[i], arr[m]];
+  }
+  <span class="hljs-keyword">return</span> arr.slice(<span class="hljs-number">0</span>, n);
+};
+
+sampleSize([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], <span class="hljs-number">2</span>); <span class="hljs-comment">// [3,1]</span>
+sampleSize([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], <span class="hljs-number">4</span>); <span class="hljs-comment">// [2,3,1]</span>
+</pre>
+<h2>101. scrollToTop</h2>
+<p>This snippet can be used to do a smooth scroll to the top of the current page.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> scrollToTop = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+  <span class="hljs-keyword">const</span> c = <span class="hljs-built_in">document</span>.documentElement.scrollTop || <span class="hljs-built_in">document</span>.body.scrollTop;
+  <span class="hljs-keyword">if</span> (c &gt; <span class="hljs-number">0</span>) {
+    <span class="hljs-built_in">window</span>.requestAnimationFrame(scrollToTop);
+    <span class="hljs-built_in">window</span>.scrollTo(<span class="hljs-number">0</span>, c - c / <span class="hljs-number">8</span>);
+  }
+};
+
+scrollToTop();
+</pre>
+<h2>102. serializeCookie</h2>
+<p>This snippet can be used to serialize a cookie name-value pair into a Set-Cookie header string.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> serializeCookie = <span class="hljs-function">(<span class="hljs-params">name, val</span>) =&gt;</span> <span class="hljs-string">`<span class="hljs-subst">${<span class="hljs-built_in">encodeURIComponent</span>(name)}</span>=<span class="hljs-subst">${<span class="hljs-built_in">encodeURIComponent</span>(val)}</span>`</span>;
+
+serializeCookie(<span class="hljs-string">'foo'</span>, <span class="hljs-string">'bar'</span>); <span class="hljs-comment">// 'foo=bar'</span>
+</pre>
+<h2>103. setStyle</h2>
+<p>This snippet can be used to set the value of a CSS rule for a particular element.</p>
+<pre class="ql-syntax" spellcheck="false">const setStyle =<span class="hljs-function"> (<span class="hljs-params">el</span>, <span class="hljs-params">ruleName</span>, <span class="hljs-params">val</span>) =&gt;</span> (el.style<span class="hljs-literal">[<span class="hljs-identifier">ruleName</span>]</span> = <span class="hljs-keyword">val</span>);
+
+set<span class="hljs-constructor">Style(<span class="hljs-params">document</span>.<span class="hljs-params">querySelector</span>('<span class="hljs-params">p</span>')</span>, 'font-size', '<span class="hljs-number">20</span>px');
+<span class="hljs-comment">// The first &lt;p&gt; element on the page will have a font-size of 20px</span>
+</pre>
+<h2>104. shallowClone</h2>
+<p>This snippet can be used to create a shallow clone of an object.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> shallowClone = <span class="hljs-function"><span class="hljs-params">obj</span> =&gt;</span> <span class="hljs-built_in">Object</span>.assign({}, obj);
+
+<span class="hljs-keyword">const</span> a = { <span class="hljs-attr">x</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">y</span>: <span class="hljs-number">1</span> };
+<span class="hljs-keyword">const</span> b = shallowClone(a); <span class="hljs-comment">// a !== b</span>
+</pre>
+<h2>105. show</h2>
+<p>This snippet can be used to show all the elements specified.</p>
+<pre class="ql-syntax" spellcheck="false">const show =<span class="hljs-function"> (...<span class="hljs-params">el</span>) =&gt;</span> <span class="hljs-literal">[<span class="hljs-operator">...</span><span class="hljs-identifier">el</span>]</span>.for<span class="hljs-constructor">Each(<span class="hljs-params">e</span> =&gt; (<span class="hljs-params">e</span>.<span class="hljs-params">style</span>.<span class="hljs-params">display</span> = '')</span>);
+
+show(...document.query<span class="hljs-constructor">SelectorAll('<span class="hljs-params">img</span>')</span>); <span class="hljs-comment">// Shows all &lt;img&gt; elements on the page</span>
+</pre>
+<h2>106. shuffle</h2>
+<p>This snippet can be used to order the elements of an array randomly using the <a href="https://l.morioh.com/b0a3f595aa?r=https://github.com/30-seconds/30-seconds-of-code#shuffle" rel="nofollow" target="_blank">Fisher-Yates algorithm</a>.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> shuffle = <span class="hljs-function">(<span class="hljs-params">[...arr]</span>) =&gt;</span> {
+  <span class="hljs-keyword">let</span> m = arr.length;
+  <span class="hljs-keyword">while</span> (m) {
+    <span class="hljs-keyword">const</span> i = <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random() * m--);
+    [arr[m], arr[i]] = [arr[i], arr[m]];
+  }
+  <span class="hljs-keyword">return</span> arr;
+};
+
+<span class="hljs-keyword">const</span> foo = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
+shuffle(foo); <span class="hljs-comment">// [2, 3, 1], foo = [1, 2, 3]</span>
+</pre>
+<h2>107. similarity</h2>
+<p>This snippet can be used to return an array of elements that appear in two arrays.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">https</span>://medium.com/better-programming/<span class="hljs-number">127</span>-helpful-javascript-snippets-you-can-learn-<span class="hljs-keyword">in</span><span class="hljs-number">-30</span>-<span class="hljs-built_in">seconds</span>-<span class="hljs-keyword">or</span>-less-part<span class="hljs-number">-6</span>-<span class="hljs-keyword">of</span><span class="hljs-number">-6</span><span class="hljs-number">-862</span>a6403d334
+</pre>
+<h2>108. sleep</h2>
+<p>This snippet can be used to delay the execution of an asynchronous function by putting it into sleep.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> sleep = <span class="hljs-function"><span class="hljs-params">ms</span> =&gt;</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-params">resolve</span> =&gt;</span> setTimeout(resolve, ms));
+
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sleepyWork</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"I'm going to sleep for 1 second."</span>);
+  <span class="hljs-keyword">await</span> sleep(<span class="hljs-number">1000</span>);
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'I woke up after 1 second.'</span>);
+}
+</pre>
+<h2>109. smoothScroll</h2>
+<p>This snippet can be used to smoothly scroll the element on which it is called into the visible area of the browser window.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> smoothScroll = element =&gt;
+  <span class="hljs-built_in">document</span>.<span class="hljs-built_in">querySelector</span>(element).scrollIntoView({
+    behavior: <span class="hljs-string">'smooth'</span>
+  });
+  
+smoothScroll(<span class="hljs-string">'#fooBar'</span>); <span class="hljs-comment">// scrolls smoothly to the element with the id fooBar</span>
+smoothScroll(<span class="hljs-string">'.fooBar'</span>); <span class="hljs-comment">// scrolls smoothly to the first element with a class of fooBar</span>
+</pre>
+<h2>110. sortCharactersInString</h2>
+<p>This snippet can be used to alphabetically sort the characters in a string.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> sortCharactersInString = <span class="hljs-function"><span class="hljs-params">str</span> =&gt;</span> [...str].sort(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a.localeCompare(b)).join(<span class="hljs-string">''</span>);
+
+sortCharactersInString(<span class="hljs-string">'cabbage'</span>); <span class="hljs-comment">// 'aabbceg'</span>
+</pre>
+<h2>111. splitLines</h2>
+<p>This snippet can be used to split a multi-line string into an array of lines.</p>
+<pre class="ql-syntax" spellcheck="false">const splitLines =<span class="hljs-function"> <span class="hljs-params">str</span> =&gt;</span> str.split(/\r?\n/);
+
+split<span class="hljs-constructor">Lines('This\<span class="hljs-params">nis</span> <span class="hljs-params">a</span>\<span class="hljs-params">nmultiline</span>\<span class="hljs-params">nstring</span>.\<span class="hljs-params">n</span>')</span>; <span class="hljs-comment">// ['This', 'is a', 'multiline', 'string.' , '']</span>
+</pre>
+<h2>112. stripHTMLTags</h2>
+<p>This snippet can be used to remove HTML/XML tags from a string.</p>
+<pre class="ql-syntax" spellcheck="false">const stripHTMLTags =<span class="hljs-function"> <span class="hljs-params">str</span> =&gt;</span> str.replace(/&lt;<span class="hljs-literal">[^&gt;]</span>*&gt;/g, '');
+
+strip<span class="hljs-constructor">HTMLTags('&lt;<span class="hljs-params">p</span>&gt;&lt;<span class="hljs-params">em</span>&gt;<span class="hljs-params">lorem</span>&lt;<span class="hljs-operator">/</span><span class="hljs-params">em</span>&gt; &lt;<span class="hljs-params">strong</span>&gt;<span class="hljs-params">ipsum</span>&lt;<span class="hljs-operator">/</span><span class="hljs-params">strong</span>&gt;&lt;<span class="hljs-operator">/</span><span class="hljs-params">p</span>&gt;')</span>; <span class="hljs-comment">// 'lorem ipsum'</span>
+</pre>
+<h2>113. sum</h2>
+<p>This snippet can be used to find the sum of two or more numbers or arrays.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> sum = (...arr) =&gt; [...arr].reduce((acc, val) =&gt; acc + val, <span class="hljs-number">0</span>);
+
+sum(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>); <span class="hljs-comment">// 10</span>
+sum(...[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]); <span class="hljs-comment">// 10</span>
+</pre>
+<h2>114. tail</h2>
+<p>This snippet can be used to get an array with all the elements of an 
+array except for the first one. If the array has only one element, then 
+that an array with that element will be returned instead.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> tail = arr =&gt; (arr.length &gt; <span class="hljs-number">1</span> ? arr.slice(<span class="hljs-number">1</span>) : arr);
+
+tail([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]); <span class="hljs-comment">// [2,3]</span>
+tail([<span class="hljs-number">1</span>]); <span class="hljs-comment">// [1]</span>
+</pre>
+<h2>115. take</h2>
+<p>This snippet can be used to get an array with <code>n</code>elements removed from the beginning.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> take = (arr, n = <span class="hljs-number">1</span>) =&gt; arr.slice(<span class="hljs-number">0</span>, n);
+
+take([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], <span class="hljs-number">5</span>); <span class="hljs-comment">// [1, 2, 3]</span>
+take([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], <span class="hljs-number">0</span>); <span class="hljs-comment">// []</span>
+</pre>
+<h2>116. takeRight</h2>
+<p>This snippet can be used to get an array with <code>n</code>elements removed from the end.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> takeRight = (arr, n = <span class="hljs-number">1</span>) =&gt; arr.slice(arr.length - n, arr.length);
+
+takeRight([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], <span class="hljs-number">2</span>); <span class="hljs-comment">// [ 2, 3 ]</span>
+takeRight([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]); <span class="hljs-comment">// [3]</span>
+</pre>
+<h2>117. timeTaken</h2>
+<p>This snippet can be used to find out the time it takes to execute a function.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> timeTaken = <span class="hljs-function"><span class="hljs-params">callback</span> =&gt;</span> {
+  <span class="hljs-built_in">console</span>.time(<span class="hljs-string">'timeTaken'</span>);
+  <span class="hljs-keyword">const</span> r = callback();
+  <span class="hljs-built_in">console</span>.timeEnd(<span class="hljs-string">'timeTaken'</span>);
+  <span class="hljs-keyword">return</span> r;
+};
+
+timeTaken(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">Math</span>.pow(<span class="hljs-number">2</span>, <span class="hljs-number">10</span>)); <span class="hljs-comment">// 1024, (logged): timeTaken: 0.02099609375ms</span>
+</pre>
+<h2>118. times</h2>
+<p>This snippet can be used to iterate over a callback <code>n</code>times.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> times = <span class="hljs-function">(<span class="hljs-params">n, fn, context = <span class="hljs-literal">undefined</span></span>) =&gt;</span> {
+  <span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>;
+  <span class="hljs-keyword">while</span> (fn.call(context, i) !== <span class="hljs-literal">false</span> &amp;&amp; ++i &lt; n) {}
+};
+
+<span class="hljs-keyword">var</span> output = <span class="hljs-string">''</span>;
+times(<span class="hljs-number">5</span>, <span class="hljs-function"><span class="hljs-params">i</span> =&gt;</span> (output += i));
+<span class="hljs-built_in">console</span>.log(output); <span class="hljs-comment">// 01234</span>
+</pre>
+<h2>119. toCurrency</h2>
+<p>This snippet can be used to format a number like a currency.</p>
+<pre class="ql-syntax" spellcheck="false">const toCurrency =<span class="hljs-function"> (<span class="hljs-params">n</span>, <span class="hljs-params">curr</span>, L<span class="hljs-params">anguageFormat</span> = <span class="hljs-params">undefined</span>) =&gt;</span>
+  Intl.<span class="hljs-constructor">NumberFormat(LanguageFormat, { <span class="hljs-params">style</span>: '<span class="hljs-params">currency</span>', <span class="hljs-params">currency</span>: <span class="hljs-params">curr</span> })</span>.format(n);
+  
+<span class="hljs-keyword">to</span><span class="hljs-constructor">Currency(123456.789, 'EUR')</span>; <span class="hljs-comment">// €123,456.79  | currency: Euro | currencyLangFormat: Local</span>
+<span class="hljs-keyword">to</span><span class="hljs-constructor">Currency(123456.789, 'USD', '<span class="hljs-params">en</span>-<span class="hljs-params">us</span>')</span>; <span class="hljs-comment">// $123,456.79  | currency: US Dollar | currencyLangFormat: English (United States)</span>
+<span class="hljs-keyword">to</span><span class="hljs-constructor">Currency(123456.789, 'USD', '<span class="hljs-params">fa</span>')</span>; <span class="hljs-comment">// ۱۲۳٬۴۵۶٫۷۹ ؜$ | currency: US Dollar | currencyLangFormat: Farsi</span>
+<span class="hljs-keyword">to</span><span class="hljs-constructor">Currency(322342436423.2435, 'JPY')</span>; <span class="hljs-comment">// ¥322,342,436,423 | currency: Japanese Yen | currencyLangFormat: Local</span>
+<span class="hljs-keyword">to</span><span class="hljs-constructor">Currency(322342436423.2435, 'JPY', '<span class="hljs-params">fi</span>')</span>; <span class="hljs-comment">// 322 342 436 423 ¥ | currency: Japanese Yen | currencyLangFormat: Finnish</span>
+</pre>
+<h2>120. toDecimalMark</h2>
+<p>This snippet uses the <code>toLocaleString()</code>function to convert float-point arithmetic to the decimal mark form by using a number to make a comma-separated string.</p>
+<pre class="ql-syntax" spellcheck="false">const toDecimalMark =<span class="hljs-function"> <span class="hljs-params">num</span> =&gt;</span> num.<span class="hljs-keyword">to</span><span class="hljs-constructor">LocaleString('<span class="hljs-params">en</span>-US')</span>;
+
+<span class="hljs-keyword">to</span><span class="hljs-constructor">DecimalMark(12305030388.9087)</span>; <span class="hljs-comment">// "12,305,030,388.909"</span>
+</pre>
+<h2>121. toggleClass</h2>
+<p>This snippet can be used to toggle a class for an element.</p>
+<pre class="ql-syntax" spellcheck="false">const toggleClass = <span class="hljs-function"><span class="hljs-params">(el, className)</span> =&gt;</span> el.classList.toggle(className);
+
+toggleClass(<span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'p.special'</span>), <span class="hljs-string">'special'</span>); <span class="hljs-regexp">//</span> The paragraph will <span class="hljs-keyword">not</span> have the <span class="hljs-string">'special'</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">anymore</span></span>
+</pre>
+<h2>122. tomorrow</h2>
+<p>This snippet can be used to get a string representation of tomorrow’s date.</p>
+<pre class="ql-syntax" spellcheck="false">const tomorrow =<span class="hljs-function"> <span class="hljs-params">()</span> =&gt;</span> {
+  <span class="hljs-keyword">let</span> t = <span class="hljs-keyword">new</span> <span class="hljs-constructor">Date()</span>;
+  t.set<span class="hljs-constructor">Date(<span class="hljs-params">t</span>.<span class="hljs-params">getDate</span>()</span> + <span class="hljs-number">1</span>);
+  return t.<span class="hljs-keyword">to</span><span class="hljs-constructor">ISOString()</span>.split(<span class="hljs-character">'T'</span>)<span class="hljs-literal">[<span class="hljs-number">0</span>]</span>;
+};
+
+tomorrow<span class="hljs-literal">()</span>; <span class="hljs-comment">// 2019-09-08 (if current date is 2018-09-08)</span>
+</pre>
+<h2>123. unfold</h2>
+<p>This snippet can be used to build an array using an iterator function and an initial seed value.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> unfold = <span class="hljs-function">(<span class="hljs-params">fn, seed</span>) =&gt;</span> {
+  <span class="hljs-keyword">let</span> result = [],
+    val = [<span class="hljs-literal">null</span>, seed];
+  <span class="hljs-keyword">while</span> ((val = fn(val[<span class="hljs-number">1</span>]))) result.push(val[<span class="hljs-number">0</span>]);
+  <span class="hljs-keyword">return</span> result;
+};
+
+<span class="hljs-keyword">var</span> f = <span class="hljs-function"><span class="hljs-params">n</span> =&gt;</span> (n &gt; <span class="hljs-number">50</span> ? <span class="hljs-literal">false</span> : [-n, n + <span class="hljs-number">10</span>]);
+unfold(f, <span class="hljs-number">10</span>); <span class="hljs-comment">// [-10, -20, -30, -40, -50]</span>
+</pre>
+<h2>124. union</h2>
+<p>This snippet can be used to find the <code>union</code> of two arrays, resulting in an array that has elements that come from both arrays but that do not repeat.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> union = (a, b) =&gt; Array.<span class="hljs-keyword">from</span>(new Set([...a, ...b]));
+
+union([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], [<span class="hljs-number">4</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>]); <span class="hljs-comment">// [1,2,3,4]</span>
+</pre>
+<h2>125. uniqueElements</h2>
+<p>This snippet uses ES6 <code>Set</code>andthe<code>…rest</code>operator to get every element only once.</p>
+<pre class="ql-syntax" spellcheck="false"><span class="hljs-keyword">const</span> uniqueElements = arr =&gt; [...new Set(arr)];
+
+uniqueElements([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]); <span class="hljs-comment">// [1, 2, 3, 4, 5]</span>
+</pre>
+<h2>126. validateNumber</h2>
+<p>This snippet can be used to check whether a value is a number.</p>
+<pre class="ql-syntax" spellcheck="false">const validateNumber =<span class="hljs-function"> <span class="hljs-params">n</span> =&gt;</span> !is<span class="hljs-constructor">NaN(<span class="hljs-params">parseFloat</span>(<span class="hljs-params">n</span>)</span>)<span class="hljs-operator"> &amp;&amp; </span>is<span class="hljs-constructor">Finite(<span class="hljs-params">n</span>)</span><span class="hljs-operator"> &amp;&amp; </span><span class="hljs-constructor">Number(<span class="hljs-params">n</span>)</span><span class="hljs-operator"> == </span>n;
+
+validate<span class="hljs-constructor">Number('10')</span>; <span class="hljs-comment">// true</span>
+</pre>
+<h2>127. words</h2>
+<p>This snippet converts a string into an array of words.</p>
+<pre class="ql-syntax" spellcheck="false">const words = <span class="hljs-function"><span class="hljs-params">(str, pattern = <span class="hljs-regexp">/[^a-zA-Z-]+/</span>)</span> =&gt;</span> str.split(pattern).filter(Boolean);
+
+words(<span class="hljs-string">'I love javaScript!!'</span>); <span class="hljs-regexp">//</span> [<span class="hljs-string">"I"</span>, <span class="hljs-string">"love"</span>, <span class="hljs-string">"javaScript"</span>]
+words(<span class="hljs-string">'python, javaScript &amp; coffee'</span>); <span class="hljs-regexp">//</span> [<span class="hljs-string">"python"</span>, <span class="hljs-string">"javaScript"</span>, <span class="hljs-string">"coffee"</span>]
+</pre>
+<h2>Synopsis</h2>
+<p>These snippets were taken from this <a href="https://l.morioh.com/b0a3f595aa?r=https://github.com/30-seconds/30_seconds_of_knowledge" rel="nofollow" target="_blank">project</a> in which you can find more JavaScript snippets, and also snippets for other technologies and frameworks.</p>
+</div> <div class="pt-10"></div></div> <div class="link-card"></div></div> <div id="comments_5d931abae559724ac56316ee" class="post-item-footer"><div><div class="post-action-button"><div class="d-flex justify-content-between"><div><div class="badge badge-light emoji-icon"><span data-v-7f853594="" class="emoji-mart-emoji"><span data-v-7f853594="" style="display: inline-block; width: 16px; height: 16px; background-image: url(&quot;https://unpkg.com/emoji-datasource-emojione@4.0.4/img/emojione/sheets-256/64.png&quot;); background-size: 5200%; background-position: 27.451% 96.0784%;"></span></span> <span class="emoij-count">2</span></div> <div class="v-popover badge"><span aria-describedby="popover_opb58sh75z" tabindex="-1" class="trigger" style="display: inline-block;"><span class="badge badge-light emoji-icon"><i class="far fa-smile-plus"></i></span> </span> </div></div> <div class="d-flex flex-row align-items-center control-icon"><button title="Report" class="flat-btn"><i class="far fa-flag"></i></button> <div class="btn-group"><button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="flat-btn"><i class="far fa-share-alt px-5"></i></button> <div class="dropdown-menu p-10"><a class="text-center"><span data-link="#share-facebook"><i class="social-icon fab fa-facebook" style="color: rgb(59, 89, 152);"></i></span> <span data-link="#share-twitter"><i class="social-icon fab fa-twitter" style="color: rgb(85, 172, 238);"></i></span> <span data-link="#share-reddit"><i class="social-icon fab fa-reddit" style="color: rgb(247, 147, 17);"></i></span> <span data-link="#share-vk"><i class="social-icon fab fa-vk" style="color: rgb(88, 126, 163);"></i></span> <span data-link="#share-linkedin"><i class="social-icon fab fa-linkedin" style="color: rgb(0, 123, 182);"></i></span></a></div></div> <!----></div></div></div></div> <!----> <!----></div> <div><!----> <div class="mt-10"></div> <a href="javascript:void(0)" role="button" type="buttom" class="btn btn-block btn-outline-primary mt-20" style="display: none;">Show more</a></div></div> <div class="card" style="display: none;"><div class="card-block"><!----></div></div></div> <div class="card mb-20"><div class="card-block text-muted text-center"><div><i class="fal fa-edit fa-2x"></i></div> <span class="text">No comment yet</span></div></div> <ads-bottom></ads-bottom> <div class="pt-15"><h2>Related</h2> <hr></div> <div><div class="post-item-box card-shadow pointer"><div class="row card-title"><div class="col-lg-9 col-md-12"><div><h3 class="post-item-title"><a href="https://morioh.com/p/6decb109ae79" class="">Angular vs React vs Vue: Which one will be popular in 2020
+            </a></h3> <div class="d-flex flex-row justify-content-between align-items-center flex-wrap"><div class="d-flex flex-row flex-wrap align-items-center"><div class="pr-10"><a href="https://morioh.com/@Cavalcanti/posts" class="avatar"><img src="127%20JavaScript%20Snippets%20_fichiers/5375db970d.png" alt="Cavalcanti " class="img-fluid"></a></div> <div class="d-flex flex-row align-items-center"><div class="d-flex flex-column"><a href="https://morioh.com/@Cavalcanti/posts" class="author-name">
+                    Cavalcanti </a> <div class="d-flex flex-row align-items-center"><a href="https://morioh.com/@Cavalcanti/posts" class="text-muted mr-5">
+                      @Cavalcanti ·</a> <span class="text-muted">16 days ago</span></div></div></div></div></div></div></div> <div class="col-lg-3 col-md-12"><a href="https://morioh.com/p/6decb109ae79" class=""><img src="127%20JavaScript%20Snippets%20_fichiers/e6a098d27a.png" alt="Angular vs React vs Vue: Which one will be popular in 2020" class="w-full"></a></div></div> <div class="d-flex"><span class="flat-btn d-flex align-items-center"><span data-v-7f853594="" class="emoji-mart-emoji"><span data-v-7f853594="" style="display: inline-block; width: 20px; height: 20px; background-image: url(&quot;https://unpkg.com/emoji-datasource-emojione@4.0.4/img/emojione/sheets-256/64.png&quot;); background-size: 5200%; background-position: 27.451% 96.0784%;"></span></span> <span class="ml-5 font-weight-bold">37</span></span> <span class="flat-btn d-flex align-items-center"><span data-v-7f853594="" class="emoji-mart-emoji"><span data-v-7f853594="" style="display: inline-block; width: 20px; height: 20px; background-image: url(&quot;https://unpkg.com/emoji-datasource-emojione@4.0.4/img/emojione/sheets-256/64.png&quot;); background-size: 5200%; background-position: 49.0196% 45.098%;"></span></span> <span class="ml-5 font-weight-bold"></span></span> <span class="flat-btn d-flex align-items-center"><span data-v-7f853594="" class="emoji-mart-emoji"><span data-v-7f853594="" style="display: inline-block; width: 20px; height: 20px; background-image: url(&quot;https://unpkg.com/emoji-datasource-emojione@4.0.4/img/emojione/sheets-256/64.png&quot;); background-size: 5200%; background-position: 52.9412% 76.4706%;"></span></span> <span class="ml-5 font-weight-bold">1.37K</span></span></div></div><div class="post-item-box card-shadow pointer"><div class="row card-title"><div class="col-lg-9 col-md-12"><div><h3 class="post-item-title"><a href="https://morioh.com/p/b63d09a87c24" class="">Node.js 12 - The future of Server-side JavaScript
+            </a></h3> <div class="d-flex flex-row justify-content-between align-items-center flex-wrap"><div class="d-flex flex-row flex-wrap align-items-center"><div class="pr-10"><a href="https://morioh.com/@RobertEHilton/posts" class="avatar"><img src="127%20JavaScript%20Snippets%20_fichiers/a423dca487.png" alt="Robert E. Hilton" class="img-fluid"></a></div> <div class="d-flex flex-row align-items-center"><div class="d-flex flex-column"><a href="https://morioh.com/@RobertEHilton/posts" class="author-name">
+                    Robert E. Hilton</a> <div class="d-flex flex-row align-items-center"><a href="https://morioh.com/@RobertEHilton/posts" class="text-muted mr-5">
+                      @RobertEHilton ·</a> <span class="text-muted">3 months ago</span></div></div></div></div></div></div></div> <div class="col-lg-3 col-md-12"><a href="https://morioh.com/p/b63d09a87c24" class=""><img src="127%20JavaScript%20Snippets%20_fichiers/714a5896e9.png" alt="Node.js 12 - The future of Server-side JavaScript" class="w-full"></a></div></div> <div class="d-flex"><span class="flat-btn d-flex align-items-center"><span data-v-7f853594="" class="emoji-mart-emoji"><span data-v-7f853594="" style="display: inline-block; width: 20px; height: 20px; background-image: url(&quot;https://unpkg.com/emoji-datasource-emojione@4.0.4/img/emojione/sheets-256/64.png&quot;); background-size: 5200%; background-position: 27.451% 96.0784%;"></span></span> <span class="ml-5 font-weight-bold">22</span></span> <span class="flat-btn d-flex align-items-center"><span data-v-7f853594="" class="emoji-mart-emoji"><span data-v-7f853594="" style="display: inline-block; width: 20px; height: 20px; background-image: url(&quot;https://unpkg.com/emoji-datasource-emojione@4.0.4/img/emojione/sheets-256/64.png&quot;); background-size: 5200%; background-position: 49.0196% 45.098%;"></span></span> <span class="ml-5 font-weight-bold"></span></span> <span class="flat-btn d-flex align-items-center"><span data-v-7f853594="" class="emoji-mart-emoji"><span data-v-7f853594="" style="display: inline-block; width: 20px; height: 20px; background-image: url(&quot;https://unpkg.com/emoji-datasource-emojione@4.0.4/img/emojione/sheets-256/64.png&quot;); background-size: 5200%; background-position: 52.9412% 76.4706%;"></span></span> <span class="ml-5 font-weight-bold">3.47K</span></span></div></div><div class="post-item-box card-shadow pointer"><div class="row card-title"><div class="col-lg-9 col-md-12"><div><h3 class="post-item-title"><a href="https://morioh.com/p/4044a1d621b0" class="">Design patterns in Node.js: a practical guide
+            </a></h3> <div class="d-flex flex-row justify-content-between align-items-center flex-wrap"><div class="d-flex flex-row flex-wrap align-items-center"><div class="pr-10"><a href="https://morioh.com/@RobertEHilton/posts" class="avatar"><img src="127%20JavaScript%20Snippets%20_fichiers/a423dca487.png" alt="Robert E. Hilton" class="img-fluid"></a></div> <div class="d-flex flex-row align-items-center"><div class="d-flex flex-column"><a href="https://morioh.com/@RobertEHilton/posts" class="author-name">
+                    Robert E. Hilton</a> <div class="d-flex flex-row align-items-center"><a href="https://morioh.com/@RobertEHilton/posts" class="text-muted mr-5">
+                      @RobertEHilton ·</a> <span class="text-muted">2 months ago</span></div></div></div></div></div></div></div> <div class="col-lg-3 col-md-12"><a href="https://morioh.com/p/4044a1d621b0" class=""><img src="127%20JavaScript%20Snippets%20_fichiers/4fa9dcd8e3.png" alt="Design patterns in Node.js: a practical guide" class="w-full"></a></div></div> <div class="d-flex"><span class="flat-btn d-flex align-items-center"><span data-v-7f853594="" class="emoji-mart-emoji"><span data-v-7f853594="" style="display: inline-block; width: 20px; height: 20px; background-image: url(&quot;https://unpkg.com/emoji-datasource-emojione@4.0.4/img/emojione/sheets-256/64.png&quot;); background-size: 5200%; background-position: 27.451% 96.0784%;"></span></span> <span class="ml-5 font-weight-bold">19</span></span> <span class="flat-btn d-flex align-items-center"><span data-v-7f853594="" class="emoji-mart-emoji"><span data-v-7f853594="" style="display: inline-block; width: 20px; height: 20px; background-image: url(&quot;https://unpkg.com/emoji-datasource-emojione@4.0.4/img/emojione/sheets-256/64.png&quot;); background-size: 5200%; background-position: 49.0196% 45.098%;"></span></span> <span class="ml-5 font-weight-bold"></span></span> <span class="flat-btn d-flex align-items-center"><span data-v-7f853594="" class="emoji-mart-emoji"><span data-v-7f853594="" style="display: inline-block; width: 20px; height: 20px; background-image: url(&quot;https://unpkg.com/emoji-datasource-emojione@4.0.4/img/emojione/sheets-256/64.png&quot;); background-size: 5200%; background-position: 52.9412% 76.4706%;"></span></span> <span class="ml-5 font-weight-bold">4.13K</span></span></div></div><div class="post-item-box card-shadow pointer"><div class="row card-title"><div class="col-lg-9 col-md-12"><div><h3 class="post-item-title"><a href="https://morioh.com/p/67f404c48e79" class="">A Complete Guide to Become a Full Stack Web Developer in 2019
+            </a></h3> <div class="d-flex flex-row justify-content-between align-items-center flex-wrap"><div class="d-flex flex-row flex-wrap align-items-center"><div class="pr-10"><a href="https://morioh.com/@seanrobertson/posts" class="avatar"><img src="127%20JavaScript%20Snippets%20_fichiers/5dae60d3c9.png" alt="Sean Robertson" class="img-fluid"></a></div> <div class="d-flex flex-row align-items-center"><div class="d-flex flex-column"><a href="https://morioh.com/@seanrobertson/posts" class="author-name">
+                    Sean Robertson</a> <div class="d-flex flex-row align-items-center"><a href="https://morioh.com/@seanrobertson/posts" class="text-muted mr-5">
+                      @seanrobertson ·</a> <span class="text-muted">3 months ago</span></div></div></div></div></div></div></div> <div class="col-lg-3 col-md-12"><a href="https://morioh.com/p/67f404c48e79" class=""><img src="127%20JavaScript%20Snippets%20_fichiers/4af72c6b11.png" alt="A Complete Guide to Become a Full Stack Web Developer in 2019" class="w-full"></a></div></div> <div class="d-flex"><span class="flat-btn d-flex align-items-center"><span data-v-7f853594="" class="emoji-mart-emoji"><span data-v-7f853594="" style="display: inline-block; width: 20px; height: 20px; background-image: url(&quot;https://unpkg.com/emoji-datasource-emojione@4.0.4/img/emojione/sheets-256/64.png&quot;); background-size: 5200%; background-position: 27.451% 96.0784%;"></span></span> <span class="ml-5 font-weight-bold">12</span></span> <span class="flat-btn d-flex align-items-center"><span data-v-7f853594="" class="emoji-mart-emoji"><span data-v-7f853594="" style="display: inline-block; width: 20px; height: 20px; background-image: url(&quot;https://unpkg.com/emoji-datasource-emojione@4.0.4/img/emojione/sheets-256/64.png&quot;); background-size: 5200%; background-position: 49.0196% 45.098%;"></span></span> <span class="ml-5 font-weight-bold"></span></span> <span class="flat-btn d-flex align-items-center"><span data-v-7f853594="" class="emoji-mart-emoji"><span data-v-7f853594="" style="display: inline-block; width: 20px; height: 20px; background-image: url(&quot;https://unpkg.com/emoji-datasource-emojione@4.0.4/img/emojione/sheets-256/64.png&quot;); background-size: 5200%; background-position: 52.9412% 76.4706%;"></span></span> <span class="ml-5 font-weight-bold">2.04K</span></span></div></div><div class="post-item-box card-shadow pointer"><div class="row card-title"><div class="col-lg-9 col-md-12"><div><h3 class="post-item-title"><a href="https://morioh.com/p/edd47d59de1b" class="">Tutorial Laravel 6 with Docker and Docker-Compose
+            </a></h3> <div class="d-flex flex-row justify-content-between align-items-center flex-wrap"><div class="d-flex flex-row flex-wrap align-items-center"><div class="pr-10"><a href="https://morioh.com/@MichaelBryan/posts" class="avatar"><img src="127%20JavaScript%20Snippets%20_fichiers/eb9993e51a.png" alt="Michael Bryan" class="img-fluid"></a></div> <div class="d-flex flex-row align-items-center"><div class="d-flex flex-column"><a href="https://morioh.com/@MichaelBryan/posts" class="author-name">
+                    Michael Bryan</a> <div class="d-flex flex-row align-items-center"><a href="https://morioh.com/@MichaelBryan/posts" class="text-muted mr-5">
+                      @MichaelBryan ·</a> <span class="text-muted">a month ago</span></div></div></div></div></div></div></div> <div class="col-lg-3 col-md-12"><a href="https://morioh.com/p/edd47d59de1b" class=""><img src="127%20JavaScript%20Snippets%20_fichiers/eecf46cc73.png" alt="Tutorial Laravel 6 with Docker and Docker-Compose" class="w-full"></a></div></div> <div class="d-flex"><span class="flat-btn d-flex align-items-center"><span data-v-7f853594="" class="emoji-mart-emoji"><span data-v-7f853594="" style="display: inline-block; width: 20px; height: 20px; background-image: url(&quot;https://unpkg.com/emoji-datasource-emojione@4.0.4/img/emojione/sheets-256/64.png&quot;); background-size: 5200%; background-position: 27.451% 96.0784%;"></span></span> <span class="ml-5 font-weight-bold">11</span></span> <span class="flat-btn d-flex align-items-center"><span data-v-7f853594="" class="emoji-mart-emoji"><span data-v-7f853594="" style="display: inline-block; width: 20px; height: 20px; background-image: url(&quot;https://unpkg.com/emoji-datasource-emojione@4.0.4/img/emojione/sheets-256/64.png&quot;); background-size: 5200%; background-position: 49.0196% 45.098%;"></span></span> <span class="ml-5 font-weight-bold"></span></span> <span class="flat-btn d-flex align-items-center"><span data-v-7f853594="" class="emoji-mart-emoji"><span data-v-7f853594="" style="display: inline-block; width: 20px; height: 20px; background-image: url(&quot;https://unpkg.com/emoji-datasource-emojione@4.0.4/img/emojione/sheets-256/64.png&quot;); background-size: 5200%; background-position: 52.9412% 76.4706%;"></span></span> <span class="ml-5 font-weight-bold">2.90K</span></span></div></div></div></div> <div class="col-lg-3 col-sm-12"><div><div><div class="card"><div id="carouselExampleIndicators" class="carousel slide"><ol class="carousel-indicators"></ol> <div class="carousel-inner"></div> <a href="#carouselExampleIndicators" role="button" data-slide="prev" class="carousel-control-prev"><span aria-hidden="true" class="carousel-control-prev-icon"></span> <span class="sr-only">Previous</span></a> <a href="#carouselExampleIndicators" role="button" data-slide="next" class="carousel-control-next"><span aria-hidden="true" class="carousel-control-next-icon"></span> <span class="sr-only">Next</span></a></div></div></div> <div><div class="card"><a href="http://vrl.to/08aad97a7c" target="_blank" class="card-header card-shadow cover overlay-hover overlay"><img src="127%20JavaScript%20Snippets%20_fichiers/1708340_7108_3.jpg" alt="The Modern JavaScript Bootcamp (2019)" class="img-fluid cover-image overlay-figure overlay-scale"></a></div></div> <div class="pt-15"><h2>
+      Popular on Morioh
+    </h2> <hr></div> <div><div class="card card-shadow"><a href="https://morioh.com/p/dfe13d22926d" class="card-header cover overlay-hover overlay"><img src="127%20JavaScript%20Snippets%20_fichiers/ea87bba8db.png" alt="Design patterns in Node.js for Developers" class="cover-image overlay-figure overlay-scale"></a> <div class="card-block"><a href="https://morioh.com/p/dfe13d22926d" class="card-title h3 post-title-card">Design patterns in Node.js for Developers
+        </a></div></div></div><div><div class="card card-shadow"><a href="https://morioh.com/p/1a4840de9f16" class="card-header cover overlay-hover overlay"><img src="127%20JavaScript%20Snippets%20_fichiers/56020131a0.png" alt="Build scalable architecture with Node.js" class="cover-image overlay-figure overlay-scale"></a> <div class="card-block"><a href="https://morioh.com/p/1a4840de9f16" class="card-title h3 post-title-card">Build scalable architecture with Node.js
+        </a></div></div></div><div><div class="card card-shadow"><a href="https://morioh.com/p/a76bc7d72226" class="card-header cover overlay-hover overlay router-link-exact-active router-link-active"><img src="127%20JavaScript%20Snippets%20_fichiers/beb731fa69.png" alt="127 Useful JavaScript Snippets You can understand in 30 seconds" class="cover-image overlay-figure overlay-scale"></a> <div class="card-block"><a href="https://morioh.com/p/a76bc7d72226" class="card-title h3 post-title-card router-link-exact-active router-link-active">127 Useful JavaScript Snippets You can understand in 30 seconds
+        </a></div></div></div><div><div class="card card-shadow"><a href="https://morioh.com/p/82dd1f016491" class="card-header cover overlay-hover overlay"><img src="127%20JavaScript%20Snippets%20_fichiers/a2221fb8ac.png" alt="Tutorials &amp; examples of server side paging with Angular 8 + Node" class="cover-image overlay-figure overlay-scale"></a> <div class="card-block"><a href="https://morioh.com/p/82dd1f016491" class="card-title h3 post-title-card">Tutorials &amp; examples of server side paging with Angular 8 + Node
+        </a></div></div></div><div><div class="card card-shadow"><a href="https://morioh.com/p/807c3e513d57" class="card-header cover overlay-hover overlay"><img src="127%20JavaScript%20Snippets%20_fichiers/1b9abfe88e.png" alt="Top 5 Programming Languages For Jobs and Future" class="cover-image overlay-figure overlay-scale"></a> <div class="card-block"><a href="https://morioh.com/p/807c3e513d57" class="card-title h3 post-title-card">Top 5 Programming Languages For Jobs and Future
+        </a></div></div></div><div><div class="card card-shadow"><a href="https://morioh.com/p/dd7fb9576b84" class="card-header cover overlay-hover overlay"><img src="127%20JavaScript%20Snippets%20_fichiers/e7462a9a82.png" alt="Python vs Node.js: What's the Difference?" class="cover-image overlay-figure overlay-scale"></a> <div class="card-block"><a href="https://morioh.com/p/dd7fb9576b84" class="card-title h3 post-title-card">Python vs Node.js: What's the Difference?
+        </a></div></div></div><div><div class="card card-shadow"><a href="https://morioh.com/p/8721184a41ea" class="card-header cover overlay-hover overlay"><img src="127%20JavaScript%20Snippets%20_fichiers/02e1699e8f.png" alt="Top 5 mistakes that Node.js developers avoid making" class="cover-image overlay-figure overlay-scale"></a> <div class="card-block"><a href="https://morioh.com/p/8721184a41ea" class="card-title h3 post-title-card">Top 5 mistakes that Node.js developers avoid making
+        </a></div></div></div><div><div class="card card-shadow"><a href="https://morioh.com/p/5e6139539e22" class="card-header cover overlay-hover overlay"><img src="127%20JavaScript%20Snippets%20_fichiers/f418fe5bc7.png" alt="The most Common Mistakes that React Developers Make
+" class="cover-image overlay-figure overlay-scale"></a> <div class="card-block"><a href="https://morioh.com/p/5e6139539e22" class="card-title h3 post-title-card">The most Common Mistakes that React Developers Make
+
+        </a></div></div></div><div><div class="card card-shadow"><a href="https://morioh.com/p/c8d9d12ec65b" class="card-header cover overlay-hover overlay"><img src="127%20JavaScript%20Snippets%20_fichiers/e329d4ff7e.png" alt="Top 10 VS Code Extensions You should know in 2020" class="cover-image overlay-figure overlay-scale"></a> <div class="card-block"><a href="https://morioh.com/p/c8d9d12ec65b" class="card-title h3 post-title-card">Top 10 VS Code Extensions You should know in 2020
+        </a></div></div></div><div><div class="card card-shadow"><a href="https://morioh.com/p/8b0bb188a817" class="card-header cover overlay-hover overlay"><img src="127%20JavaScript%20Snippets%20_fichiers/cadf310ce6.png" alt="PM2 tutorial for Node.js developers" class="cover-image overlay-figure overlay-scale"></a> <div class="card-block"><a href="https://morioh.com/p/8b0bb188a817" class="card-title h3 post-title-card">PM2 tutorial for Node.js developers
+        </a></div></div></div></div></div></div></div></div> <div id="like-member-tab" tabindex="-1" role="dialog" aria-hidden="true" class="modal fade"><div class="modal-dialog modal-article modal-lg modal-simple"><div class="modal-content"><div class="modal-header"><button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button> <ul role="tablist" class="nav nav-tabs nav-tabs-line font-weight-bold w-full"><li role="presentation" class="nav-item"><a data-toggle="tab" aria-controls="ask-question" role="tab" class="nav-link active">Voters</a></li></ul></div> <div class="modal-body card-dark"><div class="row pb-20"></div></div></div></div></div> <div id="member-invite-friend" tabindex="-1" role="dialog" aria-hidden="true" class="modal fade"><div class="modal-dialog modal-article modal-simple"><div class="modal-content"><div class="modal-header"><button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button> <ul role="tablist" class="nav nav-tabs nav-tabs-line font-weight-bold w-full"><li role="presentation" class="nav-item"><a data-toggle="tab" aria-controls="invite-mail" role="tab" class="nav-link active">Invite your friends via email</a></li> <li role="presentation" class="nav-item"><a data-toggle="tab" aria-controls="invite-community" role="tab" class="nav-link">Invite the community</a></li></ul></div> <div class="modal-body"><form class="card mb-10"><div tabindex="-1" class="multiselect"><div class="multiselect__select"></div>  <div class="multiselect__tags"><div class="multiselect__tags-wrap" style="display: none;"></div> <!----> <div class="multiselect__spinner" style="display: none;"></div> <input name="" type="text" autocomplete="off" placeholder="Add new email" tabindex="0" class="multiselect__input" style="width: 0px; position: absolute; padding: 0px; background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;"> <!----> <span class="multiselect__placeholder">
+            Add new email
+        </span></div> <div tabindex="-1" class="multiselect__content-wrapper" style="max-height: 300px; display: none;"><ul class="multiselect__content" style="display: block;"> <!---->  <li style="display: none;"><span class="multiselect__option">No elements found. Consider changing the search query.</span></li> <li><span class="multiselect__option">List is empty.</span></li> </ul></div></div> <div class="card-border card-block email-invite-box" style="height: 300px;"></div></form></div> <div class="modal-footer"><button type="button" class="btn btn-primary">Invite</button></div></div></div></div> <div id="post-report-form" tabindex="-1" role="dialog" aria-hidden="true" class="modal modal-danger fade"><div class="modal-dialog modal-center modal-simple"><div class="modal-content"><div class="modal-header"><button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button> <h4 class="modal-title"><span class="text-center">REPORT</span></h4></div> <form autocomplete="off" method="post"><div class="modal-body"><div role="alert"><h4 class="alert-heading">We're sorry something's wrong. How can we help?</h4> <hr> <div class="radio-custom radio-primary"><input type="radio" id="rule1" name="rule" value="1" checked="checked"> <label for="rule1">It's not interested in this Member</label></div> <div class="radio-custom radio-primary"><input type="radio" id="rule2" name="rule" value="2"> <label for="rule2">It's suspicious or spam</label></div> <div class="radio-custom radio-primary"><input type="radio" id="rule3" name="rule" value="3"> <label for="rule3">It's displays a sensitive image</label></div> <div class="radio-custom radio-primary"><input type="radio" id="rule4" name="rule" value="4"> <label for="rule4">It's abusive or harmful</label></div> <div class="radio-custom radio-primary"><input type="radio" id="rule5" name="rule" value="0"> <label for="rule5">Other</label></div> <div class="form-group"><label for="Other">Description</label> <textarea style="resize: none; overflow: hidden; height: 70px;" name="txt" placeholder="" rows="2" class="form-control"></textarea></div> <!----></div></div> <div class="modal-footer"><button type="button" data-dismiss="modal" class="btn btn-pure waves-effect waves-classic">Close</button> <button type="submit" class="btn btn-primary waves-effect waves-classic">Submit</button></div></form></div></div></div> <!----> <div id="x-modal" aria-hidden="true" aria-labelledby="examplePositionCenter" role="dialog" tabindex="-1" class="modal fade"><div class="modal-dialog modal-simple modal-center"><div class="modal-content"><div class="modal-header"><button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button> <h4 class="modal-title">Developer's T-shirt</h4></div> <div class="modal-body"><p><a href="https://moteefe.com/store/developer" target="_blank"><img src="127%20JavaScript%20Snippets%20_fichiers/ZoEgLPE.jpg" alt="Developer's Store" class="img-fluid"></a></p></div></div></div></div></div> <!----></div><script type="text/javascript" id="www-widgetapi-script" src="127%20JavaScript%20Snippets%20_fichiers/www-widgetapi.js" async=""></script><script type="text/javascript" async="" src="127%20JavaScript%20Snippets%20_fichiers/analytics.js"></script><script src="127%20JavaScript%20Snippets%20_fichiers/player_api"></script><script async="" src="127%20JavaScript%20Snippets%20_fichiers/js"></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-79522623-9');</script><script type="text/javascript" src="127%20JavaScript%20Snippets%20_fichiers/jquery.js"></script><script type="text/javascript" src="127%20JavaScript%20Snippets%20_fichiers/popper.js"></script><script type="text/javascript" src="127%20JavaScript%20Snippets%20_fichiers/bootstrap.js"></script><script type="text/javascript" src="127%20JavaScript%20Snippets%20_fichiers/vue.js"></script><script type="text/javascript" src="127%20JavaScript%20Snippets%20_fichiers/vue-router.js"></script><script type="text/javascript" src="127%20JavaScript%20Snippets%20_fichiers/vuex.js"></script><script type="text/javascript" src="127%20JavaScript%20Snippets%20_fichiers/axios.js"></script><script type="text/javascript" src="127%20JavaScript%20Snippets%20_fichiers/lodash.js"></script><script type="text/javascript" src="127%20JavaScript%20Snippets%20_fichiers/moment.js"></script><script type="text/javascript" src="127%20JavaScript%20Snippets%20_fichiers/app.js"></script><div id="simple-translate"><div><div style="background-image: url(&quot;moz-extension://af5046e8-c98e-c746-84a6-ef262924721a/icons/512.png&quot;); height: 22px; width: 22px; top: 10px; left: 10px;" class="simple-translate-button "></div><div class="simple-translate-panel " style="width: 300px; height: 200px; top: 0px; left: 0px; font-size: 13px; background-color: rgb(255, 255, 255);"><div class="simple-translate-result-wrapper" style="overflow: hidden;"><p class="simple-translate-result" style="color: rgb(0, 0, 0);"></p><p class="simple-translate-candidate" style="color: rgb(115, 115, 115);"></p></div></div></div></div></body></html>

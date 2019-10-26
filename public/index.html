@@ -1,0 +1,92 @@
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta
+    name="description"
+    content="Web site created using create-react-app"
+  />
+  <link rel="apple-touch-icon" href="logo192.png" />
+  <!--
+    manifest.json provides metadata used when your web app is installed on a
+    user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+  -->
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+  
+  <title>myWebApp</title>
+
+  
+</head>
+
+<body>
+  <div id="root"></div>
+
+
+  <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">WebSiteName</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/">Home</a></li>
+          <!-- <% if (user) {%>
+            <% if (user.role === 'member') {%> -->
+              <li><a href="/member">Member</a></li>
+            <!-- <%} else if (user.role === 'author') {%> -->
+              <li><a href="/author">Author</a></li>
+            <!-- <%}%> -->
+            <li><a href="/auth/logout">Logout</a></li>
+          <!-- <%} else {%> -->
+            <li><a href="/auth/signup">Signup</a></li>
+            <li><a href="/auth/login">Login</a></li>
+          <!-- <%}%> -->
+        </ul>
+      </div>
+    </nav>
+
+<div  class="container">
+
+<h1>New post : </h1>
+  <form action="/api/posts/"  method="POST">
+
+<div class="row">
+  <div class="col-sm-4">
+      <div class="form-group">
+          <label for=""class=" col-form-label">Title : </label>
+          <input type="text" class="form-control" name="title" id="title" aria-describedby="helpId" placeholder="">
+        </div>
+
+<div class="form-group">
+  <label for="">Content : </label>
+  <textarea class="form-control" name="content" id="content" rows="3"></textarea>
+</div>
+
+  </div>
+
+  <div class="col-sm-4">
+    
+      <!-- <div class="form-group">
+          <label for=""class=" col-form-label">Prénom</label>
+          <input type="text" class="form-control" name="prenom" id="" aria-describedby="helpId" placeholder="">
+        </div> -->
+  </div>
+</div>
+    <div class="form-group row">
+      <div class="offset-sm-2 col-sm-10">
+        <button type="submit" class="btn btn-primary">Send</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+
+
+
+</body>
+
+</html>

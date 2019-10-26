@@ -1,0 +1,36 @@
+
+
+// Navbar
+$dropdown :true;
+
+//Input border radius
+// To make a change of a mixin, you need to redifine some variables of this mixin.
+ $radius:1px;
+ $input-focus-color:$secondary-color ;
+ $input-focus-bg: $secondary-color-dark;
+ $input-focus-border-color : $primary-color-light;
+ $input-focus-box-shadow: 0px 0px 8px $primary-color-light;
+ $input-placeholder-color : $primary-color-light ;
+
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+
+$enable-caret:                                true !default;
+$enable-rounded:                              true !default;
+$enable-shadows:                              false !default;
+$enable-gradients:                            true !default;
+$enable-transitions:                          true !default;
+$enable-prefers-reduced-motion-media-query:   true !default;
+$enable-hover-media-query:                    false !default; // Deprecated, no longer affects any compiled CSS
+$enable-grid-classes:                         true !default;
+$enable-pointer-cursor-for-buttons:           true !default;
+$enable-print-styles:                         true !default;
+$enable-responsive-font-sizes:                true !default;
+$enable-validation-icons:                     true !default;
+$enable-deprecation-messages:                 true !default;
+
+
+
+
+
