@@ -44,6 +44,10 @@ return (
     {item.content}
     </td>
     <td>
+	<button name="button_modification_name" id="button_modification_id" className="btn btn-warning">+</button> 
+        <button name="button_suppression_name" id="button_suppression_id" className="btn btn-danger" >x</button> 
+
+
     {/* <Link to={`/${item.id}`}> <button name="button_modification_name" id="button_modification_id" className="btn btn-warning">+</button> </Link>
     <Link to={`/${item.id}`}>  <button name="button_modification_name" id="button_modification_id" className="btn btn-danger" >x</button> </Link> */}
 
