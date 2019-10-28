@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom';
+import axios from 'axios'
+
 // import {BrowserRouter} from 'react-router-dom';
 //mport Contact from './pages/contact'
 
@@ -10,14 +12,15 @@ import  Navbar from "./components/Navbar";
 
 export default class Index extends Component {
 state = {
-  postsAPI : [
-    {_id:1,"title":"title1","content":"content1"},
-    {_id:2,"title":"title2","content":"content2"},
-    {_id:3,"title":"title3","content":"content3"},
-    {_id:4,"title":"title4","content":"content4"},
-    {_id:5,"title":"title5","content":"content5"},
-    {_id:6,"title":"title6","content":"content6"},
-    ],
+  // postsAPI : [
+  //   {_id:1,"title":"title1","content":"content1"},
+  //   {_id:2,"title":"title2","content":"content2"},
+  //   {_id:3,"title":"title3","content":"content3"},
+  //   {_id:4,"title":"title4","content":"content4"},
+  //   {_id:5,"title":"title5","content":"content5"},
+  //   {_id:6,"title":"title6","content":"content6"},
+  //   ],
+  postsAPI : [],
   postsFiltred:[]
 }
  
@@ -45,6 +48,17 @@ handleRemoveClick  = (idItem) => {
   })
 }
 
+UNSAFE_componentWillMount() {
+ 
+axios.get('http://jsonplaceholder.typicode.com/users')
+  .then((response) => {
+    this.setState({ postsAPI: response.data })
+  }).catch(error => {
+    console.log(error);
+  });
+ // .catch(console.log)
+ 
+}
 
 
 

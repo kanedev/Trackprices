@@ -33,7 +33,7 @@ const posts = ({data,removeItemClick}) => {
 data.map((item,i) => {
     
 return (
-    <tr key={item._id}>
+    <tr id={item._id} key={i}>
     <td>
         {i+1} : {item._id}
     </td>
