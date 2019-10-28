@@ -1,7 +1,7 @@
 import React from 'react'
 // import {Link} from 'react-router-dom'
 
-const posts = ({data}) => {
+const posts = ({data,removeItemClick}) => {
     return (
 <div className="container-fluid">
 	<div className="row">
@@ -33,9 +33,9 @@ const posts = ({data}) => {
 data.map((item,i) => {
     
 return (
-    <tr key={i}>
+    <tr key={item._id}>
     <td>
-        {i+1}
+        {i+1} : {item._id}
     </td>
     <td>
         {item.title}
@@ -44,8 +44,10 @@ return (
     {item.content}
     </td>
     <td>
-	<button name="button_modification_name" id="button_modification_id" className="btn btn-warning">+</button> 
-        <button name="button_suppression_name" id="button_suppression_id" className="btn btn-danger" >x</button> 
+	<button name="button_modification_name" id={`button_edit_id_${item._id}`} className="btn btn-warning" >+</button> 
+    
+	<button name="button_suppression_name" id={`button_remove_id_${item._id}`} className="btn btn-danger"  onClick={() => {removeItemClick(i)}} >x</button> 
+
 
 
     {/* <Link to={`/${item.id}`}> <button name="button_modification_name" id="button_modification_id" className="btn btn-warning">+</button> </Link>
