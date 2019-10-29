@@ -48,13 +48,18 @@ handleRemoveClick  = (idItem) => {
   })
 }
 
+// It works
 UNSAFE_componentWillMount() {
  
-axios.get('http://jsonplaceholder.typicode.com/users')
+axios.get('http://localhost:5000/api/posts',{
+  headers: {
+      'Content-Type': 'application/json; charset=utf-8'
+  }
+})
   .then((response) => {
     this.setState({ postsAPI: response.data })
   }).catch(error => {
-    console.log(error);
+    console.log("there is an error : "+error);
   });
  // .catch(console.log)
  

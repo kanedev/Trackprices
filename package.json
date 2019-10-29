@@ -77,11 +77,12 @@
   },
   "scripts": {
     "test": "bundlesize",
-    "resize": "node ./src/js/resizeimrerergfgg.js",
+    "resize": "node ./src/js/resizeimg.js",
     "build": "NODE_ENV=production ./node_modules/.bin/webpack --progress",
     "watch": "./node_modules/.bin/webpack --watch",
     "client": "NODE_ENV=development  ./node_modules/.bin/webpack-dev-server -d --progress --colors --inline",
     "server": "nodemon src/server/server.js",
+    "srv": "node src/server/server.js",
     "start": "npm run build && node src/server/index.js",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
