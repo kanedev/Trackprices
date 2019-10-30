@@ -8,10 +8,18 @@ const NewPost = () => {
   <div class="form-group">
           <label for=""class=" col-form-label">Site: </label>
           <input type="text" class="form-control" name="title" id="title" aria-describedby="helpId" placeholder=""/>
+  </div>
+
+  <div class="form-group p-3">
   <label for="">URL : </label>
   <input class="form-control" name="content" id="content"/>
-  <button type="submit" class="btn btn-primary">Send</button>
   </div>
+  <div class="form-group">
+  <button type="submit" class="btn btn-primary">Track</button>
+  </div>
+
+
+
 
   </form>
     </div>
