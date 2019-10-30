@@ -49,6 +49,7 @@ const config = {
 
 
   devServer: {
+    historyApiFallback: true,
     watchOptions: {
       poll: true
   },
@@ -58,7 +59,8 @@ const config = {
     // host: '0.0.0.0',
     port: 5000,
     proxy: {
-      "*": 'http://localhost:4000',
+      "/auth": 'http://localhost:4000',
+      "/api": 'http://localhost:4000',
       //"secure": false,
       //"changeOrigin": true
       //'/contact': 'http://localhost:4000',

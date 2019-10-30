@@ -26,15 +26,11 @@ router.post('/', function(req, res, next) {
             res.json({error: err})
             return;
         }
-     //   console.log(post.title + " saved to posts collection."); 
-    //    res.json(data)
+       console.log(post.title + " saved to posts collection."); 
+        res.json(data)
     })
     res.send('Adding your new post ...')
 })
-
-
-
-
 
 
 
