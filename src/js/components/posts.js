@@ -3,39 +3,45 @@ import React from 'react'
 
 const posts = ({data,removeItemClick}) => {
     return (
-<div className="container-fluid">
-	<div className="row">
-		<div className="col-md-12">
-			<table className="table table-hover">
+ 
+ 
+		<div class="table-responsive">
+		<table className="table" >
 				<thead>
 					<tr>
-						<th>
-							#
+						<th scope="col">
+							Number
 						</th>
-						<th>
+						<th scope="col">
+							Date
+						</th>
+						<th scope="col">
 							Title
 						</th>
-						<th>
+						<th scope="col">
 							Content
 						</th>
-						<th>
+						<th scope="col">
 							Manage
 						</th>
 					</tr>
 
 
 				</thead>
+
+
+
 				<tbody>
-
-
-{
-
-data.map((item,i) => {
+{data.map((item,i) => {
     
 return (
     <tr id={item._id} key={i}>
-    <td>
-        {i+1} : {item._id}
+    <th scope="row">
+		{i+1}
+		{/* {i+1} : {item._id} */}
+    </th>
+	<td>
+        {item.publishDate}
     </td>
     <td>
         {item.title}
@@ -49,10 +55,6 @@ return (
 	<button name="button_suppression_name" id={`button_remove_id_${item._id}`} className="btn btn-danger"  onClick={() => {removeItemClick(i)}} >x</button> 
 
 
-
-    {/* <Link to={`/${item.id}`}> <button name="button_modification_name" id="button_modification_id" className="btn btn-warning">+</button> </Link>
-    <Link to={`/${item.id}`}>  <button name="button_modification_name" id="button_modification_id" className="btn btn-danger" >x</button> </Link> */}
-
     </td>
 </tr>
 )
@@ -60,20 +62,12 @@ return (
 })
 
  }
-
-
-
-
-
-
-
-
-	
-				</tbody>
+</tbody>
 			</table>
-		</div>
-	</div>
-</div>
+			</div>	
+ 
+ 
+
     )
 }
 

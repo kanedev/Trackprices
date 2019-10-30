@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <a className="navbar-brand" href="#">PricesTracker</a>
+      <Link to="/" className="nav-link">PricesTracker</Link>
         <button className="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
             aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
@@ -21,27 +21,35 @@ const Navbar = () => {
             <li className="nav-item">
             <Link to="/contact" className="nav-link">Contact</Link>
             </li>
+            
 
 
-            <li className="nav-item"><Link className="nav-link"  href="/member">Member</Link></li>
+
+            <li className="nav-item"><Link className="nav-link"  to="/member">Member</Link></li>
               {/* <%} else if (user.role === 'author') {%>   */}
               <li className="nav-item"><Link  className="nav-link" to="/author">Author</Link></li>
               {/* <%}%>   */}
-            <li className="nav-item"><Link  className="nav-link" to="/auth/logout">Logout</Link></li>
-            {/* <%} else {%>   */}
-            <li className="nav-item"><Link  className="nav-link" to="/auth/signup">Signup</Link></li>
-            <li className="nav-item"><Link  className="nav-link" to="/auth/login">Login</Link></li>
+
 
 
 
           </ul>
           
-      <div >
-      hello
-      </div>
- 
-
         </div>
+      
+        <div>
+
+        <ul className="list-inline">
+         <li className="list-inline-item">  <Link  className="nav-link" to="/auth/logout">Logout</Link> </li>
+         <li className="list-inline-item"><Link  className="nav-link" to="/auth/signup">Signup</Link> </li>
+         <li className="list-inline-item"><Link  className="nav-link" to="/auth/login">Login</Link> </li>
+    </ul>  
+
+            
+     
+</div>
+      
+      
       </nav>
     </div>
   )

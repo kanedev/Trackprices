@@ -27,9 +27,16 @@ router.post('/', function(req, res, next) {
             return;
         }
        console.log(post.title + " saved to posts collection."); 
-        res.json(data)
+       // res.json(data)
     })
-    res.send('Adding your new post ...')
+  // res.send('Adding your new post ...')
+   res.redirect('/');
+//    res.status(200).json({
+//     success:true,
+//     redirectUrl: '/'
+// })
+
+
 })
 
 
@@ -115,9 +122,9 @@ router.get('/', function(req, res, next) {
             return;
         }
      //   res.json(data)
-    })
+    })  .sort({publishDate : -1 })
         .skip(offset)
-        .limit(limit)
+        .limit(limit)  
         .then((data) => {
         res.json(data)
     })

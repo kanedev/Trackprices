@@ -6,8 +6,9 @@ import axios from 'axios'
 //mport Contact from './pages/contact'
 
 import  Posts from "./posts";
-import  Navbar from "./Navbar";
+//import  Navbar from "./Navbar";
 import  Search from "./Search";
+import  NewPost from "./NewPost";
 
 
 
@@ -71,11 +72,18 @@ axios.get('http://localhost:5000/api/posts',{
   render() {
     return (
       <div>
-         
- 
-          
-         
-       <Search inputChange={this.handleInputChange} />
+        
+       
+<div class="row">
+<div class="col-md-8">
+<NewPost/>
+  </div>
+  <div class="col-md-4">
+  <Search inputChange={this.handleInputChange} />
+</div>
+</div>
+
+
 
        <Posts removeItemClick={this.handleRemoveClick} data={this.state.postsFiltred.length>0 ? this.state.postsFiltred :  this.state.postsAPI} />
       </div> )
