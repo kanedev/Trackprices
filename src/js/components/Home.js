@@ -7,6 +7,7 @@ import axios from 'axios'
 
 import  Posts from "./posts";
 import  Navbar from "./Navbar";
+import  Search from "./Search";
 
 
 
@@ -70,7 +71,12 @@ axios.get('http://localhost:5000/api/posts',{
   render() {
     return (
       <div>
-       <Navbar inputSearchChange={this.handleInputChange} />
+         
+ 
+          
+         
+       <Search inputChange={this.handleInputChange} />
+
        <Posts removeItemClick={this.handleRemoveClick} data={this.state.postsFiltred.length>0 ? this.state.postsFiltred :  this.state.postsAPI} />
       </div> )
   }

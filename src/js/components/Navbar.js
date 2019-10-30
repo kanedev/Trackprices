@@ -1,7 +1,7 @@
 import React from 'react'
-import  Search from "./Search";
+import {Link} from 'react-router-dom';
 
-const Navbar = ({inputSearchChange}) => {
+const Navbar = () => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -13,14 +13,34 @@ const Navbar = ({inputSearchChange}) => {
         <div className="collapse navbar-collapse" id="collapsibleNavId">
           <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
             <li className="nav-item active">
-              <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+              <Link to="/" className="nav-link">Home <span className="sr-only">(current)</span></Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Add a url</a>
+            <Link to="/about" className="nav-link">About</Link>
+            </li>
+            <li className="nav-item">
+            <Link to="/contact" className="nav-link">Contact</Link>
             </li>
 
+
+            <li className="nav-item"><Link className="nav-link"  href="/member">Member</Link></li>
+              {/* <%} else if (user.role === 'author') {%>   */}
+              <li className="nav-item"><Link  className="nav-link" to="/author">Author</Link></li>
+              {/* <%}%>   */}
+            <li className="nav-item"><Link  className="nav-link" to="/auth/logout">Logout</Link></li>
+            {/* <%} else {%>   */}
+            <li className="nav-item"><Link  className="nav-link" to="/auth/signup">Signup</Link></li>
+            <li className="nav-item"><Link  className="nav-link" to="/auth/login">Login</Link></li>
+
+
+
           </ul>
-<Search inputChange={inputSearchChange} />
+          
+      <div >
+      hello
+      </div>
+ 
+
         </div>
       </nav>
     </div>

@@ -2,15 +2,16 @@ import React from 'react'
 import ReactDOM from 'react-dom';
 import {BrowserRouter} from 'react-router-dom';
 import Routes from './routes/routes'
-
+import Navbar from './components/Navbar';
 
 
 const Index = () => {
   return (
-    <div className="container" >
-      <BrowserRouter>
-      <Routes/>
-      </BrowserRouter>  
+    <div>
+    <BrowserRouter>
+    <Navbar />
+    <Routes/>
+    </BrowserRouter>  
     </div>
   )
 }
