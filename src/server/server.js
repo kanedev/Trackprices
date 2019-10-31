@@ -40,6 +40,9 @@ mongoose.connection.once('disconnected', () => {
   console.log("Database disconnected ")
 })
 
+mongoose.set('useFindAndModify', false);
+
+
 // If Node's process ends, close the MongoDB connection
 process.on('SIGINT',() => {
   mongoose.connection.close(() => {
@@ -56,6 +59,8 @@ process.on('SIGINT',() => {
 app.use(logger('dev'));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
+//app.use(bodyParser.methodOverride())
+
 
 app.use(session({
   name: 'sessionId',

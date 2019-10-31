@@ -37,15 +37,12 @@ export default class EditPost extends Component {
       }); 
   }
 
-
-
   inputChangeHandler = (e)=>{
     let formFields = {...this.state.formFields};
     formFields[e.target.name] = e.target.value;
     this.setState({
      formFields
     });
-    
    }
  
    formHandler = (e) => {
@@ -53,7 +50,7 @@ export default class EditPost extends Component {
     console.log('ici, formhandler ');
       axios.put(params.urlSite+'api/posts/'+this.props.match.params.id,this.state.formFields,{
         headers: {
-         
+    
         }
       })
         .then((response) => {

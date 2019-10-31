@@ -69,12 +69,14 @@ router.put('/:postId', function(req, res, next) {
             res.json({error: err})
             return;
         }
-     //  res.json(data)
+       res.json({data, message: 'Successfully updated'})
     // res.redirect('/');
     })
+ 
+   //res.redirect('http://localhost:5000');
+   //res.send('Update the book');
 
-   res.redirect('http://localhost:5000');
-
+  // res.redirect(req.baseUrl + '/');
 })
 
 // DELETE /api/posts/1428 : Delete a post
