@@ -61,7 +61,7 @@ router.put('/:postId', function(req, res, next) {
     // Database Operation: modify an existing post
     let id = req.params.postId
     Post.findByIdAndUpdate(id, {
-        title:   'coucou',
+        title:   req.body.title,
         content: req.body.content
     }, function(err, data) {
         if (err || !data) {
@@ -69,28 +69,12 @@ router.put('/:postId', function(req, res, next) {
             res.json({error: err})
             return;
         }
-       // res.json(data)
-        res.redirect('/');
+     //  res.json(data)
+    // res.redirect('/');
     })
-    // OR ====================================
-    // Post.findById(id, function(err, post) {
-    //     if (err || !post) {
-    //         console.log("ERROR:", err)
-    //         res.json({error: err})
-    //         return;
-    //     }
-        
-    //     post.title = req.body.title
-    //     post.content = req.body.content
-    //     post.save(function(err, data) {
-    //         if (err || !post) {
-    //             console.log("ERROR:", err)
-    //             res.json({error: err})
-    //             return;
-    //         }
-    //         res.json(post)
-    //     })
-    // })
+
+   res.redirect('http://localhost:5000');
+
 })
 
 // DELETE /api/posts/1428 : Delete a post
