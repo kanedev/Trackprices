@@ -23,6 +23,7 @@ state = {
   //   {_id:5,"title":"title5","content":"content5"},
   //   {_id:6,"title":"title6","content":"content6"},
   //   ],
+
   postsAPI : [],
   postsFiltred:[]
 }
@@ -39,7 +40,7 @@ state = {
     })
   }
 
-
+ 
  
 handleRemoveClick  = (idItem) => {
  // console.log('item clicked : '+idItem);
@@ -79,7 +80,8 @@ handleRemoveClick  = (idItem) => {
 }
 
 // It works
-UNSAFE_componentWillMount() {
+//UNSAFE_componentWillMount()
+componentDidMount() {
  
 axios.get(params.urlSite+'api/posts',{
   headers: {

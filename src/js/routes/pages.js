@@ -16,7 +16,7 @@ app.use(express.static(DIST_DIR))
 // Static Pages ================================================================
 router.get('/', function(req, res, next) {
    // res.render('index')
-   res.sendFile(HTML_FILE )
+   //res.sendFile(HTML_FILE )
 })
 
 router.get('/member', function(req, res, next) {

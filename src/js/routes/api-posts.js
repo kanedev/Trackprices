@@ -2,7 +2,7 @@ const router = require('express').Router()
 // Models
  const Post = require('../models/post')
  const User = require('../models/user')
- import params from '../config/params';
+ //import params from '../config/params';
 
 // GET  - retrieve data from the server
 // POST - send data to the server
@@ -61,7 +61,7 @@ router.put('/:postId', function(req, res, next) {
     // Database Operation: modify an existing post
     let id = req.params.postId
     Post.findByIdAndUpdate(id, {
-        title:   req.body.title,
+        title:   'coucou',
         content: req.body.content
     }, function(err, data) {
         if (err || !data) {
@@ -69,7 +69,8 @@ router.put('/:postId', function(req, res, next) {
             res.json({error: err})
             return;
         }
-        res.json(data)
+       // res.json(data)
+        res.redirect('/');
     })
     // OR ====================================
     // Post.findById(id, function(err, post) {

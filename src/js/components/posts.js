@@ -1,10 +1,8 @@
 import React from 'react'
-// import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 const posts = ({data,removeItemClick}) => {
     return (
- 
- 
 		<div className="table-responsive">
 		<table className="table" >
 				<thead>
@@ -50,9 +48,9 @@ return (
     {item.content}
     </td>
     <td>
-	<button name="button_modification_name" id={`button_edit_id_${item._id}`} className="btn btn-warning" >+</button> 
+	<Link to={`/post/edit/${item._id}`} name="button_modification_name" id={`button_edit_id_${i}`} className="btn btn-warning" >+</Link> 
     
-	<button name="button_suppression_name" id={`button_remove_id_${item._id}`} className="btn btn-danger"  onClick={() => {removeItemClick(item._id)}} >x</button> 
+	<button name="button_suppression_name" id={`button_remove_id_${i}`} className="btn btn-danger"  onClick={() => {removeItemClick(item._id)}} >x</button> 
 
 
     </td>
