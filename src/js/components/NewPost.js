@@ -5,17 +5,17 @@ const NewPost = () => {
     <div>
       <h1>New URl : </h1>
   <form action="/api/posts/"  method="POST" className="form-inline">
-  <div class="form-group">
-          <label for=""class=" col-form-label">Site: </label>
-          <input type="text" class="form-control" name="title" id="title" aria-describedby="helpId" placeholder=""/>
+  <div className="form-group">
+          <label htmlFor="" className=" col-form-label">Site: </label>
+          <input type="text" className="form-control" name="title" id="title" aria-describedby="helpId" placeholder=""/>
   </div>
 
-  <div class="form-group p-3">
-  <label for="">URL : </label>
-  <input class="form-control" name="content" id="content"/>
+  <div className="form-group p-3">
+  <label htmlFor="">URL : </label>
+  <input className="form-control" name="content" id="content"/>
   </div>
-  <div class="form-group">
-  <button type="submit" class="btn btn-primary">Track</button>
+  <div className="form-group">
+  <button type="submit" className="btn btn-primary">Track</button>
   </div>
 
 

@@ -2,6 +2,7 @@ const router = require('express').Router()
 // Models
  const Post = require('../models/post')
  const User = require('../models/user')
+ import params from '../config/params';
 
 // GET  - retrieve data from the server
 // POST - send data to the server
@@ -19,14 +20,14 @@ router.post('/', function(req, res, next) {
         content: req.body.content
     })
 
-    console.log("post : " + post)
+ //   console.log("post : " + post)
     post.save(function(err, data) {
         if (err || !data) {
             console.log("ERROR:", err)
             res.json({error: err})
             return;
         }
-       console.log(post.title + " saved to posts collection."); 
+     //  console.log(post.title + " saved to posts collection."); 
        // res.json(data)
     })
   // res.send('Adding your new post ...')

@@ -8,6 +8,7 @@ const logger = require('morgan');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const passport = require('passport')
+import params from '../js/config/params';
 
 
 const app = express(),
@@ -21,7 +22,7 @@ app.use(express.static(DIST_DIR))
 
 // MongoDB driver
 const mongoose = require('mongoose');
-const DB_URI= "mongodb://localhost:27017/myproject"
+const DB_URI= params.databaseURI
 
 
 // Connect to MongoDB

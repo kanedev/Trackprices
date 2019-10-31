@@ -5,7 +5,7 @@ const posts = ({data,removeItemClick}) => {
     return (
  
  
-		<div class="table-responsive">
+		<div className="table-responsive">
 		<table className="table" >
 				<thead>
 					<tr>
@@ -52,7 +52,7 @@ return (
     <td>
 	<button name="button_modification_name" id={`button_edit_id_${item._id}`} className="btn btn-warning" >+</button> 
     
-	<button name="button_suppression_name" id={`button_remove_id_${item._id}`} className="btn btn-danger"  onClick={() => {removeItemClick(i)}} >x</button> 
+	<button name="button_suppression_name" id={`button_remove_id_${item._id}`} className="btn btn-danger"  onClick={() => {removeItemClick(item._id)}} >x</button> 
 
 
     </td>

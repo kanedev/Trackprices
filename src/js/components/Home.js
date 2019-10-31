@@ -9,6 +9,7 @@ import  Posts from "./posts";
 //import  Navbar from "./Navbar";
 import  Search from "./Search";
 import  NewPost from "./NewPost";
+import params from '../config/params';
 
 
 
@@ -41,9 +42,36 @@ state = {
 
  
 handleRemoveClick  = (idItem) => {
-  console.log('item clicked : '+idItem);
+ // console.log('item clicked : '+idItem);
+  const token = localStorage.getItem('token');
+// DELETE /api/posts/1428
+  axios.delete(params.urlSite+'api/posts/'+idItem,{
+    headers: {
+     
+    }
+  }) .then((response) => {
+
+      axios.get(params.urlSite+'api/posts',{
+        headers: {
+            'Content-Type': 'application/json; charset=utf-8'
+        }
+      })
+        .then((response) => {
+          this.setState({ postsAPI: response.data })
+        }).catch(error => {
+          console.log("there is an error : "+error);
+        });
+      
+    
+    }).catch(error => {
+      console.log("there is an error : "+error);
+    });
+
+
+
   let tmpPosts = [...this.state.postsAPI]
   //console.log('index'+tmpPosts.indexOf(idItem));
+
   tmpPosts.splice(idItem,1)
   this.setState({
     postsAPI : tmpPosts
@@ -53,7 +81,7 @@ handleRemoveClick  = (idItem) => {
 // It works
 UNSAFE_componentWillMount() {
  
-axios.get('http://localhost:5000/api/posts',{
+axios.get(params.urlSite+'api/posts',{
   headers: {
       'Content-Type': 'application/json; charset=utf-8'
   }
@@ -74,11 +102,11 @@ axios.get('http://localhost:5000/api/posts',{
       <div>
         
        
-<div class="row">
-<div class="col-md-8">
+<div className="row">
+<div className="col-md-8">
 <NewPost/>
   </div>
-  <div class="col-md-4">
+  <div className="col-md-4">
   <Search inputChange={this.handleInputChange} />
 </div>
 </div>
