@@ -60,10 +60,7 @@ router.get('/:postId', function(req, res, next) {
 router.put('/:postId', function(req, res, next) {
     // Database Operation: modify an existing post
     let id = req.params.postId
-    Post.findByIdAndUpdate(id, {
-        title:   req.body.title,
-        content: req.body.content
-    }, function(err, data) {
+    Post.findByIdAndUpdate(id,{$set: req.body}, function(err, data) {
         if (err || !data) {
             console.log("ERROR:", err)
             res.json({error: err})
@@ -73,7 +70,7 @@ router.put('/:postId', function(req, res, next) {
     // res.redirect('/');
     })
  
-   //res.redirect('http://localhost:5000');
+  // res.redirect('http://localhost:5000');
    //res.send('Update the book');
 
   // res.redirect(req.baseUrl + '/');

@@ -10,7 +10,10 @@ export default class EditPost extends Component {
      this.state = {
            formFields: {   
                title :'',
-              content:''}
+              content:''},
+            updateMessage:'' ,       
+            alertClassName :''
+ 
      }
    }
 
@@ -48,13 +51,14 @@ export default class EditPost extends Component {
    formHandler = (e) => {
     e.preventDefault();
     console.log('ici, formhandler ');
-      axios.put(params.urlSite+'api/posts/'+this.props.match.params.id,this.state.formFields,{
-        headers: {
-    
-        }
-      })
+      axios.put(params.urlSite+'api/posts/'+this.props.match.params.id,this.state.formFields)
         .then((response) => {
-          console.log(response);
+          console.log(response.data.message);
+          this.setState({
+            updateMessage : response.data.message,
+            alertClassName : "alert alert-success alert-dismissible " 
+           });
+
         }).catch(error => {
           console.log(" error in formhander : "+error);
         }); 
@@ -101,6 +105,12 @@ export default class EditPost extends Component {
       <h1>Update your URl : </h1>
 
       {/* action={`/api/posts/${this.props.match.params.id}`}  */}
+
+<div className={this.state.alertClassName} role="alert">
+  <strong>{this.state.updateMessage}</strong>
+</div>
+
+
   <form   onSubmit={(e) => this.formHandler(e)} className="form-inline">
     
 
