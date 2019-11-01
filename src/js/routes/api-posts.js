@@ -30,8 +30,10 @@ router.post('/', function(req, res, next) {
      //  console.log(post.title + " saved to posts collection."); 
        // res.json(data)
     })
+   // res.json({message: 'Successfully updated'})
+
   // res.send('Adding your new post ...')
-   res.redirect('/');
+  res.redirect('/');
 //    res.status(200).json({
 //     success:true,
 //     redirectUrl: '/'
@@ -66,7 +68,8 @@ router.put('/:postId', function(req, res, next) {
             res.json({error: err})
             return;
         }
-       res.json({data, message: 'Successfully updated'})
+    //   res.json({data, message: 'Successfully updated'})
+    res.json({error:false,message: 'Successfully updated'})
     // res.redirect('/');
     })
  

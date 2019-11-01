@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import params from '../config/params';
+import {Redirect} from 'react-router'
 
+import Alert from './Alert';
 export default class EditPost extends Component {
 
   constructor(props) {
@@ -12,7 +14,7 @@ export default class EditPost extends Component {
                title :'',
               content:''},
             updateMessage:'' ,       
-            alertClassName :''
+            updated : false
  
      }
    }
@@ -40,6 +42,7 @@ export default class EditPost extends Component {
       }); 
   }
 
+
   inputChangeHandler = (e)=>{
     let formFields = {...this.state.formFields};
     formFields[e.target.name] = e.target.value;
@@ -56,7 +59,7 @@ export default class EditPost extends Component {
           console.log(response.data.message);
           this.setState({
             updateMessage : response.data.message,
-            alertClassName : "alert alert-success alert-dismissible " 
+            updated: true
            });
 
         }).catch(error => {
@@ -106,15 +109,14 @@ export default class EditPost extends Component {
 
       {/* action={`/api/posts/${this.props.match.params.id}`}  */}
 
-<div className={this.state.alertClassName} role="alert">
-  <strong>{this.state.updateMessage}</strong>
-</div>
+{ this.state.updated ?
+   <Alert dataClass="alert alert-success" 
+message={this.state.updateMessage}  /> :
+ <div> Please edit your configuration ... </div>}
+
 
 
   <form   onSubmit={(e) => this.formHandler(e)} className="form-inline">
-    
-
-
   <div className="form-group">
           <label htmlFor="" className=" col-form-label">Site: </label>
           <input type="text" className="form-control" name="title" id="title" aria-describedby="helpId" placeholder="" value={this.state.formFields.title}  
@@ -126,7 +128,16 @@ export default class EditPost extends Component {
   <input className="form-control" name="content" id="content" value={this.state.formFields.content} onChange={(e) => this.inputChangeHandler.call(this, e)} />
   </div>
   <div className="form-group">
-  <button type="submit" className="btn btn-success">Update</button>
+  
+  { this.state.updated ?
+    <button type="" className="btn btn-success"> Updated  </button>
+     :
+<button type="submit" className="btn btn-primary"> Send  </button>
+ }
+
+    
+    
+ 
   </div>
 
 
