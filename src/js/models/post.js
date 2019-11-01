@@ -6,6 +6,7 @@ let postSchema = new mongoose.Schema({
     title:   {type: String, default: ""},
     content: {type: String, default: ""},
     publishDate: {type: Date, default: Date.now},
+    price:{type: Number},
     views: {type: Number, default: 0},
     // Array of sub-documents
     comments: [{

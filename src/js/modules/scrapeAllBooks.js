@@ -1,5 +1,4 @@
 // On va scraper tous les books dela premiere page
-
 const puppeteer = require('puppeteer')
 const helpers =  require ('./modules/helpers');
 
@@ -46,7 +45,7 @@ async function getInfoFromPage(browser, link) {
         await page.goto(link)
         page.setViewport({ width: 1366, height: 700});
         await page.waitForNavigation() 
-        await page.waitFor(helpers.randomNumber(3,10)) // fait une pause aléatoireentre 3 et 10 secondes
+        await page.waitFor(helpers.randomNumber(3,10)) // fait une pause aléatoire entre 3 et 10 secondes
         
 
         const resultat = await page.evaluate(() => {
