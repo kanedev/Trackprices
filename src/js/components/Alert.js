@@ -8,7 +8,7 @@ class Alert extends Component {
     }
   
     componentDidMount() {
-      this.id = setTimeout(() => this.setState({ redirect: true }), 20000)
+      this.id = setTimeout(() => this.setState({ redirect: true }), 5000)
     }
   
     componentWillUnmount() {

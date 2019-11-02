@@ -53,7 +53,7 @@ export default class EditPost extends Component {
  
    formHandler = (e) => {
     e.preventDefault();
-    console.log('ici, formhandler ');
+   // console.log('ici, formhandler ');
       axios.put(params.urlSite+'api/posts/'+this.props.match.params.id,this.state.formFields)
         .then((response) => {
           console.log(response.data.message);

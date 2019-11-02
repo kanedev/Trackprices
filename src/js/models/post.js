@@ -4,9 +4,13 @@ const Schema = mongoose.Schema
 // Post Schema
 let postSchema = new mongoose.Schema({
     title:   {type: String, default: ""},
+    url:   {type: String, default: ""},
     content: {type: String, default: ""},
     publishDate: {type: Date, default: Date.now},
     price:{type: Number},
+    prices :[{ price : Number,
+               date : {type: Date, default: Date.now}
+            }],
     views: {type: Number, default: 0},
     // Array of sub-documents
     comments: [{
@@ -14,7 +18,7 @@ let postSchema = new mongoose.Schema({
         content: {type: String, default: ""}
     }],
     // Store an id (ObjectId) of a "User" model
-  //  author: {type: Schema.Types.ObjectId, ref: "User"}
+   //  author: {type: Schema.Types.ObjectId, ref: "User"}
     // _id by default is instered
 })
 
