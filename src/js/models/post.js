@@ -7,7 +7,8 @@ let postSchema = new mongoose.Schema({
     url:   {type: String, default: ""},
     content: {type: String, default: ""},
     publishDate: {type: Date, default: Date.now},
-    price:{type: Number},
+    price:{type: String},
+    expedition:{type: String, default: ""},
     prices :[{ price : Number,
                date : {type: Date, default: Date.now}
             }],

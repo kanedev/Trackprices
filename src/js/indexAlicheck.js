@@ -68,7 +68,7 @@ mongoose.set('useFindAndModify', false);
 
  
 
- let urlProduct = 'xxxxxxxxxxx'
+ let urlProduct = 'https://fr.aliexpress.com/item/32585623053.html'
 
 //Appel de la fonction scrape
 let productData = product.scrapeProduct(urlProduct);

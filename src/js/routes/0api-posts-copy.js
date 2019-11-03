@@ -24,42 +24,21 @@ router.post('/', function(req, res, next) {
     //     title:   req.body.title,
     //     content: urlProduct[0]
     // })
-
+    let post = new Post({
+        title:   req.body.title,
+        content: urlProduct[0]
+    })
 
 
 //scrap data from the url
-let productData = product.scrapeProduct(urlProduct[0]);
+
+ 
+    let productData = product.scrapeProduct(urlProduct[0]);
 
 productData.then(item => {
 
-   // console.log(item.price)
-
-    let post = new Post({
-        title:   req.body.title,
-        url : urlProduct[0],
-        price : item.price,
-        content : item.title
-    })
+    console.log(item.price)
  
-//   Save the post into the DB
-post.save(function(err, data) {
-    if (err || !data) {
-        console.log("ERROR:", err)
-        res.json({error: err})
-        return;
-    }
- //  console.log(post.title + " saved to posts collection."); 
-   // res.json(data)
-})
-// res.json({message: 'Successfully updated'})
-
-// res.send('Adding your new post ...')
-
-//res.json({error:false,message: 'Successfully added'})
-res.redirect('/');
-
-
-
 
     })
  
@@ -72,7 +51,20 @@ res.redirect('/');
 
 
 
- 
+ //   Save the post into the DB
+    post.save(function(err, data) {
+        if (err || !data) {
+            console.log("ERROR:", err)
+            res.json({error: err})
+            return;
+        }
+     //  console.log(post.title + " saved to posts collection."); 
+       // res.json(data)
+    })
+   // res.json({message: 'Successfully updated'})
+
+  // res.send('Adding your new post ...')
+  res.redirect('/');
 //    res.status(200).json({
 //     success:true,
 //     redirectUrl: '/'
