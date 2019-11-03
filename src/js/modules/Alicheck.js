@@ -31,7 +31,6 @@ async function scrapeProduct(urlProduct) {
 
        let product = await getInfoFromPage(browser, urlProduct)
 
-
         // Fermeture du navigateur
         await browser.close()
 

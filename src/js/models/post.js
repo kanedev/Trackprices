@@ -4,6 +4,7 @@ const Schema = mongoose.Schema
 // Post Schema
 let postSchema = new mongoose.Schema({
     title:   {type: String, default: ""},
+    site : {type: String, default: ""},
     url:   {type: String, default: ""},
     content: {type: String, default: ""},
     publishDate: {type: Date, default: Date.now},

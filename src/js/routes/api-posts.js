@@ -18,7 +18,7 @@ router.post('/', function(req, res, next) {
     // Database Operation: create new post
 
     // Cleaning the URL 
-    let urlProduct = req.body.content.split('?');
+    let urlProduct = req.body.url.split('?');
 
     // let post = new Post({
     //     title:   req.body.title,
@@ -35,12 +35,13 @@ productData.then(item => {
    // console.log(item.price)
 
     let post = new Post({
-        title:   req.body.title,
+        title:   item.title,
         url : urlProduct[0],
         price : item.price,
-        content : item.title
+       
     })
- 
+    //content : item.title
+
 //   Save the post into the DB
 post.save(function(err, data) {
     if (err || !data) {

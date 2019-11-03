@@ -14,10 +14,10 @@ const posts = ({data,removeItemClick}) => {
 							Date
 						</th>
 						<th scope="col">
-							Title
+							Product
 						</th>
 						<th scope="col">
-							Content
+							Price
 						</th>
 						<th scope="col">
 							Manage
@@ -39,14 +39,19 @@ return (
 		{/* {i+1} : {item._id} */}
     </th>
 	<td>
-        {item.publishDate}
+    {item.publishDate}
     </td>
+
     <td>
-        {item.title}
+	<a href={item.url}> {item.title} </a> 
     </td>
+
     <td>
-    {item.content}
+	{item.price}
     </td>
+
+
+
     <td>
 	<Link to={`/post/edit/${item._id}`} name="button_modification_name" id={`button_edit_id_${i}`} className="btn btn-warning" >+</Link> 
     
