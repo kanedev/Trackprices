@@ -13,6 +13,9 @@ const PreloadWebpackPlugin = require('preload-webpack-plugin');
 const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries");
 const HtmlCriticalWebpackPlugin = require("html-critical-webpack-plugin");
 var CompressionPlugin = require("compression-webpack-plugin");
+//const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
+
+
 
 const env = process.env.NODE_ENV;
 const isProduction = env === 'production';
@@ -287,6 +290,18 @@ const config = {
       filename: env === 'development' ? '[name].css' : './assets/css/[name].[hash].css',
       chunkFilename: env === 'development' ? '[name].css' : './assets/css/[name].[hash].css',
     }),
+
+            // To strip all locales except “en”
+            //new MomentLocalesPlugin(),
+
+            // Or: To strip all locales except “en”, “es-us” and “ru”
+            // (“en” is built into Moment and can’t be removed)
+          //   new MomentLocalesPlugin({
+          //     localesToKeep: ['fr'],
+          // }),
+
+
+
 
     
 

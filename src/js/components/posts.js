@@ -1,5 +1,17 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+// import 'dayjs/locale/fr'
+
+//dayjs.locale('fr') // use French locale globally
+
+const dayjs = require('dayjs');
+
+// let now = dayjs();
+
+// console.log(now.format());
+
+console.log(dayjs().format("YYYY-MM-DD"));
+console.log(dayjs().format("HH:mm:ss"));
 
 const posts = ({data,removeItemClick}) => {
     return (
@@ -8,7 +20,7 @@ const posts = ({data,removeItemClick}) => {
 				<thead>
 					<tr>
 						<th scope="col">
-							Number
+				Number 
 						</th>
 						<th scope="col">
 							Date
@@ -39,7 +51,9 @@ return (
 		{/* {i+1} : {item._id} */}
     </th>
 	<td>
-    {item.publishDate}
+	{/* { dayjs(item.publishDate).format("YYYY-MM-DD")   } */}
+	{dayjs().diff(dayjs(item.publishDate).format("YYYY-MM-DD") , 'days')  }
+	
     </td>
 
     <td>
