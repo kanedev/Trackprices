@@ -68,7 +68,7 @@ mongoose.set('useFindAndModify', false);
 
  
 
- let urlProduct = 'https://fr.aliexpress.com/item/32585623053.html'
+ let urlProduct = 'XXXXXXX'
 
 //Appel de la fonction scrape
 let productData = product.scrapeProduct(urlProduct);
@@ -82,7 +82,7 @@ productData.then(item => {
     })
 
  
-  Post.findOne({"content":urlProduct}, function (err, data) {
+Post.findOne({"content":urlProduct}, function (err, data) {
     console.log('into mongoose findone');
 
  console.log(data.title);

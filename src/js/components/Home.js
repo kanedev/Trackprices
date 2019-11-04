@@ -10,6 +10,7 @@ import  Posts from "./posts";
 import  Search from "./Search";
 import  NewPost from "./NewPost";
 import params from '../config/params';
+import Alert from './Alert';
 
 
 
@@ -23,7 +24,9 @@ state = {
   //   {_id:5,"title":"title5","content":"content5"},
   //   {_id:6,"title":"title6","content":"content6"},
   //   ],
-
+  savedMessage:'' ,       
+  saved : false,
+  saving: false,
   postsAPI : [],
   postsFiltred:[]
 }
@@ -106,7 +109,20 @@ axios.get(params.urlSite+'api/posts',{
        
 <div className="row">
 <div className="col-md-8">
+
 <NewPost/>
+
+{/* 
+{ this.state.saved ? <Alert dataClass="alert alert-success" message={this.state.savedMessage}  /> 
+:
+this.state.saving ?
+  <Alert dataClass="alert alert-warning" 
+message="We are saving your data, pleate wait ..."  /> :
+<div> Please insert your url ...
+<NewPost/>
+   </div>} */}
+
+
   </div>
   <div className="col-md-4">
   <Search inputChange={this.handleInputChange} />

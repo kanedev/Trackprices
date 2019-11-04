@@ -20,10 +20,13 @@ const posts = ({data,removeItemClick}) => {
 				<thead>
 					<tr>
 						<th scope="col">
-				Number 
+				# 
 						</th>
 						<th scope="col">
-							Date
+				Date
+						</th>
+						<th scope="col">
+							Site
 						</th>
 						<th scope="col">
 							Product
@@ -52,10 +55,12 @@ return (
     </th>
 	<td>
 	{/* { dayjs(item.publishDate).format("YYYY-MM-DD")   } */}
-	{dayjs().diff(dayjs(item.publishDate).format("YYYY-MM-DD") , 'days')  }
+	{dayjs().diff(dayjs(item.publishDate).format("YYYY-MM-DD") , 'days')+`Day`  }
 	
     </td>
-
+    <td>
+	 {item.site}  
+    </td>
     <td>
 	<a href={item.url}> {item.title} </a> 
     </td>

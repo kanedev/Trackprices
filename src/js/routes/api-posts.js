@@ -36,6 +36,7 @@ productData.then(item => {
 
     let post = new Post({
         title:   item.title,
+        site:req.body.site,
         url : urlProduct[0],
         price : item.price,
        
@@ -49,6 +50,8 @@ post.save(function(err, data) {
         res.json({error: err})
         return;
     }
+
+    
  //  console.log(post.title + " saved to posts collection."); 
    // res.json(data)
 })
@@ -59,7 +62,7 @@ post.save(function(err, data) {
 //res.json({error:false,message: 'Successfully added'})
 res.redirect('/');
 
-
+//res.json({error:false,message: 'Successfully saved'})
 
 
     })

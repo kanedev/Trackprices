@@ -121,6 +121,12 @@ message={this.state.updateMessage}  /> :
           <label htmlFor="" className=" col-form-label">Site: </label>
           <input type="text" className="form-control" name="title" id="title" aria-describedby="helpId" placeholder="" value={this.state.formFields.title}  
           onChange={(e) => this.inputChangeHandler.call(this, e)}/>
+  {/* <select class="form-control" name="site" id="site">
+    <option value='aliexpress'>Aliexpress</option>
+    <option value='ebay'>Ebay</option>
+    <option value='amazon'>Amazon</option>
+  </select> */}
+
   </div>
 
   <div className="form-group p-3">
