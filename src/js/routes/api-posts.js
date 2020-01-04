@@ -107,7 +107,13 @@ router.get('/:postId', function(req, res, next) {
 router.put('/:postId', function(req, res, next) {
     // Database Operation: modify an existing post
     let id = req.params.postId
-    Post.findByIdAndUpdate(id,{$set: req.body}, function(err, data) {
+    //console.log( req.body)
+    Post.findByIdAndUpdate(id,
+        {
+            title:   req.body.title,
+            url: req.body.content
+        }
+        , function(err, data) {
         if (err || !data) {
             console.log("ERROR:", err)
             res.json({error: err})
