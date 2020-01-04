@@ -39,7 +39,9 @@ productData.then(item => {
         site:req.body.site,
         url : urlProduct[0],
         price : item.price,
-       
+        urlImage : item.image,
+        shipping : item.shipping,
+        prices : [{price :item.price} ]
     })
     //content : item.title
 

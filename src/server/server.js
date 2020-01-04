@@ -22,7 +22,7 @@ app.use(express.static(DIST_DIR))
 
 // MongoDB driver
 const mongoose = require('mongoose');
-const DB_URI=  "mongodb://localhost:27017/myproject"
+const DB_URI=  "mongodb://localhost:27017/trackpricesdb"
 
 
 // Connect to MongoDB

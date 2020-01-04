@@ -29,10 +29,17 @@ const posts = ({data,removeItemClick}) => {
 							Site
 						</th>
 						<th scope="col">
+							image
+						</th>
+
+						<th scope="col">
 							Product
 						</th>
 						<th scope="col">
 							Price
+						</th>
+						<th scope="col">
+							Shipping
 						</th>
 						<th scope="col">
 							Manage
@@ -61,15 +68,33 @@ return (
     <td>
 	 {item.site}  
     </td>
+
+    <td>
+	<img src={item.urlImage} alt="image of the product" className="main-image-container"/>
+    </td>
+
     <td>
 	<a href={item.url}> {item.title} </a> 
     </td>
 
     <td>
 	{item.price}
+++
+	{item.prices.length}
+	-->
+
+
+	{item.prices.map((item,i) => {
+    
+	return (item.price)
+	})}
+
+
     </td>
 
-
+    <td>
+	 {item.shipping}  
+    </td>
 
     <td>
 	<Link to={`/post/edit/${item._id}`} name="button_modification_name" id={`button_edit_id_${i}`} className="btn btn-warning" >+</Link> 

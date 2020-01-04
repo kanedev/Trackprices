@@ -5,7 +5,7 @@ const Post = require('./models/post')
  
 // MongoDB driver
 const mongoose = require('mongoose');
-const DB_URI=  "mongodb://localhost:27017/myproject"
+const DB_URI=  "mongodb://localhost:27017/trackpricesdb"
 
 
 // Connect to MongoDB
@@ -68,31 +68,28 @@ mongoose.set('useFindAndModify', false);
 
  
 
- let urlProduct = 'XXXXXXX'
+let urlProduct = 'XXXXXXX'
 
 //Appel de la fonction scrape
 let productData = product.scrapeProduct(urlProduct);
 
 productData.then(item => {
-
     console.log(item.price)
-
-
-
-    })
+ })
 
  
-Post.findOne({"content":urlProduct}, function (err, data) {
-    console.log('into mongoose findone');
+//  Récupération d'un post à partir de la DB
+// Post.findOne({"content":urlProduct}, function (err, data) {
+//     console.log('into mongoose findone');
 
- console.log(data.title);
+//  console.log(data.title);
 
-  mongoose.connection.close(() => {
-    console.log("FIN")    
-  })
+//   mongoose.connection.close(() => {
+//     console.log("FIN")    
+//   })
 
 
-});
+// });
 
  
 
@@ -108,6 +105,7 @@ Post.findOne({"content":urlProduct}, function (err, data) {
   // });
   
 
+  
 
   
 

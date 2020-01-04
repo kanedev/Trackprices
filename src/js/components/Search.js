@@ -4,8 +4,6 @@ const Search = ({inputChange}) => {
 
 
   return (
-     
-
 <div className="container-fluid">
 <div className="row">   
       <div className="col">
@@ -26,15 +24,7 @@ const Search = ({inputChange}) => {
       </div>
 </div>
 </div>
-
-
-
-
-
-
-   
- 
-  )
+)
 }
 
 export default Search
