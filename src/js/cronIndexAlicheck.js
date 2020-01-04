@@ -63,10 +63,33 @@ mongoose.set('useFindAndModify', false);
    console.log('old price : ' + item.price) 
    productData.then(producatDataItem => {
       console.log('new price : ' + producatDataItem.price) 
+
   if (item.price == producatDataItem.price ) {
     console.log("equal")
   } else {
     console.log("different")
+
+    let id = item.id
+    Post.findByIdAndUpdate(id,
+      
+      
+      , function(err, data) {
+        if (err || !data) {
+            console.log("ERROR:", err)
+            res.json({error: err})
+            return;
+        }
+    //   res.json({data, message: 'Successfully updated'})
+    res.json({error:false,message: 'Successfully updated'})
+    // res.redirect('/');
+    })
+
+
+
+
+
+
+
   }
 
     })
