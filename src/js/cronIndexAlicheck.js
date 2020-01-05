@@ -5,7 +5,10 @@ const Post = require('./models/post')
  
 
 function randomSleep(minseconds,maxseconds) {
-  sleep(Math.floor(Math.random() * (maxseconds - minseconds + 1)) + minseconds)
+  setTimeout(() => {
+console.log('Sleeping ...'); 
+}, Math.floor(Math.random() * (maxseconds - minseconds + 1)) + minseconds)
+  
 }
 
 // MongoDB driver
@@ -13,9 +16,6 @@ const mongoose = require('mongoose');
 const DB_URI=  "mongodb://localhost:27017/trackpricesdb"
 
 
-// Connect to MongoDB
-mongoose.connect(DB_URI,{ useNewUrlParser: true, useUnifiedTopology: true } )
-const db =  mongoose.connection;
 mongoose.set('useCreateIndex', true);
 // connectioin events
 mongoose.connection.once('connected', () => {
@@ -32,150 +32,106 @@ mongoose.connection.once('disconnected', () => {
 mongoose.set('useFindAndModify', false);
 
 
-// var key = "title"; //example
-// var value = "ali";
-// var filter = {};
-// filter[key] = value;
+ try {
+  console.log('Hello');
 
-    // Database Operation: get all posts from the database
+     // Connect to MongoDB
+mongoose.connect(DB_URI,{ useNewUrlParser: true, useUnifiedTopology: true } )
+
  
-   // let urlsProducts=[];
 
 
-     Post.find({},function(err, data) {
-        if (err || !data) {
-            console.log(err)
-            return; } 
-    }) .sort({publishDate : -1 }) 
-        .then((data) => {
-      //  console.log(data)
+ 
+  Post.find({},function(err, posts) { return posts }).then(
 
+    (data) => {
+     // console.log(data);
 
-      // On récupère tous les urls des produits dans la DB
-     // let urlsProducts = data.map((item) => {  return item.url; })
-
-      // console.log(urlsProducts);
-
-       data.map((item) => {  
+     
+     data.map(  (item) => {  
           
-   let productData = product.scrapeProduct(item.url);
+      let productData = product.scrapeProduct(item.url);
+
+      randomSleep(10,20) 
+
+      console.log('old price : ' + item.price) 
+      productData.then(producatDataItem => {
+         console.log('new price : ' + producatDataItem.price) 
    
-   console.log('old price : ' + item.price) 
-   productData.then(producatDataItem => {
-      console.log('new price : ' + producatDataItem.price) 
+     if (item.price == producatDataItem.price ) {
+       console.log("equal")
+     } else {
 
-  if (item.price == producatDataItem.price ) {
-    console.log("equal")
-  } else {
-    console.log("different")
-
-    let id = item.id
-    Post.findByIdAndUpdate(id,
-      
-      
-      , function(err, data) {
-        if (err || !data) {
-            console.log("ERROR:", err)
-            res.json({error: err})
-            return;
-        }
-    //   res.json({data, message: 'Successfully updated'})
-    res.json({error:false,message: 'Successfully updated'})
-    // res.redirect('/');
-    })
-
-
-
-
-
-
-
-  }
-
-    })
-    }) 
-
-
-
-  }).then(
-    () => {
-
-      // // Close connection to DB
-mongoose.connection.close(() => {
-  console.log("Database disconnected through app termination")
- 
-})
-    }
-  ) 
-
-
-// // Close connection to DB
-
-
-
-
-// let urlProduct = 'https://fr.aliexpress.com/item/32851771141.html'
-
-// //Appel de la fonction scrape
-// let productData = product.scrapeProduct(urlProduct);
-
-// productData.then(item => {
-//     console.log(item.price)
-
-// // Close connection to DB
-// mongoose.connection.close(() => {
-//   console.log("Database disconnected through app termination")
-//   process.exit(0)
-// })
-
-//  })
-
-
-
-
-
-
-
-
-
- 
-//  Récupération d'un post à partir de la DB
-// Post.findOne({"content":urlProduct}, function (err, data) {
-//     console.log('into mongoose findone');
-
-//  console.log(data.title);
-
-//   mongoose.connection.close(() => {
-//     console.log("FIN")    
-//   })
-
-// });
-
- 
-
-  // Post.findById('5dbb97a51f0742d97075610b', function(err, data) {
-  //   if (err || !data) {
-  //       console.log(err)
-  //       return;
-  //   }
+     
+       console.log("different" + item.id)
+       //console.log(Post);
    
-  //   console.log(data);
+   
+     mongoose.set('useFindAndModify', false);
+     return  Post.findByIdAndUpdate(item.id,
+    { $push: { prices :  { price : producatDataItem.price } }}
+        //  {"$set": {title:   'chnawa title 444'}} 
+        
+         , function(err) {
+           console.log('here');
+           if (err) {
+               console.log("ERROR:", err)
+              
+              // return;
+           }
+           console.log('price updated');
     
+       })
+   
+   
+   
+   
+      
+   
+   
+     }
+   
+       })
+   
+   
+       randomSleep(5,10) 
+   
+   
+       }) //------------- end map
 
-  // });
-  
 
+      }
+
+     // end async
+      
+    ).then(() => {
+      console.log('wait for 10 seconds . . . . ');
+      return new Promise(function(resolve, reject) { 
+          setTimeout(() => {
+              console.log('10 seconds Timer expired!!!');
+              resolve();
+          }, 10000)
+      });
+  }).then(() => {    
+  // Close connection to DB
+ // mongoose.connection.close(() => {console.log("Database disconnected through finally block")})
+
+mongoose.disconnect();
+} 
+  ).catch (error => console.log(`there is an ERROR :  ${error}`)) 
  
-  
-// If Node's process ends, close the MongoDB connection
-// process.on('SIGINT',() => {
-//   mongoose.connection.close(() => {
-//       console.log("Database disconnected through app termination")
-//       process.exit(0)
-//     } )
-// }
-//)
+
+//products.map (product => console.log(product) )
+
+//console.log(products);
 
 
 
- 
+
+
+ } catch (error) {
+  console.log(`there is an ERROR :  ${error}`)
+ } finally {
+   
+
+ }

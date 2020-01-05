@@ -109,7 +109,7 @@ async function getInfoFromPage(browser, link) {
         return resultat;
 
             } catch (error) {
-        console.log(`error in getUrlsFromPage ${e}`)
+        console.log(`error in getUrlsFromPage ${error}`)
     }
 }
 
