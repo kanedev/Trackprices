@@ -89,12 +89,6 @@ mongoose.set('useFindAndModify', false);
  
     })
 
-
-
-
-
-
-
   }
 
     }).then(() => {
@@ -106,18 +100,8 @@ mongoose.set('useFindAndModify', false);
                     }, 10000)
                 });
             })
-
-
-
-
-
-    } //------------- end map
-    
-    
+  } //------------- end map     
     ) 
-
-
-
   }).then(
     () => {
 

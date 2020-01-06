@@ -39,36 +39,33 @@ mongoose.set('useFindAndModify', false);
 mongoose.connect(DB_URI,{ useNewUrlParser: true, useUnifiedTopology: true } )
 
  
-
-
- 
-  Post.find({},function(err, posts) { return posts }).then(
+  Post.find({}).then(
 
     (data) => {
      // console.log(data);
 
-     
-     data.map(  (item) => {  
+     data.map(  (item,i) => {  
+
+      
           
       let productData = product.scrapeProduct(item.url);
 
-      randomSleep(10,20) 
+      //randomSleep(10,20) 
 
       console.log('old price : ' + item.price) 
       productData.then(producatDataItem => {
          console.log('new price : ' + producatDataItem.price) 
-   
-     if (item.price == producatDataItem.price ) {
+ 
+     if (item.prices[item.prices.length-1].price == producatDataItem.price ) {
        console.log("equal")
      } else {
 
-     
-       console.log("different" + item.id)
+       console.log("different")
        //console.log(Post);
    
    
-     mongoose.set('useFindAndModify', false);
-     return  Post.findByIdAndUpdate(item.id,
+    // mongoose.set('useFindAndModify', false);
+       Post.findByIdAndUpdate(item.id,
     { $push: { prices :  { price : producatDataItem.price } }}
         //  {"$set": {title:   'chnawa title 444'}} 
         
@@ -94,7 +91,7 @@ mongoose.connect(DB_URI,{ useNewUrlParser: true, useUnifiedTopology: true } )
        })
    
    
-       randomSleep(5,10) 
+       randomSleep(10,20) 
    
    
        }) //------------- end map
@@ -115,8 +112,11 @@ mongoose.connect(DB_URI,{ useNewUrlParser: true, useUnifiedTopology: true } )
   }).then(() => {    
   // Close connection to DB
  // mongoose.connection.close(() => {console.log("Database disconnected through finally block")})
+ setTimeout(() => {
+  console.log('30 seconds Timer expired!!!');
+  mongoose.disconnect();
+}, 30000)
 
-mongoose.disconnect();
 } 
   ).catch (error => console.log(`there is an ERROR :  ${error}`)) 
  

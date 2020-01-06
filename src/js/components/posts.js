@@ -10,8 +10,8 @@ const dayjs = require('dayjs');
 
 // console.log(now.format());
 
-console.log(dayjs().format("YYYY-MM-DD"));
-console.log(dayjs().format("HH:mm:ss"));
+//console.log(dayjs().format("YYYY-MM-DD"));
+//console.log(dayjs().format("HH:mm:ss"));
 
 const posts = ({data,removeItemClick}) => {
     return (
@@ -28,9 +28,6 @@ const posts = ({data,removeItemClick}) => {
 						<th scope="col">
 							Site
 						</th>
-						<th scope="col">
-							image
-						</th>
 
 						<th scope="col">
 							Product
@@ -45,8 +42,6 @@ const posts = ({data,removeItemClick}) => {
 							Manage
 						</th>
 					</tr>
-
-
 				</thead>
 
 
@@ -70,28 +65,25 @@ return (
     </td>
 
     <td>
-	<img src={item.urlImage} alt="image of the product" className="main-image-container"/>
-    </td>
-
-    <td>
+	<a href={item.url}><img src={item.urlImage} alt="image of the product" className="card-img"  /></a> 
+ 
 	<a href={item.url}> {item.title} </a> 
     </td>
 
     <td>
-	{item.price}
-++
-	{item.prices.length}
-	-->
+	{/* {item.price} */}
 
-
+	<ul className="list-group">
 	{item.prices.map((item,i) => {
-    
-	return (item.price)
-	})}
-
-
+	return(<li id={item._id} key={i} className="list-group-item d-flex justify-content-between align-items-center ">
+		{item.price}
+		<span className="badge badge-secondary badge-pill">{ dayjs(item.date).format("YYYY-MM-DD HH:mm")}</span>
+	</li> ) 
+	}
+	)
+	}
+	</ul>
     </td>
-
     <td>
 	 {item.shipping}  
     </td>
