@@ -1,15 +1,17 @@
 // Import du paquet "puppeteer"
 //const mypage =  require ('./modules/screenshot');
+
 const product =  require ('./modules/Alicheck');
 const Post = require('./models/post')
- 
 
+const notifyUser = require("./modules/email");
+const {params,email} = require("./config/params");
+
+ 
 function randomSleep(minseconds,maxseconds) {
   setTimeout(() => {
 console.log('Sleeping ...'); 
-}, Math.floor(Math.random() * (maxseconds - minseconds + 1)) + minseconds)
-  
-}
+}, Math.floor(Math.random() * (maxseconds - minseconds + 1)) + minseconds) }
 
 // MongoDB driver
 const mongoose = require('mongoose');
@@ -33,8 +35,7 @@ mongoose.set('useFindAndModify', false);
 
 
  try {
-  console.log('Hello');
-
+  
      // Connect to MongoDB
 mongoose.connect(DB_URI,{ useNewUrlParser: true, useUnifiedTopology: true } )
 
@@ -50,7 +51,7 @@ mongoose.connect(DB_URI,{ useNewUrlParser: true, useUnifiedTopology: true } )
           
       let productData = product.scrapeProduct(item.url);
 
-      //randomSleep(10,20) 
+      //randomSleep(10,30) 
 
       console.log('old price : ' + item.price) 
       productData.then(producatDataItem => {
@@ -60,8 +61,10 @@ mongoose.connect(DB_URI,{ useNewUrlParser: true, useUnifiedTopology: true } )
        console.log("equal")
      } else {
 
-       console.log("different")
-       //console.log(Post);
+       console.log("different, I am sending an email ..")
+       console.log(email);
+       notifyUser(email, 'price was changed');
+
    
    
     // mongoose.set('useFindAndModify', false);
@@ -80,20 +83,10 @@ mongoose.connect(DB_URI,{ useNewUrlParser: true, useUnifiedTopology: true } )
     
        })
    
-   
-   
-   
-      
-   
-   
      }
    
-       })
-   
-   
-       randomSleep(10,20) 
-   
-   
+       })   
+      // randomSleep(10,20) 
        }) //------------- end map
 
 
@@ -101,19 +94,12 @@ mongoose.connect(DB_URI,{ useNewUrlParser: true, useUnifiedTopology: true } )
 
      // end async
       
-    ).then(() => {
-      console.log('wait for 10 seconds . . . . ');
-      return new Promise(function(resolve, reject) { 
-          setTimeout(() => {
-              console.log('10 seconds Timer expired!!!');
-              resolve();
-          }, 10000)
-      });
-  }).then(() => {    
+    ).then(() => {    
+      console.log('Please wait 30 seconds');
   // Close connection to DB
  // mongoose.connection.close(() => {console.log("Database disconnected through finally block")})
  setTimeout(() => {
-  console.log('30 seconds Timer expired!!!');
+  console.log('30 second is expered !!!');
   mongoose.disconnect();
 }, 30000)
 

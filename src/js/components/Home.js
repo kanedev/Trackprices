@@ -9,7 +9,7 @@ import  Posts from "./posts";
 //import  Navbar from "./Navbar";
 import  Search from "./Search";
 import  NewPost from "./NewPost";
-import params from '../config/params';
+import {params} from '../config/params';
 import Alert from './Alert';
 
 
@@ -43,8 +43,6 @@ state = {
     })
   }
 
- 
- 
 handleRemoveClick  = (idItem) => {
  // console.log('item clicked : '+idItem);
   const token = localStorage.getItem('token');
@@ -66,12 +64,9 @@ handleRemoveClick  = (idItem) => {
           console.log("there is an error : "+error);
         });
       
-    
     }).catch(error => {
       console.log("there is an error : "+error);
     });
-
-
 
   let tmpPosts = [...this.state.postsAPI]
   //console.log('index'+tmpPosts.indexOf(idItem));
@@ -94,7 +89,7 @@ axios.get(params.urlSite+'api/posts',{
   .then((response) => {
     this.setState({ postsAPI: response.data })
   }).catch(error => {
-    console.log("there is an error : "+error);
+    console.log("there is an error :  componentDidMount "+error);
   });
  // .catch(console.log)
  

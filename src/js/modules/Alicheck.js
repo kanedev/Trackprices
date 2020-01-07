@@ -90,7 +90,7 @@ async function scrapeAllProducts(urlProducts) {
 async function getInfoFromPage(browser, link) {
     try {
         const page = await browser.newPage()
-        await page.goto(link)
+        await page.goto(link,{timeout: 60000})
         page.setViewport({ width: 1366, height: 700});
        // await page.waitForNavigation() 
        // await page.waitFor(helpers.randomNumber(3,10)) // fait une pause aléatoire entre 3 et 10 secondes
