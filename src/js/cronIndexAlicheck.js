@@ -45,6 +45,8 @@ mongoose.connect(DB_URI,{ useNewUrlParser: true, useUnifiedTopology: true } )
     (data) => {
      // console.log(data);
 
+let pricesUpdated= [];
+
      data.map(  (item,i) => {  
 
       
@@ -53,20 +55,39 @@ mongoose.connect(DB_URI,{ useNewUrlParser: true, useUnifiedTopology: true } )
 
       //randomSleep(10,30) 
 
-      console.log('old price : ' + item.price) 
+      console.log('old price : ' + item.prices[item.prices.length-1].price) 
       productData.then(producatDataItem => {
          console.log('new price : ' + producatDataItem.price) 
  
      if (item.prices[item.prices.length-1].price == producatDataItem.price ) {
        console.log("equal")
      } else {
-
        console.log("different, I am sending an email ..")
-       console.log(email);
-       notifyUser(email, 'price was changed');
+     //  console.log(email);
+    // pricesUpdated = [...pricesUpdated,{'title':item.title,'price':producatDataItem.price}] 
+   //  notifyUser(email,'Product :'+producatDataItem.title+"<br> Old price :"+item.prices[item.prices.length-1].price+"<br> New price : "+producatDataItem.price);
+   
+   let message = `<table class="table">
+   <thead>
+     <tr>
+       <th>Product</th>
+       <th>Old price</th>
+       <th>New price</th>
+     </tr>
+   </thead>
+   <tbody>
+     <tr>
+       <td scope="row">`+producatDataItem.title+`</td>
+       <td>`+item.prices[item.prices.length-1].price+`</td>
+       <td>`+producatDataItem.price+`</td>
+     </tr>
+ 
+   </tbody>
+ </table>`
 
-   
-   
+ notifyUser(email,message);
+
+
     // mongoose.set('useFindAndModify', false);
        Post.findByIdAndUpdate(item.id,
     { $push: { prices :  { price : producatDataItem.price } }}
@@ -89,6 +110,7 @@ mongoose.connect(DB_URI,{ useNewUrlParser: true, useUnifiedTopology: true } )
       // randomSleep(10,20) 
        }) //------------- end map
 
+       
 
       }
 
@@ -101,7 +123,7 @@ mongoose.connect(DB_URI,{ useNewUrlParser: true, useUnifiedTopology: true } )
  setTimeout(() => {
   console.log('30 second is expered !!!');
   mongoose.disconnect();
-}, 30000)
+}, 60000)
 
 } 
   ).catch (error => console.log(`there is an ERROR :  ${error}`)) 

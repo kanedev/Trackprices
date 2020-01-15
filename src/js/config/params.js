@@ -6,13 +6,13 @@ const params = {
     const email = {
         service: 'gmail',
         auth: {
-          user: 'username@gmail.com',
-          pass: 'pass'
+          user: '*****@gmail.com',
+          pass: '*******'
         },
-        from:'********@gmail.com' ,
-        to: '*********@live.fr',
-        subject: "A new evidence was found",
-        text: "Check it on the website"
+        from:'******@gmail.com' ,
+        to: '****@live.fr',
+        subject: "PriceTracks : price was changed",
+        html: "There is some price's update "
       };
       
       module.exports = {
