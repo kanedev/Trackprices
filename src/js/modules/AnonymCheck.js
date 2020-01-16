@@ -2,6 +2,44 @@
 const puppeteer = require('puppeteer')
 const helpers =  require ('./helpers');
 
+const proxies = [
+    "182.101.207.11:8080",
+    "182.149.83.68:9999",
+    "182.108.44.194:3128",
+    "1.197.16.254:9999",
+    "1.197.10.93:9999",
+    "1.198.108.46:9999",
+    "1.196.177.180:9999",
+    "182.108.46.83:9999",
+    "182.108.61.69:9999",
+
+  ];
+  
+  const randProxy = () =>
+    proxies[Math.floor(Math.random() * (proxies.length - 1))];
+  
+  const autoScroll = page =>
+    page.evaluate(
+      async () =>
+        await new Promise((resolve, reject) => {
+          let totalHeight = 0;
+          let distance = 100;
+          let timer = setInterval(() => {
+            let scrollHeight = document.body.scrollHeight;
+            window.scrollBy(0, distance);
+            totalHeight += distance;
+            if (totalHeight >= scrollHeight) {
+              clearInterval(timer);
+              resolve();
+            }
+          }, 300);
+        })
+    );
+
+
+
+
+
 
 //let urlArticle='https://whatismycountry.com';
 // Scrap one Article 
@@ -12,7 +50,9 @@ const helpers =  require ('./helpers');
       const browser = await puppeteer.launch({
             headless: false,
             args: ['--start-maximized',
-            '--proxy-server=https=41.191.205.2:8888'] // this is where we set the proxy
+            `--proxy-server=http=${randProxy}`,
+            '--incognito'
+            ] // this is where we set the proxy
 /*
 If the proxy need authentication, we can add this code to support authentication. Put it before page.goto() part.
 
@@ -84,10 +124,11 @@ async function getInfoFromPage(browser, link) {
     try {
         const page = await browser.newPage();
         await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36');
-        await page.setViewport({ width: 1366, height: 700});
-        await page.goto(link,{timeout: 120000})
-        await page.goto('https://arh.antoinevastel.com/bots/areyouheadless',{timeout: 120000})        
- 
+        await page.setViewport({ width: 1200, height: 800});
+        
+        await page.goto(link,{ waitUntil: "networkidle2",timeout: 120000})
+        await page.goto('https://arh.antoinevastel.com/bots/areyouheadless',{waitUntil: "networkidle2",timeout: 120000})        
+        await autoScroll(page);
     // go to whatismycountry.com to see if proxy works (based on geography location)
     
 
