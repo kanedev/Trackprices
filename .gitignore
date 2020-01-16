@@ -1,5 +1,6 @@
 /node_modules
-/dist
+/dis
 .vscode
 *.log
 .DS_Store
+src/js/config/params.js
