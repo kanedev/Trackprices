@@ -1,6 +1,17 @@
 // On va scraper tous les books dela premiere page
-const puppeteer = require('puppeteer')
+//const puppeteer = require('puppeteer')
 const helpers =  require ('./helpers');
+
+// puppeteer-extra is a drop-in replacement for puppeteer,
+// it augments the installed puppeteer with plugin functionality.
+// Any number of plugins can be added through `puppeteer.use()`
+const puppeteer = require('puppeteer-extra')
+
+// Add stealth plugin and use defaults (all tricks to hide puppeteer usage)
+const StealthPlugin = require('puppeteer-extra-plugin-stealth')
+
+puppeteer.use(StealthPlugin())
+
 
 const proxies = [
     "182.101.207.11:8080",
@@ -23,16 +34,16 @@ const proxies = [
       async () =>
         await new Promise((resolve, reject) => {
           let totalHeight = 0;
-          let distance = 100;
+         // let distance = Math.floor(Math.random() * 100);
           let timer = setInterval(() => {
             let scrollHeight = document.body.scrollHeight;
-            window.scrollBy(0, distance);
+            window.scrollBy(0, Math.floor(Math.random() * 100));
             totalHeight += distance;
             if (totalHeight >= scrollHeight) {
               clearInterval(timer);
               resolve();
             }
-          }, 300);
+          }, Math.floor(Math.random() * 3000));
         })
     );
 
@@ -48,11 +59,23 @@ const proxies = [
 
         // Création d’une instance de Chrome sanns mode headless
       const browser = await puppeteer.launch({
-            headless: false,
+            headless: true,
+            ignoreHTTPSErrors: true,
+           // userDataDir: './tmp',
             args: ['--start-maximized',
-            `--proxy-server=http=${randProxy}`,
-            '--incognito'
-            ] // this is where we set the proxy
+            '--proxy-server=https=196.196.64.91:3128',
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-infobars',
+            '--window-position=0,0',
+            '--ignore-certifcate-errors',
+            '--ignore-certifcate-errors-spki-list',
+            ] 
+        })
+
+        // `--proxy-server=http=${randProxy}`,
+
+             // '--incognito'
 /*
 If the proxy need authentication, we can add this code to support authentication. Put it before page.goto() part.
 
@@ -61,12 +84,59 @@ If the proxy need authentication, we can add this code to support authentication
 
 */
             //   slowMo: 250 // slow down by 250ms
-        })
- 
-       let Article = await getInfoFromPage(browser, urlArticle)
+       
+
+
+
+
+        const page = await browser.newPage();
+          await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36');
+          await page.setViewport({ width: 1200, height: 800});
+         
+          await page.goto('https://whatismycountry.com',{ waitUntil: "networkidle2", timeout: 120000})
+    
+          console.log(await browser.userAgent());
+
+        // get the User Agent on the context of Puppeteer
+        const userAgent = await page.evaluate(() => navigator.userAgent );
+
+        // If everything correct then no 'HeadlessChrome' sub string on userAgent
+        console.log(userAgent);
+
+
+        await page.waitFor(5000)
+        console.log(`Testing the stealth plugin..`)
+        await page.goto('https://bot.sannysoft.com')
+        await page.waitFor(5000)
+        await page.screenshot({ path: 'stealth.png', fullPage: true })
+      
+        console.log(`All done, check the screenshots. ✨`)
+
+
+          await page.screenshot({path:'page.png'});
+
+ // go to whatismycountry.com to see if proxy works (based on geography location)
+  const page2 = await browser.newPage();
+  await page2.setViewport({ width: 1200, height: 800});
+  await page2.goto('https://arh.antoinevastel.com/bots/areyouheadless',{waitUntil: "networkidle2",timeout: 120000})        
+    
+  await page2.screenshot({path:'page2.png'});
+
+
+
+           // await page.goto('https://arh.antoinevastel.com/bots/areyouheadless',{waitUntil: "networkidle2",timeout: 120000})        
+    
+        //     await autoScroll(page);
+        // await page.waitForNavigation()
+       // await page.screenshot({path:'page2.png'});
+    
+    
+    
+    
+        //   let Article = await getInfoFromPage(browser, urlArticle)
 
        // Fermeture du navigateur
-        // await browser.close()
+        await browser.close()
 
        // return books;
       // return Article;
@@ -122,17 +192,8 @@ async function scrapeAllArticles(urlArticles) {
 // Fonction renvoie  les éléments scrapped from a page
 async function getInfoFromPage(browser, link) {
     try {
-        const page = await browser.newPage();
-        await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36');
-        await page.setViewport({ width: 1200, height: 800});
-        
-        await page.goto(link,{ waitUntil: "networkidle2",timeout: 120000})
-        await page.goto('https://arh.antoinevastel.com/bots/areyouheadless',{waitUntil: "networkidle2",timeout: 120000})        
-        await autoScroll(page);
-    // go to whatismycountry.com to see if proxy works (based on geography location)
-    
 
-        await page.waitForNavigation() 
+         
        // await page.waitFor(helpers.randomNumber(3,10)) // fait une pause aléatoire entre 3 et 10 secondes
         
        
