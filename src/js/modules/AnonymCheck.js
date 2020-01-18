@@ -59,11 +59,11 @@ const proxies = [
 
         // Création d’une instance de Chrome sanns mode headless
       const browser = await puppeteer.launch({
-            headless: true,
+            headless: false,
             ignoreHTTPSErrors: true,
            // userDataDir: './tmp',
             args: ['--start-maximized',
-            '--proxy-server=https=196.196.64.91:3128',
+            '--proxy-server=https=37.110.63.6:3128',
             '--no-sandbox',
             '--disable-setuid-sandbox',
             '--disable-infobars',
