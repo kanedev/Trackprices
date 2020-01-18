@@ -67,13 +67,14 @@ const proxies = [
             ignoreHTTPSErrors: true,
            // userDataDir: './tmp',
             args: ['--start-maximized',
-            '--proxy-server=https=196.196.64.91:3128',
+            '--proxy-server=https=37.110.63.6:3128',
             '--no-sandbox',
             '--disable-setuid-sandbox',
             '--disable-infobars',
             '--window-position=0,0',
             '--ignore-certifcate-errors',
             '--ignore-certifcate-errors-spki-list',
+         
             ] 
         })
 
@@ -99,9 +100,10 @@ If the proxy need authentication, we can add this code to support authentication
         // one User agent per page
         //  await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36');
          await page.setUserAgent(randomUA.generate());
-        await page.setViewport({ width: 1200, height: 800});
+        await page.setViewport({ width: 1024 + Math.floor(Math.random() * 100),
+                                 height: 768 + Math.floor(Math.random() * 100)});
          
-          await page.goto('https://whatismycountry.com',{ waitUntil: "networkidle2", timeout: 120000})
+          await page.goto('https://whatismycountry.com',{ waitUntil: "networkidle2", timeout: 200000})
     
           console.log(await browser.userAgent());
 
