@@ -8,7 +8,7 @@ const helpers =  require ('./helpers');
 // Any number of plugins can be added through `puppeteer.use()`
 const puppeteer = require('puppeteer-extra')
 const randomUA = require('modern-random-ua');
-
+var ProxyLists = require('proxy-lists');
 
 // Add stealth plugin and use defaults (all tricks to hide puppeteer usage)
 const StealthPlugin = require('puppeteer-extra-plugin-stealth')
@@ -16,21 +16,11 @@ const StealthPlugin = require('puppeteer-extra-plugin-stealth')
 puppeteer.use(StealthPlugin())
 
 
-const proxies = [
-    "182.101.207.11:8080",
-    "182.149.83.68:9999",
-    "182.108.44.194:3128",
-    "1.197.16.254:9999",
-    "1.197.10.93:9999",
-    "1.198.108.46:9999",
-    "1.196.177.180:9999",
-    "182.108.46.83:9999",
-    "182.108.61.69:9999",
 
-  ];
   
-  const randProxy = () =>
-    proxies[Math.floor(Math.random() * (proxies.length - 1))];
+  const randProxy = (proxi) =>
+  
+    proxi[Math.floor(Math.random() * (proxi.length - 1))];
   
   const autoScroll = page =>
     page.evaluate(
@@ -51,15 +41,65 @@ const proxies = [
     );
 
 
+  
+ 
+ 
+var options = {
+  anonymityLevels: ['elite'],
+  filterMode: 'strict',
+  countries: ['De']
+
+};
+//   countries: ['fr']
+//let tab=[];
+// `gettingProxies` is an event emitter object.
+var gettingProxies = ProxyLists.getProxies(options);
+
+
+( () => { 
+  
+  return new Promise((resolve, reject) => {
+   
+  let proxies = [];
+
+  gettingProxies.on('data', function(proxiez) {
+  // Received some proxies.
+    console.log('PROXIES : ',proxiez);
+    console.log('Loading PROXIES ...');
+    proxies=[...proxies,proxiez]
+  });
+  
+  gettingProxies.on('error', function(error) {
+  // Some error has occurred.
+  //console.error(error);
+  });
+  
+  gettingProxies.once('end', function() {
+    // Done getting proxies.
+    console.log('PROXyTAB = ',proxies);
+   // resolve(proxies);
+   // resolve(proxies);
+  });
+});
+
+  
+}
+)();
+ 
+  
+      
+
 
 
 
 
 //let urlArticle='https://whatismycountry.com';
 // Scrap one Article 
-(async function scrapeArticle(urlArticle='https://whatismycountry.com') {
+async function scrapeArticle(proxies) {
     try {
-
+      console.log('scrap prox',proxies);
+      let urlArticle='https://whatismycountry.com';
+        //await getProxies();
         // Création d’une instance de Chrome sans mode headless
       const browser = await puppeteer.launch({
         
@@ -67,7 +107,7 @@ const proxies = [
             ignoreHTTPSErrors: true,
            // userDataDir: './tmp',
             args: ['--start-maximized',
-            '--proxy-server=https=37.110.63.6:3128',
+            `--proxy-server=http=${randProxy(proxies)}`,
             '--no-sandbox',
             '--disable-setuid-sandbox',
             '--disable-infobars',
@@ -152,7 +192,7 @@ If the proxy need authentication, we can add this code to support authentication
     } catch (error) {
         console.log(`error in getUrlsFromPage ${error}`)
     }
-})();
+}
 
 // Scrap all Articles
 async function scrapeAllArticles(urlArticles) {
