@@ -78,13 +78,21 @@ var gettingProxies = ProxyLists.getProxies(options);
     // Done getting proxies.
     console.log('PROXyTAB = ',proxies);
    // resolve(proxies);
-   // resolve(proxies);
+   resolve(proxies);
   });
 });
 
   
 }
-)();
+)().then(
+
+  (proxies)=> {
+    console.log('running scrapping function');
+   //  scrapeArticle(proxies)
+console.log(`${proxies[0][0].ipAddress}:${proxies[0][0].port}`);
+
+  }
+);
  
   
       
@@ -97,7 +105,7 @@ var gettingProxies = ProxyLists.getProxies(options);
 // Scrap one Article 
 async function scrapeArticle(proxies) {
     try {
-      console.log('scrap prox',proxies);
+      console.log('scrap prox');
       let urlArticle='https://whatismycountry.com';
         //await getProxies();
         // Création d’une instance de Chrome sans mode headless
