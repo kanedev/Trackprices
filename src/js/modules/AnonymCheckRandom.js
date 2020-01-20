@@ -47,16 +47,16 @@ puppeteer.use(StealthPlugin())
 var options = {
   anonymityLevels: ['elite'],
   filterMode: 'strict',
-  countries: ['De']
-
+  countries: ['us'],
+  protocols: ['https'],
 };
+
 //   countries: ['fr']
 //let tab=[];
 // `gettingProxies` is an event emitter object.
 var gettingProxies = ProxyLists.getProxies(options);
 
-
-( () => { 
+(() => { 
   
   return new Promise((resolve, reject) => {
    
@@ -88,8 +88,13 @@ var gettingProxies = ProxyLists.getProxies(options);
 
   (proxies)=> {
     console.log('running scrapping function');
+    console.log('NEW PROXIES = ',proxies);
    //  scrapeArticle(proxies)
-console.log(`${proxies[0][0].ipAddress}:${proxies[0][0].port}`);
+   // On récupère une adresse IP aléatoire de la liste des proxies qu'on a récupéré !
+   let indexFirstTab=Math.floor(Math.random() * (proxies.length - 1));
+   let indexSecondTab=Math.floor(Math.random() * (proxies[indexFirstTab].length - 1));
+   let randomProxy=proxies[indexFirstTab][indexSecondTab];
+console.log(`${randomProxy.ipAddress}:${randomProxy.port}`);
 
   }
 );
