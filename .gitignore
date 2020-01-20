@@ -4,8 +4,7 @@
 *.log
 .DS_Store
 src/js/config/params.js
-src/js/modules/page.png
-src/js/modules/page2.png
 src/js/modules/tmp
 src/js/modules/stealth.png
-
+src/js/modules/areyouheadless.png
+src/js/modules/whatismycountry.png

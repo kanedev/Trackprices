@@ -100,45 +100,27 @@ var gettingProxies = ProxyLists.getProxies(options);
 if (proxies.length>0) {
   
   let proxy=randProxy(proxies)
-  let i=0;
-  let protocol;
-  while (( proxy.protocols === null) && i <5 ) {
-    i+=1;
-   proxy=randProxy(proxies)
-  }
+  //let i=0;
+ 
 
-  if (i>=5) {
-    console.log('ERROR :  there is no protocl available');
-  } else {
-if(typeof proxy.protocols === 'undefined' && proxy.port === 80 ) {protocol = 'http'} else {
+ 
+if(typeof proxy.protocols === 'undefined' || proxy.protocols === null || proxy.protocols === "[Array]" ) {protocol = 'http'} else {
   if(typeof proxy.protocols === 'array' ) {protocol =proxy.protocols[0] }  else {protocol=proxy.protocols}
 }
 
 
-    console.log(`PROXY = ${protocol}=${proxy.ipAddress}:${proxy.port}`);
-   
-  }
+    console.log(`PROXY =${protocol}=${proxy.ipAddress}:${proxy.port}`);
+    scrapeArticle(`${protocol}=${proxy.ipAddress}:${proxy.port}`)
+  
 } else {
   console.log('There is no proxy available');
   
-}
-
-   
-  }
-)
-
-;
+} }
+);
  
-  
-      
-
-
-
-
-
 //let urlArticle='https://whatismycountry.com';
 // Scrap one Article 
-async function scrapeArticle(proxies) {
+async function scrapeArticle(proxy) {
     try {
       console.log('scrap prox');
       let urlArticle='https://whatismycountry.com';
@@ -150,7 +132,7 @@ async function scrapeArticle(proxies) {
             ignoreHTTPSErrors: true,
            // userDataDir: './tmp',
             args: ['--start-maximized',
-            `--proxy-server=http=${randProxy(proxies)}`,
+            `--proxy-server=${proxy}`,
             '--no-sandbox',
             '--disable-setuid-sandbox',
             '--disable-infobars',
@@ -187,7 +169,7 @@ If the proxy need authentication, we can add this code to support authentication
                                  height: 768 + Math.floor(Math.random() * 100)});
          
           await page.goto('https://whatismycountry.com',{ waitUntil: "networkidle2", timeout: 200000})
-    
+          await page.screenshot({path:'whatismycountry.png'});
           console.log(await browser.userAgent());
 
         // get the User Agent on the context of Puppeteer
@@ -204,14 +186,14 @@ If the proxy need authentication, we can add this code to support authentication
       
         console.log(`All done, check the screenshots. ✨`)
 
-          await page.screenshot({path:'page.png'});
+         
 
  // go to whatismycountry.com to see if proxy works (based on geography location)
   const page2 = await browser.newPage();
   await page2.setViewport({ width: 1200, height: 800});
   await page2.goto('https://arh.antoinevastel.com/bots/areyouheadless',{waitUntil: "networkidle2",timeout: 120000})        
     
-  await page2.screenshot({path:'page2.png'});
+  await page2.screenshot({path:'areyouheadless.png'});
 
 
 
