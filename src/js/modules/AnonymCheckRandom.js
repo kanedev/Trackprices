@@ -52,8 +52,8 @@ puppeteer.use(StealthPlugin())
 var options = {
   anonymityLevels: ['elite'],
   filterMode: 'strict',
-  countries: ['fr'],
-  protocols: ['https'],
+  countries: ['de'],
+  
    
  
 };
@@ -96,19 +96,33 @@ var gettingProxies = ProxyLists.getProxies(options);
     console.log('running scrapping function');
     console.log('NEW PROXIES = ',proxies);
    //  scrapeArticle(proxies)
-   let proxy=randProxy(proxies)
-   let i=0;
-   while ((typeof proxy.protocols === 'undefined' || proxy.protocols === null) && i <5 ) {
-     i+=1;
-    proxy=randProxy(proxies)
-   }
 
-   if (i>=5) {
-     console.log('ERROR');
-   } else {
-     console.log(`PROXY = ${proxy.protocols}=${proxy.ipAddress}:${proxy.port}`);
-    
-   }
+if (proxies.length>0) {
+  
+  let proxy=randProxy(proxies)
+  let i=0;
+  let protocol;
+  while (( proxy.protocols === null) && i <5 ) {
+    i+=1;
+   proxy=randProxy(proxies)
+  }
+
+  if (i>=5) {
+    console.log('ERROR :  there is no protocl available');
+  } else {
+if(typeof proxy.protocols === 'undefined' && proxy.port === 80 ) {protocol = 'http'} else {
+  if(typeof proxy.protocols === 'array' ) {protocol =proxy.protocols[0] }  else {protocol=proxy.protocols}
+}
+
+
+    console.log(`PROXY = ${protocol}=${proxy.ipAddress}:${proxy.port}`);
+   
+  }
+} else {
+  console.log('There is no proxy available');
+  
+}
+
    
   }
 )
