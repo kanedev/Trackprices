@@ -9,13 +9,13 @@ const helpers =  require ('./helpers');
 const puppeteer = require('puppeteer-extra')
 const randomUA = require('modern-random-ua');
 var ProxyLists = require('proxy-lists');
-
+const notifyUser = require("./email");
 // Add stealth plugin and use defaults (all tricks to hide puppeteer usage)
 const StealthPlugin = require('puppeteer-extra-plugin-stealth')
 
 puppeteer.use(StealthPlugin())
 
-
+let notificatoins='';
 
   
   function randProxy(proxies){
@@ -52,19 +52,22 @@ puppeteer.use(StealthPlugin())
 var options = {
   anonymityLevels: ['elite'],
   filterMode: 'strict',
-  countries: ['de'],
-  
-   
+ 
  
 };
+// countries: ['de'],
 // protocols: ['https'],
 //   countries: ['fr']
 //let tab=[];
 // `gettingProxies` is an event emitter object.
 var gettingProxies = ProxyLists.getProxies(options);
 
+
+
+
 (() => { 
   
+  console.log('hello');
   return new Promise((resolve, reject) => {
    
   let proxies = [];
@@ -88,7 +91,6 @@ var gettingProxies = ProxyLists.getProxies(options);
    resolve(proxies);
   });
 });
-
   
 }
 )().then(
@@ -97,10 +99,33 @@ var gettingProxies = ProxyLists.getProxies(options);
     console.log('NEW PROXIES = ',proxies);
    //  scrapeArticle(proxies)
 
-if (proxies.length>0) {
+   let nombreProxies=proxies.length;
+if (nombreProxies>0) {
+
+
   
   let proxy=randProxy(proxies)
   //let i=0;
+
+
+  /*
+  checkProxy(
+    '88.198.24.108',
+    '1080',
+	{
+		// the complete URL to check the proxy
+		url: 'http://www.exemple.com',
+		// an optional regex to check for the presence of some text on the page
+		regex: /Example Domain/
+	},
+	// Callback function to be called after the check
+	function(host, port, ok, statusCode, err) {
+		console.log(host + ':' + port + ' => '
+			+ ok + ' (status: ' + statusCode + ', err: ' + err + ')');
+	}
+
+)
+  */
  
 
  
@@ -108,13 +133,17 @@ if(typeof proxy.protocols === 'undefined' || proxy.protocols === null || proxy.p
   if(typeof proxy.protocols === 'array' ) {protocol =proxy.protocols[0] }  else {protocol=proxy.protocols}
 }
 
+console.log(`PROXY =${protocol}=${proxy.ipAddress}:${proxy.port}`);
 
-    console.log(`PROXY =${protocol}=${proxy.ipAddress}:${proxy.port}`);
-    scrapeArticle(`${protocol}=${proxy.ipAddress}:${proxy.port}`)
+scrapeArticle(`${protocol}=${proxy.ipAddress}:${proxy.port}`)
+console.log('Notifcations : ',notificatoins);
   
 } else {
-  console.log('There is no proxy available');
-  
+console.log('There is no proxy available');
+notificatoins= notificatoins+'\n There is no proxy available'  ;
+
+console.log('Notifcations : ',notificatoins);
+
 } }
 );
  
@@ -128,7 +157,7 @@ async function scrapeArticle(proxy) {
         // Création d’une instance de Chrome sans mode headless
       const browser = await puppeteer.launch({
         
-            headless: false,
+            headless: true,
             ignoreHTTPSErrors: true,
            // userDataDir: './tmp',
             args: ['--start-maximized',
@@ -139,7 +168,6 @@ async function scrapeArticle(proxy) {
             '--window-position=0,0',
             '--ignore-certifcate-errors',
             '--ignore-certifcate-errors-spki-list',
-         
             ] 
         })
 
@@ -158,13 +186,18 @@ If the proxy need authentication, we can add this code to support authentication
             //   slowMo: 250 // slow down by 250ms
        
 
+  //           let protocol;
+  // while (( proxy.protocols === null) && i <5 ) {
+  //   i+=1;
+  //  proxy=randProxy(proxies)
+  // }
 
 
 
         const page = await browser.newPage();
         // one User agent per page
         //  await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36');
-         await page.setUserAgent(randomUA.generate());
+        await page.setUserAgent(randomUA.generate());
         await page.setViewport({ width: 1024 + Math.floor(Math.random() * 100),
                                  height: 768 + Math.floor(Math.random() * 100)});
          
@@ -184,7 +217,7 @@ If the proxy need authentication, we can add this code to support authentication
         await page.waitFor(5000)
         await page.screenshot({ path: 'stealth.png', fullPage: true })
       
-        console.log(`All done, check the screenshots. ✨`)
+       
 
          
 
@@ -195,7 +228,7 @@ If the proxy need authentication, we can add this code to support authentication
     
   await page2.screenshot({path:'areyouheadless.png'});
 
-
+  console.log(`All done, check the screenshots. ✨`)
 
            // await page.goto('https://arh.antoinevastel.com/bots/areyouheadless',{waitUntil: "networkidle2",timeout: 120000})        
     
@@ -227,7 +260,7 @@ async function scrapeAllArticles(urlArticles) {
         const browser = await puppeteer.launch({
             headless: false,
             args: ['--start-maximized',
-                                 '--proxy-server=https://84.22.45.81:8080'] // this is where we set the proxy
+                   '--proxy-server=https://84.22.45.81:8080'] // this is where we set the proxy
             //   slowMo: 250 // slow down by 250ms
         })
 

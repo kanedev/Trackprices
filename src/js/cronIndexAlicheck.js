@@ -7,7 +7,6 @@ const Post = require('./models/post')
 const notifyUser = require("./modules/email");
 const {params,email} = require("./config/params");
 
- 
 function randomSleep(minseconds,maxseconds) {
   setTimeout(() => {
 console.log('Sleeping ...'); 
@@ -16,7 +15,6 @@ console.log('Sleeping ...');
 // MongoDB driver
 const mongoose = require('mongoose');
 const DB_URI=  "mongodb://localhost:27017/trackpricesdb"
-
 
 mongoose.set('useCreateIndex', true);
 // connectioin events
