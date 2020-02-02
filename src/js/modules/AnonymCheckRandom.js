@@ -10,6 +10,7 @@ const puppeteer = require('puppeteer-extra')
 const randomUA = require('modern-random-ua');
 var ProxyLists = require('proxy-lists');
 const notifyUser = require("./email");
+var  checkProxy = require("./checkProxy");
 // Add stealth plugin and use defaults (all tricks to hide puppeteer usage)
 const StealthPlugin = require('puppeteer-extra-plugin-stealth')
 
@@ -52,6 +53,11 @@ let notificatoins='';
 var options = {
   anonymityLevels: ['elite'],
   filterMode: 'strict',
+  protocols: ['http'],
+  
+
+ 
+
  
  
 };
@@ -67,21 +73,25 @@ var gettingProxies = ProxyLists.getProxies(options);
 
 (() => { 
   
-  console.log('hello');
+  console.log('Getting proxies is starting ...');
   return new Promise((resolve, reject) => {
    
   let proxies = [];
 
   gettingProxies.on('data', function(proxiez) {
-  // Received some proxies.
+    // Received some proxies.
     console.log('PROXIES : ',proxiez);
     console.log('Loading PROXIES ...');
     proxies=[...proxies,proxiez]
+
   });
   
   gettingProxies.on('error', function(error) {
   // Some error has occurred.
   //console.error(error);
+  
+  //notificatoins= notificatoins+'\n Some error has occurred when during getting proxies'  ;
+
   });
   
   gettingProxies.once('end', function() {
@@ -90,21 +100,64 @@ var gettingProxies = ProxyLists.getProxies(options);
    // resolve(proxies);
    resolve(proxies);
   });
-});
+}
+
+
+// end of Promise
+);
   
 }
 )().then(
   (proxies)=> {
-    console.log('running scrapping function');
+    console.log('running proxies function');
     console.log('NEW PROXIES = ',proxies);
    //  scrapeArticle(proxies)
 
-   let nombreProxies=proxies.length;
+let nombreProxies=proxies.length;
 if (nombreProxies>0) {
 
+  //let proxy=randProxy(proxies)
 
-  
-  let proxy=randProxy(proxies)
+let proxy='';
+let protocol = 'http';
+
+  for (let j = 0; j < proxies.length; j++) {
+    for (let i = 0; i < proxies[j].length; i++) {
+
+    goodProxy=checkProxy(
+      proxies[j][i].ipAddress,
+      proxies[j][i].port,
+    {
+      // the complete URL to check the proxy
+      url: 'https://example.com/',
+      // an optional regex to check for the presence of some text on the page
+      regex: /Example Domain/
+    },
+    // Callback function to be called after the check
+    function(host, port, ok, statusCode, err) {
+      console.log(host + ':' + port + ' => '
+        + ok + ' (status: ' + statusCode + ', err: ' + err + ')');     
+    return ok //ok = true or false
+      }
+  )
+
+  if (goodProxy) {
+    console.log(' 🚧🚧🚧🚧 🚨 a good proxy founded 🚨 🚧🚧🚧🚧')
+    console.log('Good Proxy :'+proxies[j][i].ipAddress +':'+proxies[j][i].port)
+    proxy=protocol+':'+proxies[j][i].ipAddress +':'+proxies[j][i].port
+    scrapeArticle(proxy)
+    console.log('Notifcations : ',notificatoins);
+    break;
+    
+  }
+  }
+
+  }
+
+
+
+
+ 
   //let i=0;
 
 
@@ -129,14 +182,14 @@ if (nombreProxies>0) {
  
 
  
-if(typeof proxy.protocols === 'undefined' || proxy.protocols === null || proxy.protocols === "[Array]" ) {protocol = 'http'} else {
-  if(typeof proxy.protocols === 'array' ) {protocol =proxy.protocols[0] }  else {protocol=proxy.protocols}
-}
+// if(typeof proxy.protocols === 'undefined' || proxy.protocols === null || proxy.protocols === "[Array]" ) {protocol = 'http'} else {
+//   if(typeof proxy.protocols === 'array' ) {protocol =proxy.protocols[0] }  else {protocol=proxy.protocols}
+// }
 
-console.log(`PROXY =${protocol}=${proxy.ipAddress}:${proxy.port}`);
+//console.log(`PROXY =${protocol}=${proxy.ipAddress}:${proxy.port}`);
 
-scrapeArticle(`${protocol}=${proxy.ipAddress}:${proxy.port}`)
-console.log('Notifcations : ',notificatoins);
+//scrapeArticle(`${protocol}=${proxy.ipAddress}:${proxy.port}`)
+
   
 } else {
 console.log('There is no proxy available');
