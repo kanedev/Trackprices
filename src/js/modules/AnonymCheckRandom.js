@@ -54,6 +54,7 @@ var options = {
   anonymityLevels: ['elite'],
   filterMode: 'strict',
   protocols: ['http'],
+ 
   
 
  
@@ -96,7 +97,7 @@ var gettingProxies = ProxyLists.getProxies(options);
   
   gettingProxies.once('end', function() {
     // Done getting proxies.
-    console.log('PROXyTAB = ',proxies);
+   // console.log('PROXyTAB = ',proxies);
    // resolve(proxies);
    resolve(proxies);
   });
@@ -108,7 +109,7 @@ var gettingProxies = ProxyLists.getProxies(options);
   
 }
 )().then(
-  (proxies)=> {
+  async (proxies)=> {
     console.log('running proxies function');
     console.log('NEW PROXIES = ',proxies);
    //  scrapeArticle(proxies)
@@ -120,11 +121,14 @@ if (nombreProxies>0) {
 
 let proxy='';
 let protocol = 'http';
+let abort = false;
 
-  for (let j = 0; j < proxies.length; j++) {
-    for (let i = 0; i < proxies[j].length; i++) {
+  for (let j = 0; (j < proxies.length) && !abort ; j++) {
+   // console.log(' 🚧 🚨 Loop j : ',j)
+    for (let i = 0; (i < proxies[j].length) && !abort; i++) {
+    //  console.log(' 🚧 🚨 START Loop i : ',i)
 
-    goodProxy=checkProxy(
+  let  goodProxy= await checkProxy(
       proxies[j][i].ipAddress,
       proxies[j][i].port,
     {
@@ -137,19 +141,30 @@ let protocol = 'http';
     function(host, port, ok, statusCode, err) {
       console.log(host + ':' + port + ' => '
         + ok + ' (status: ' + statusCode + ', err: ' + err + ')');     
-    return ok //ok = true or false
+   // return ok //ok = true or false
       }
-  )
+  ).then(
+    (item) => {
+    //  console.log('ITEM :',item)
+      return item}
+    )
+  
 
-  if (goodProxy) {
+  if (goodProxy == true) {
+    abort = true;
     console.log(' 🚧🚧🚧🚧 🚨 a good proxy founded 🚨 🚧🚧🚧🚧')
+    console.log(' GOOD Proxy 📡 : ', goodProxy)
     console.log('Good Proxy :'+proxies[j][i].ipAddress +':'+proxies[j][i].port)
-    proxy=protocol+':'+proxies[j][i].ipAddress +':'+proxies[j][i].port
+    proxy=protocol+'://'+proxies[j][i].ipAddress +':'+proxies[j][i].port
     scrapeArticle(proxy)
     console.log('Notifcations : ',notificatoins);
-    break;
+   // break;
     
   }
+  else{
+    console.log(' 🚧 🚨 no good proxy founded 🚨 🚧')
+  }
+  //console.log(' 🚧 🚨 END Loop i : ',i)
   }
 
   }
@@ -204,7 +219,7 @@ console.log('Notifcations : ',notificatoins);
 // Scrap one Article 
 async function scrapeArticle(proxy) {
     try {
-      console.log('scrap prox');
+      console.log('scrap  with this proxy : ',proxy);
       let urlArticle='https://whatismycountry.com';
         //await getProxies();
         // Création d’une instance de Chrome sans mode headless
@@ -301,7 +316,7 @@ If the proxy need authentication, we can add this code to support authentication
       // return Article;
 
     } catch (error) {
-        console.log(`error in getUrlsFromPage ${error}`)
+        console.log(`error in scrapeArticle ${error}`)
     }
 }
 
@@ -342,7 +357,7 @@ async function scrapeAllArticles(urlArticles) {
        return Articles;
 
     } catch (error) {
-        console.log(`error in getUrlsFromPage ${error}`)
+        console.log(`error in scrapeAllArticles ${error}`)
     }
 }
 
@@ -368,7 +383,7 @@ async function getInfoFromPage(browser, link) {
         return resultat;
 
             } catch (error) {
-        console.log(`error in getUrlsFromPage ${error}`)
+        console.log(`error in getInfoFromPage ${error}`)
     }
 }
 
