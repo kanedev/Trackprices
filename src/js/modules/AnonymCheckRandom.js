@@ -55,12 +55,6 @@ var options = {
   filterMode: 'strict',
   protocols: ['http'],
  
-  
-
- 
-
- 
- 
 };
 // countries: ['de'],
 // protocols: ['https'],
@@ -265,7 +259,12 @@ If the proxy need authentication, we can add this code to support authentication
         const page = await browser.newPage();
         // one User agent per page
         //  await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36');
-        await page.setUserAgent(randomUA.generate());
+    //    await page.setUserAgent(randomUA.generate());
+
+        await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3419.0 Safari/537.36');
+       
+
+
         await page.setViewport({ width: 1024 + Math.floor(Math.random() * 100),
                                  height: 768 + Math.floor(Math.random() * 100)});
          
@@ -279,7 +278,7 @@ If the proxy need authentication, we can add this code to support authentication
         // If everything correct then no 'HeadlessChrome' sub string on userAgent
         console.log(userAgent);
 
-        await page.waitFor(5000)
+        // await page.waitFor(5000)
         console.log(`Testing the stealth plugin..`)
         await page.goto('https://bot.sannysoft.com')
         await page.waitFor(5000)
@@ -317,6 +316,7 @@ If the proxy need authentication, we can add this code to support authentication
 
     } catch (error) {
         console.log(`error in scrapeArticle ${error}`)
+         process.exit(22);
     }
 }
 
