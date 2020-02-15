@@ -10,6 +10,7 @@ const puppeteer = require('puppeteer-extra')
 const randomUA = require('modern-random-ua');
 var ProxyLists = require('proxy-lists');
 const notifyUser = require("./email");
+const {params,email} = require("../config/params");
 var  checkProxy = require("./checkProxy");
 // Add stealth plugin and use defaults (all tricks to hide puppeteer usage)
 const StealthPlugin = require('puppeteer-extra-plugin-stealth')
@@ -69,6 +70,7 @@ var gettingProxies = ProxyLists.getProxies(options);
 (() => { 
   
   console.log('Getting proxies is starting ...');
+
   return new Promise((resolve, reject) => {
    
   let proxies = [];
@@ -147,16 +149,17 @@ let abort = false;
   if (goodProxy == true) {
     abort = true;
     console.log(' 🚧🚧🚧🚧 🚨 a good proxy founded 🚨 🚧🚧🚧🚧')
-    console.log(' GOOD Proxy 📡 : ', goodProxy)
     console.log('Good Proxy :'+proxies[j][i].ipAddress +':'+proxies[j][i].port)
-    proxy=protocol+'://'+proxies[j][i].ipAddress +':'+proxies[j][i].port
+    proxy=protocol+'://'+proxies[j][i].ipAddress +':'+proxies[j][i].port;
+    notificatoins= notificatoins+'\n 📡 one good proxy founded : '+proxy  ;
     scrapeArticle(proxy)
-    console.log('Notifcations : ',notificatoins);
+   // console.log('Notifcations : ',notificatoins);
    // break;
     
   }
   else{
-    console.log(' 🚧 🚨 no good proxy founded 🚨 🚧')
+   // console.log(' 🚧 🚨 no good proxy founded 🚨 🚧')
+    notificatoins= notificatoins+'\n 🚧 🚨 proxy founded but not good 🚨 🚧'  ;
   }
   //console.log(' 🚧 🚨 END Loop i : ',i)
   }
@@ -204,7 +207,22 @@ let abort = false;
 console.log('There is no proxy available');
 notificatoins= notificatoins+'\n There is no proxy available'  ;
 
-console.log('Notifcations : ',notificatoins);
+let message = `<table class="table">
+<thead>
+  <tr>
+    <th>Product</th>
+    <th>Old price</th>
+    <th>New price</th>
+  </tr>
+</thead>
+<tbody>
+<tr>
+    <td scope="row">${notificatoins}</td>
+</tr>
+</tbody>
+</table>`
+
+notifyUser(email,message);
 
 } }
 );
@@ -254,21 +272,16 @@ If the proxy need authentication, we can add this code to support authentication
   //  proxy=randProxy(proxies)
   // }
 
-
-
         const page = await browser.newPage();
         // one User agent per page
         //  await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36');
     //    await page.setUserAgent(randomUA.generate());
 
         await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3419.0 Safari/537.36');
-       
-
-
         await page.setViewport({ width: 1024 + Math.floor(Math.random() * 100),
                                  height: 768 + Math.floor(Math.random() * 100)});
          
-          await page.goto('https://whatismycountry.com',{ waitUntil: "networkidle2", timeout: 200000})
+          await page.goto('https://whatismycountry.com',{ timeout: 200000})
           await page.screenshot({path:'whatismycountry.png'});
           console.log(await browser.userAgent());
 
@@ -280,22 +293,19 @@ If the proxy need authentication, we can add this code to support authentication
 
         // await page.waitFor(5000)
         console.log(`Testing the stealth plugin..`)
-        await page.goto('https://bot.sannysoft.com')
+        await page.goto('https://bot.sannysoft.com',{ waitUntil: "networkidle2", timeout: 200000})
         await page.waitFor(5000)
         await page.screenshot({ path: 'stealth.png', fullPage: true })
-      
-       
-
-         
 
  // go to whatismycountry.com to see if proxy works (based on geography location)
   const page2 = await browser.newPage();
   await page2.setViewport({ width: 1200, height: 800});
-  await page2.goto('https://arh.antoinevastel.com/bots/areyouheadless',{waitUntil: "networkidle2",timeout: 120000})        
+  await page2.goto('https://arh.antoinevastel.com/bots/areyouheadless',{waitUntil: "networkidle2",timeout: 200000})        
     
   await page2.screenshot({path:'areyouheadless.png'});
 
   console.log(`All done, check the screenshots. ✨`)
+  notificatoins= notificatoins+'\n ✨ All done, check the screenshots. 😼 ' ;
 
            // await page.goto('https://arh.antoinevastel.com/bots/areyouheadless',{waitUntil: "networkidle2",timeout: 120000})        
     
@@ -311,10 +321,41 @@ If the proxy need authentication, we can add this code to support authentication
        // Fermeture du navigateur
         await browser.close()
 
+        let message = `<html><body><table class="table">
+        <thead>
+          <tr>
+            <th>Notifications</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td scope="row">${notificatoins}</td>
+          </tr>
+        </tbody>
+      </table></body></html>`;
+     
+      notifyUser(email,message);
+
        // return books;
       // return Article;
 
     } catch (error) {
+      let message = `<table class="table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Old price</th>
+          <th>New price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td scope="row"> error in scrapeArticle ${error} </td>
+        </tr>
+      </tbody>
+    </table>`
+   
+    notifyUser(email,message);
         console.log(`error in scrapeArticle ${error}`)
          process.exit(22);
     }

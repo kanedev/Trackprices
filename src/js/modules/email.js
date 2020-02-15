@@ -12,7 +12,8 @@ const notifyUser = (emailData, publishedNews) => {
     from: emailData.from,
     to: emailData.to,
     subject: emailData.subject,
-    text: `${emailData.text}:\n${publishedNews}`
+    text: `${emailData.text}:\n${publishedNews}`,
+    html: `${emailData.html}:\n${publishedNews}`
   };
 
   transporter.sendMail(mailOptions, function(error, info) {
