@@ -13,7 +13,13 @@ const notifyUser = (emailData, publishedNews) => {
     to: emailData.to,
     subject: emailData.subject,
     text: `${emailData.text}:\n${publishedNews}`,
-    html: `${emailData.html}:\n${publishedNews}`
+    html: `${emailData.html}:${publishedNews}`,
+    attachments: [
+    {
+      filename: 'whatismycountry',
+      path: 'whatismycountry.png'
+    }
+    ]
   };
 
   transporter.sendMail(mailOptions, function(error, info) {

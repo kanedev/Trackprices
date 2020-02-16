@@ -87,7 +87,7 @@ var gettingProxies = ProxyLists.getProxies(options);
   // Some error has occurred.
   //console.error(error);
   
-  //notificatoins= notificatoins+'\n Some error has occurred when during getting proxies'  ;
+  //notificatoins= notificatoins+'<br/> Some error has occurred when during getting proxies'  ;
 
   });
   
@@ -151,15 +151,15 @@ let abort = false;
     console.log(' 🚧🚧🚧🚧 🚨 a good proxy founded 🚨 🚧🚧🚧🚧')
     console.log('Good Proxy :'+proxies[j][i].ipAddress +':'+proxies[j][i].port)
     proxy=protocol+'://'+proxies[j][i].ipAddress +':'+proxies[j][i].port;
-    notificatoins= notificatoins+'\n 📡 one good proxy founded : '+proxy  ;
+    notificatoins= notificatoins+'<br/> 📡 one good proxy founded : '+proxy  ;
     scrapeArticle(proxy)
    // console.log('Notifcations : ',notificatoins);
    // break;
     
   }
   else{
-   // console.log(' 🚧 🚨 no good proxy founded 🚨 🚧')
-    notificatoins= notificatoins+'\n 🚧 🚨 proxy founded but not good 🚨 🚧'  ;
+    console.log(' 🚧 🚨 no good proxy founded 🚨 🚧')
+   // notificatoins= notificatoins+'<br/> 🚧 🚨 proxy founded but not good 🚨 🚧'  ;
   }
   //console.log(' 🚧 🚨 END Loop i : ',i)
   }
@@ -205,14 +205,13 @@ let abort = false;
   
 } else {
 console.log('There is no proxy available');
-notificatoins= notificatoins+'\n There is no proxy available'  ;
+notificatoins= notificatoins+'<br/> There is no proxy available'  ;
 
 let message = `<table class="table">
 <thead>
   <tr>
-    <th>Product</th>
-    <th>Old price</th>
-    <th>New price</th>
+    <th>Nothing scrapped</th>
+
   </tr>
 </thead>
 <tbody>
@@ -305,7 +304,7 @@ If the proxy need authentication, we can add this code to support authentication
   await page2.screenshot({path:'areyouheadless.png'});
 
   console.log(`All done, check the screenshots. ✨`)
-  notificatoins= notificatoins+'\n ✨ All done, check the screenshots. 😼 ' ;
+  notificatoins= notificatoins+'<br/> ✨ All done, check the screenshots. 😼 ' ;
 
            // await page.goto('https://arh.antoinevastel.com/bots/areyouheadless',{waitUntil: "networkidle2",timeout: 120000})        
     
@@ -324,12 +323,13 @@ If the proxy need authentication, we can add this code to support authentication
         let message = `<html><body><table class="table">
         <thead>
           <tr>
-            <th>Notifications</th>
+            <th>Title</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td scope="row">${notificatoins}</td>
+            <td scope="row"><img src="whatismycountry.png"/></td>
           </tr>
         </tbody>
       </table></body></html>`;
