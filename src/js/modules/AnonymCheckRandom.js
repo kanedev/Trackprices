@@ -55,6 +55,7 @@ var options = {
   anonymityLevels: ['elite'],
   filterMode: 'strict',
   protocols: ['http'],
+
  
 };
 // countries: ['de'],
@@ -236,19 +237,23 @@ async function scrapeArticle(proxy) {
         // Création d’une instance de Chrome sans mode headless
       const browser = await puppeteer.launch({
         
-            headless: true,
+            headless: false,
+            slowMo: 250, 
             ignoreHTTPSErrors: true,
            // userDataDir: './tmp',
             args: ['--start-maximized',
-            `--proxy-server=${proxy}`,
-            '--no-sandbox',
-            '--disable-setuid-sandbox',
-            '--disable-infobars',
-            '--window-position=0,0',
-            '--ignore-certifcate-errors',
-            '--ignore-certifcate-errors-spki-list',
+            `--proxy-server=${proxy}`
+
             ] 
         })
+
+
+        // '--no-sandbox',
+        // '--disable-setuid-sandbox',
+        // '--disable-infobars',
+        // '--window-position=0,0',
+        // '--ignore-certifcate-errors',
+        // '--ignore-certifcate-errors-spki-list',
 
        // Set one random modern user agent for entire browser {userAgent: randomUA.generate(),}
 
@@ -265,23 +270,21 @@ If the proxy need authentication, we can add this code to support authentication
             //   slowMo: 250 // slow down by 250ms
        
 
-  //           let protocol;
-  // while (( proxy.protocols === null) && i <5 ) {
-  //   i+=1;
-  //  proxy=randProxy(proxies)
-  // }
+ 
 
         const page = await browser.newPage();
         // one User agent per page
-        //  await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36');
-    //    await page.setUserAgent(randomUA.generate());
+          await page.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36');
+    
+       // Random User Agent 
+      //  await page.setUserAgent(randomUA.generate());
 
-        await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3419.0 Safari/537.36');
+    //    await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3419.0 Safari/537.36');
         await page.setViewport({ width: 1024 + Math.floor(Math.random() * 100),
                                  height: 768 + Math.floor(Math.random() * 100)});
          
-          await page.goto('https://whatismycountry.com',{ timeout: 200000})
-          await page.screenshot({path:'whatismycountry.png'});
+          // await page.goto('https://whatismycountry.com',{ timeout: 200000})
+          // await page.screenshot({path:'whatismycountry.png'});
           console.log(await browser.userAgent());
 
         // get the User Agent on the context of Puppeteer
@@ -290,11 +293,54 @@ If the proxy need authentication, we can add this code to support authentication
         // If everything correct then no 'HeadlessChrome' sub string on userAgent
         console.log(userAgent);
 
-        // await page.waitFor(5000)
+// Scrap LBC
+await page.waitFor(50000)
+
+ //await page.setViewport({ width: 1024 + Math.floor(Math.random() * 100),
+ //                        height: 768 + Math.floor(Math.random() * 100)});
+ 
+//  await page.goto('https://www.akrotux.com/',{ timeout: 200000})
+//await page.screenshot({path:'screenakrotux.png'});
+
+
+const navigationPromise = page.waitForNavigation({ waitUntil: "networkidle2", timeout: 200000})
+
+await page.goto('https://www.akrotux.com/',{ waitUntil: "networkidle2", timeout: 200000})
+
+  
+
+
+await page.setViewport({ width: 1280, height: 586 })
+
+await page.waitForSelector('#site-navigation > .menu-primary > #menu-primary > #menu-item-2633 > a')
+await page.click('#site-navigation > .menu-primary > #menu-primary > #menu-item-2633 > a')
+
+await navigationPromise
+
+await page.waitForSelector('.sumome-wysiwyg-scaledStage-contents > .sumome-react-wysiwyg-component:nth-child(6) > .sumome-react-wysiwyg-move-handle > div > button')
+await page.click('.sumome-wysiwyg-scaledStage-contents > .sumome-react-wysiwyg-component:nth-child(6) > .sumome-react-wysiwyg-move-handle > div > button')
+
+await page.waitForSelector('#main > .products > .post-style-grid > .woocommerce-LoopProduct-link > .attachment-woocommerce_thumbnail')
+await page.click('#main > .products > .post-style-grid > .woocommerce-LoopProduct-link > .attachment-woocommerce_thumbnail')
+
+await navigationPromise
+
+await page.waitForSelector('.sumome-react-wysiwyg-popup-container > .sumome-react-wysiwyg-outside-horizontal-resize-handles > .sumome-react-wysiwyg-move-handle > div > div:nth-child(2)')
+await page.click('.sumome-react-wysiwyg-popup-container > .sumome-react-wysiwyg-outside-horizontal-resize-handles > .sumome-react-wysiwyg-move-handle > div > div:nth-child(2)')
+
+await navigationPromise
+
+await page.screenshot({path:'screenAKROTUX.png'});
+
+
+
         console.log(`Testing the stealth plugin..`)
         await page.goto('https://bot.sannysoft.com',{ waitUntil: "networkidle2", timeout: 200000})
         await page.waitFor(5000)
         await page.screenshot({ path: 'stealth.png', fullPage: true })
+
+
+
 
  // go to whatismycountry.com to see if proxy works (based on geography location)
   const page2 = await browser.newPage();
@@ -302,6 +348,15 @@ If the proxy need authentication, we can add this code to support authentication
   await page2.goto('https://arh.antoinevastel.com/bots/areyouheadless',{waitUntil: "networkidle2",timeout: 200000})        
     
   await page2.screenshot({path:'areyouheadless.png'});
+
+
+         // https://www.leboncoin.fr/annonces/offres/ile_de_france/
+ 
+       
+
+
+
+
 
   console.log(`All done, check the screenshots. ✨`)
   notificatoins= notificatoins+'<br/> ✨ All done, check the screenshots. 😼 ' ;
@@ -329,7 +384,7 @@ If the proxy need authentication, we can add this code to support authentication
         <tbody>
           <tr>
             <td scope="row">${notificatoins}</td>
-            <td scope="row"><img src="whatismycountry.png"/></td>
+   
           </tr>
         </tbody>
       </table></body></html>`;
