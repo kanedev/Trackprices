@@ -312,21 +312,34 @@ await page.goto('https://www.akrotux.com/',{ waitUntil: "networkidle2", timeout:
 
 await page.setViewport({ width: 1280, height: 586 })
 
-await page.waitForSelector('#site-navigation > .menu-primary > #menu-primary > #menu-item-2633 > a')
+await page.waitForSelector('#site-navigation > .menu-primary > #menu-primary > #menu-item-2633 > a',{ waitUntil: "networkidle2", timeout: 200000})
 await page.click('#site-navigation > .menu-primary > #menu-primary > #menu-item-2633 > a')
 
 await navigationPromise
 
-await page.waitForSelector('.sumome-wysiwyg-scaledStage-contents > .sumome-react-wysiwyg-component:nth-child(6) > .sumome-react-wysiwyg-move-handle > div > button')
+try {
+await page.waitForSelector('.sumome-wysiwyg-scaledStage-contents > .sumome-react-wysiwyg-component:nth-child(6) > .sumome-react-wysiwyg-move-handle > div > button',{ waitUntil: "networkidle2", timeout: 200000})
 await page.click('.sumome-wysiwyg-scaledStage-contents > .sumome-react-wysiwyg-component:nth-child(6) > .sumome-react-wysiwyg-move-handle > div > button')
+} catch (error) {
+  console.log('Selector 1 not found')
+}
 
-await page.waitForSelector('#main > .products > .post-style-grid > .woocommerce-LoopProduct-link > .attachment-woocommerce_thumbnail')
+
+await page.waitForSelector('#main > .products > .post-style-grid > .woocommerce-LoopProduct-link > .attachment-woocommerce_thumbnail',{ waitUntil: "networkidle2", timeout: 200000})
 await page.click('#main > .products > .post-style-grid > .woocommerce-LoopProduct-link > .attachment-woocommerce_thumbnail')
 
 await navigationPromise
 
-await page.waitForSelector('.sumome-react-wysiwyg-popup-container > .sumome-react-wysiwyg-outside-horizontal-resize-handles > .sumome-react-wysiwyg-move-handle > div > div:nth-child(2)')
+
+try {
+  await page.waitForSelector('.sumome-react-wysiwyg-popup-container > .sumome-react-wysiwyg-outside-horizontal-resize-handles > .sumome-react-wysiwyg-move-handle > div > div:nth-child(2)')
 await page.click('.sumome-react-wysiwyg-popup-container > .sumome-react-wysiwyg-outside-horizontal-resize-handles > .sumome-react-wysiwyg-move-handle > div > div:nth-child(2)')
+
+} catch (error) {
+  console.log('Selector 2 not found')
+}
+
+
 
 await navigationPromise
 
